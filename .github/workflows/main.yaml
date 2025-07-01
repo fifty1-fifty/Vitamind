@@ -42,7 +42,6 @@ jobs:
         cd /var/www/html/
         git pull git@github.com:fifty1-fifty/Vitamind.git
         npm install
-        npx tsc -b && npx vite build
         pm2 restart express-server
         EOF
 
