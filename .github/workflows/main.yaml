@@ -39,7 +39,7 @@ jobs:
     - name: Deploy to DigitalOcean Droplet
       run: |
         ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} << 'EOF'
-        cd /var/www/html/
+        cd /var/www/html/frontend
         git pull git@github.com:fifty1-fifty/Vitamind.git
         npm install
         npm run build
