@@ -1,0 +1,28 @@
+.background-main
+{
+    background: #040914;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -5;
+    pointer-events: none;
+
+}
+
+.background-sec
+{
+    background: white;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -1;
+    pointer-events: none;
+
+
+}
