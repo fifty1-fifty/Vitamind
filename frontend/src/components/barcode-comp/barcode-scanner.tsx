@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { BrowserMultiFormatReader } from "@zxing/browser";
-import { Result } from "@zxing/library";
+//import { Result } from "@zxing/library";
 
 type Props = {
   switchOffScanner: () => void;
@@ -23,10 +23,6 @@ const BarcodeScanner: React.FC<Props> = ({ switchOffScanner }) => {
       }
     }
   );
-
-  return () => {
-    codeReader.reset(); // ✅ Safe to call; just not typed explicitly
-  };
 }, []);
 
 
