@@ -28,7 +28,17 @@ const HomePage = () =>
             </div>
 
        
-            <div className='row align-items-center justify-content-center' id='main-progress-rings-area'>
+           
+
+
+            <Background />
+        </div>
+    );
+};
+
+export default HomePage;
+
+/*  <div className='row align-items-center justify-content-center' id='main-progress-rings-area'>
 
                 <div className='col align-self-center' id='calorie-ring-area'>
                     <DailyStats progress={90} size={'512'} text={'Calories'}/>
@@ -94,7 +104,7 @@ const HomePage = () =>
 
 
             </div>
-
+*/
 
 
 
@@ -111,15 +121,6 @@ const HomePage = () =>
 
 
 
-
-
-
-            <Background />
-        </div>
-    );
-};
-
-export default HomePage;
 
 
 
