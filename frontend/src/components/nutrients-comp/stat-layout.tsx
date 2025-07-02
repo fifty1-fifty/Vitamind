@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from "react";
+import {useState, useEffect} from "react";
 import { useLocation } from "react-router-dom";
-import Lookup from "../home-comp/lookup";
-import Background from '../background-comp/BackgroundMain.tsx';
-import Barcode from '../barcode-comp/barcode-scanner.tsx';
+//import Lookup from "../home-comp/lookup";
+//import Background from '../background-comp/BackgroundMain.tsx';
+//import Barcode from '../barcode-comp/barcode-scanner.tsx';
 import {buildPath } from '../../../../utils.ts';
 
 
@@ -21,9 +21,9 @@ const ProductStats = () =>
     */
 
   const [barcode, setBarcode] = useState('');
-  const [imageFront, setImageFront] = useState(null);
-  const [imageThumb, setImageThumb] = useState(null);
-  const [imageNutrition, setImageNutrition] = useState(null);
+  const [imageFront, setImageFront] = useState('');
+  const [imageThumb, setImageThumb] = useState('');
+  const [imageNutrition, setImageNutrition] = useState('');
   const [brandName, setBrandName] = useState('');
   const [productName, setProductName] = useState('');
   const [servingSize, setServingSize] = useState('');
