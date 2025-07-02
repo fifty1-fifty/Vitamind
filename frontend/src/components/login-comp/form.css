@@ -6,14 +6,15 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: #f1ffe7;
+  /*background: #f1ffe7;*/
+  background: red;
 }
 
 /* Defined row height to fix bootstrap nonce */
 #gahr
 {
   min-height: 100vh;
-  background-color: green;
+  background-color: red;
 }
 
 .form-container
