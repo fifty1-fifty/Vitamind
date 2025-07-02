@@ -12,7 +12,7 @@ type Props =
 const BarcodeScanner: React.FC<Props> = ({ switchOffScanner }) =>
 {
 
-  const returnLog = (result : any) =>
+  const returnLog = (result : string) =>
   {
     //console.log(result);
     switchOffScanner();
@@ -50,7 +50,7 @@ const BarcodeScanner: React.FC<Props> = ({ switchOffScanner }) =>
 
         <div className="live-feed-container">
           <video id="feed-styling" ref={videoRef? videoRef:undefined} />
-          {result}
+          {result && returnLog(result)}
           <button onClick={switchOffScanner}>Return</button>
           </div>
 
