@@ -1,30 +1,32 @@
 import React, { useEffect, useRef, useState } from "react";
-import { BrowserMultiFormatReader } from "@zxing/browser";
-//import { Result } from "@zxing/library";
+import { BrowserMultiFormatReader, Result } from "@zxing/browser";
 
 type Props = {
   switchOffScanner: () => void;
 };
 
 const BarcodeScanner: React.FC<Props> = ({ switchOffScanner }) => {
-  const videoRef = useRefObject<HTMLVideoElement | undefined>(undefined);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
   const [result, setResult] = useState<string>("");
 
   useEffect(() => {
-  const codeReader = new BrowserMultiFormatReader();
+    const codeReader = new BrowserMultiFormatReader();
 
-  codeReader.decodeFromVideoDevice(
-    undefined,
-    videoRef.current,
-    (result) => {
-      if (result) {
-        const text = result.getText();
-        setResult(text);
+    codeReader.decodeFromVideoDevice(
+      undefined,
+      videoRef.current!,
+      (decodedResult: Result | undefined) => {
+        if (decodedResult) {
+          const text = decodedResult.getText();
+          setResult(text);
+        }
       }
-    }
-  );
-}, []);
+    );
 
+    return () => {
+      codeReader.reset();
+    };
+  }, []);
 
   useEffect(() => {
     if (result) {
