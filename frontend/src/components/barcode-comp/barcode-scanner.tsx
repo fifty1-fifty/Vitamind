@@ -11,25 +11,24 @@ const BarcodeScanner: React.FC<Props> = ({ switchOffScanner }) => {
   const [result, setResult] = useState<string>("");
 
   useEffect(() => {
-    const codeReader = new BrowserMultiFormatReader();
-    let isMounted = true;
+  const codeReader = new BrowserMultiFormatReader();
 
-    codeReader.decodeFromVideoDevice(
-      undefined,
-      videoRef.current!,
-      (result: Result | undefined) => {
-        if (isMounted && result) {
-          const text = result.getText();
-          setResult(text);
-        }
+  codeReader.decodeFromVideoDevice(
+    undefined,
+    videoRef.current!,
+    (result) => {
+      if (result) {
+        const text = result.getText();
+        setResult(text);
       }
-    );
+    }
+  );
 
-    return () => {
-      isMounted = false;
-      codeReader.stopDecoding();
-    };
-  }, []);
+  return () => {
+    codeReader.reset(); // ✅ Safe to call; just not typed explicitly
+  };
+}, []);
+
 
   useEffect(() => {
     if (result) {
