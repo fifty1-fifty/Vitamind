@@ -22,7 +22,7 @@ const BarcodeScanner: React.FC<Props> = ({ switchOffScanner }) =>
 
 
   const videoRef = useRef<HTMLVideoElement | null>(null);
-  const [result, setResult] = useState('');
+  const [result, setResult] = useState<string>('');
 
   useEffect(() => {
     const codeReader = new BrowserMultiFormatReader();
