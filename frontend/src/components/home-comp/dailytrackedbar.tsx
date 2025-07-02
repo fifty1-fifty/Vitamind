@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import {useState} from 'react';
 
-const BarProgress = ({ progress = 0, duration = 300,
+const BarProgress = /*({ progress = 0, duration = 300,
 strokeColor = 'white', bgStrokeColor = 'gray',
-text=''}) => {
+text=''})*/ () => {
 
-  const [displayedProgress, setDisplayedProgress] = useState(0);
+ // const [displayedProgress, setDisplayedProgress] = useState(0);
 
 
 
@@ -12,7 +12,6 @@ text=''}) => {
 
   return (
     <svg
-        overflow: hidden
         width='1000'
         height='120'
         viewBox="-26.75 -26.75 267.5 267.5"
