@@ -12,10 +12,10 @@ import '../components/home-comp/home.css';
 const HomePage = () =>
 {
   const [toggleScanner, setToggleScanner] = useState<"first" | "second">("first");
-  const handleToggleScanner = () =>
+  /*const handleToggleScanner = () =>
   {
     setToggleScanner('second');
-  }
+  }*/
 
     
 
