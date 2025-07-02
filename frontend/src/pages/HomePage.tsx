@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import {useState} from "react";
 import Lookup from "../components/home-comp/lookup";
 //import Maintracker from "../components/home-comp/maintrack";
 import Background from '../components/background-comp/BackgroundMain.tsx';
@@ -12,10 +12,8 @@ import '../components/home-comp/home.css';
 const HomePage = () =>
 {
   const [toggleScanner, setToggleScanner] = useState<"first" | "second">("first");
-  const handleToggleScanner = () =>
-  {
-    setToggleScanner("second");
-  }
+  setToggleScanner("second");
+
 
     return (  
         <div className='container-fluid' id='top-of-page'>
@@ -33,7 +31,7 @@ const HomePage = () =>
             <div className='row align-items-center justify-content-center' id='main-progress-rings-area'>
 
                 <div className='col align-self-center' id='calorie-ring-area'>
-                    <DailyStats progress={90} size={512} text={'Calories'}/>
+                    <DailyStats progress={90} size={'512'} text={'Calories'}/>
                 </div>
 
 
