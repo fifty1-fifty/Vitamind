@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { BrowserMultiFormatReader, Result } from "@zxing/browser";
+import { BrowserMultiFormatReader } from "@zxing/browser";
 
 type Props = {
   switchOffScanner: () => void;
@@ -15,7 +15,7 @@ const BarcodeScanner: React.FC<Props> = ({ switchOffScanner }) => {
     codeReader.decodeFromVideoDevice(
       undefined,
       videoRef.current!,
-      (decodedResult: Result | undefined) => {
+      (decodedResult) => {
         if (decodedResult) {
           const text = decodedResult.getText();
           setResult(text);
@@ -24,7 +24,7 @@ const BarcodeScanner: React.FC<Props> = ({ switchOffScanner }) => {
     );
 
     return () => {
-      codeReader.reset();
+      codeReader.stopDecoding(); // or stopContinuousDecode() if using that method
     };
   }, []);
 
