@@ -1,13 +1,13 @@
-/*import {useState} from "react";
+import {useState} from "react";
 import Lookup from "../components/home-comp/lookup";
 //import Maintracker from "../components/home-comp/maintrack";
-
+import Background from '../components/background-comp/BackgroundMain.tsx';
 import Barcode from '../components/barcode-comp/barcode-scanner.tsx';
 import DailyStats from '../components/home-comp/dailytrackedcircle.tsx';
 import DailyBar from '../components/home-comp/dailytrackedbar.tsx';
 import '../components/home-comp/home.css';
-*/
-import Background from '../components/background-comp/BackgroundMain.tsx';
+
+
 
 const HomePage = () =>
 {
@@ -22,21 +22,13 @@ const HomePage = () =>
 
             <div className="row justify-content-center align-items-start" id="search-bar-barcode">
                 <div className="col-auto text-center">
+                    {toggleScanner === "first" && <Lookup switchToScanner={() => setToggleScanner("second")} />}
+                    {toggleScanner === "second" && <Barcode switchOffScanner={() => setToggleScanner("first")} />}
                 </div>
             </div>
 
        
-           
-
-
-            <Background />
-        </div>
-    );
-};
-
-export default HomePage;
-
-/*  <div className='row align-items-center justify-content-center' id='main-progress-rings-area'>
+            <div className='row align-items-center justify-content-center' id='main-progress-rings-area'>
 
                 <div className='col align-self-center' id='calorie-ring-area'>
                     <DailyStats progress={90} size={'512'} text={'Calories'}/>
@@ -102,7 +94,7 @@ export default HomePage;
 
 
             </div>
-*/
+
 
 
 
@@ -122,4 +114,9 @@ export default HomePage;
 
 
 
+            <Background />
+        </div>
+    );
+};
 
+export default HomePage;
