@@ -14,6 +14,7 @@ const BarcodeScanner: React.FC<Props> = ({ switchOffScanner }) => {
   const codeReader = new BrowserMultiFormatReader();
 
   codeReader.decodeFromVideoDevice(
+    undefined,
     videoRef.current!,
     (result) => {
       if (result) {
