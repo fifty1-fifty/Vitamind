@@ -1,4 +1,4 @@
-import {useState} from "react";
+//import {useState} from "react";
 import Barcode from '../components/barcode-comp/barcode-scanner';
 import '../components/home-comp/home.css';
 
