@@ -21,7 +21,7 @@ const BarcodeScanner: React.FC<Props> = ({ switchOffScanner }) =>
 
 
 
-  const videoRef = useRef(any);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
   const [result, setResult] = useState('');
 
   useEffect(() => {
@@ -50,7 +50,7 @@ const BarcodeScanner: React.FC<Props> = ({ switchOffScanner }) =>
 
         <div className="live-feed-container">
           <video id="feed-styling" ref={videoRef? videoRef:undefined} />
-          {result && returnLog(result)}
+          {returnLog(result)}
           <button onClick={switchOffScanner}>Return</button>
           </div>
 
