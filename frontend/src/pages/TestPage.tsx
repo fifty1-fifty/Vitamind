@@ -9,7 +9,7 @@ const TestPage = () =>
 
    return (  
         <div className='container-fluid' id='top-of-page'>
-          <Barcode />
+          <Barcode switchOffScanner={()} />
         </div>     
 );
 };
