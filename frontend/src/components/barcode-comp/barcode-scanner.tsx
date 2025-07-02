@@ -27,7 +27,7 @@ const BarcodeScanner: React.FC<Props> = ({ switchOffScanner }) => {
 
     return () => {
       isMounted = false;
-      codeReader.stopContinuousDecode();
+      codeReader.stopDecoding();
     };
   }, []);
 
