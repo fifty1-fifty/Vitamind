@@ -12,12 +12,6 @@ import '../components/home-comp/home.css';
 const HomePage = () =>
 {
   const [toggleScanner, setToggleScanner] = useState<"first" | "second">("first");
-  const handleToggleScanner = () =>
-  {
-    setToggleScanner("second");
-  }
-
-
 
     return (  
         <div className='container-fluid' id='top-of-page'>
