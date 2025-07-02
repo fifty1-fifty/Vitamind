@@ -7,7 +7,7 @@ type Props = {
 };
 
 const BarcodeScanner: React.FC<Props> = ({ switchOffScanner }) => {
-  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const videoRef = useRef<HTMLVideoElement | undefined>(undefined);
   const [result, setResult] = useState<string>("");
 
   useEffect(() => {
