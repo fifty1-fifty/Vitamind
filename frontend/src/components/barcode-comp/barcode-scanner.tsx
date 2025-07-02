@@ -9,24 +9,24 @@ const BarcodeScanner: React.FC<Props> = ({ switchOffScanner }) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [result, setResult] = useState<string>("");
 
-  useEffect(() => {
-    const codeReader = new BrowserMultiFormatReader();
+ useEffect(() => {
+  const codeReader = new BrowserMultiFormatReader();
 
-    codeReader.decodeFromVideoDevice(
-      undefined,
-      videoRef.current!,
-      (decodedResult) => {
-        if (decodedResult) {
-          const text = decodedResult.getText();
-          setResult(text);
-        }
+  codeReader.decodeFromVideoDevice(
+    undefined,
+    videoRef.current!,
+    (decodedResult) => {
+      if (decodedResult) {
+        const text = decodedResult.getText();
+        setResult(text);
       }
-    );
+    }
+  );
 
-    return () => {
-      codeReader.stopDecoding(); // or stopContinuousDecode() if using that method
-    };
-  }, []);
+  return () => {
+    (codeReader as any).reset(); // bypass TypeScript error
+  };
+}, []);
 
   useEffect(() => {
     if (result) {
