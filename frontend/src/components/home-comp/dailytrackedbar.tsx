@@ -1,4 +1,4 @@
-import {useState} from 'react';
+//import {useState} from 'react';
 
 const BarProgress = /*({ progress = 0, duration = 300,
 strokeColor = 'white', bgStrokeColor = 'gray',
