@@ -117,7 +117,7 @@ const HomePage = () =>
             <Background />
         </div>
     );
-}
+};
 
 export default HomePage;
 
