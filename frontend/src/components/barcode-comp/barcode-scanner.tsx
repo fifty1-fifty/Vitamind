@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import { BrowserMultiFormatReader, Result } from "@zxing/browser";
+import { BrowserMultiFormatReader } from "@zxing/browser";
+import { Result } from "@zxing/library";
 
 type Props = {
   switchOffScanner: () => void;
@@ -26,11 +27,10 @@ const BarcodeScanner: React.FC<Props> = ({ switchOffScanner }) => {
 
     return () => {
       isMounted = false;
-      codeReader.reset(); // Clean up camera access
+      codeReader.stopContinuousDecode();
     };
   }, []);
 
-  // Redirect only once after result is read
   useEffect(() => {
     if (result) {
       switchOffScanner();
@@ -43,10 +43,6 @@ const BarcodeScanner: React.FC<Props> = ({ switchOffScanner }) => {
       <div className="live-feed-container">
         <video id="feed-styling" ref={videoRef} />
         <button onClick={switchOffScanner}>Return</button>
-      </div>
-
-      <div className="backity">
-        <span></span>
       </div>
     </div>
   );
