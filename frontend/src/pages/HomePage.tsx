@@ -12,11 +12,11 @@ import '../components/home-comp/home.css';
 const HomePage = () =>
 {
   const [toggleScanner, setToggleScanner] = useState<"first" | "second">("first");
-   const handleToggleScanner = () =>
+  const handleToggleScanner = (toggle : string) =>
   {
-    setToggleScanner("second");
+    setToggleScanner(toggle);
   }
-  handleToggleScanner();
+
     
 
     return (  
@@ -26,8 +26,8 @@ const HomePage = () =>
 
             <div className="row justify-content-center align-items-start" id="search-bar-barcode">
                 <div className="col-auto text-center">
-                    {toggleScanner === "first" && <Lookup switchToScanner={() => setToggleScanner("second")} />}
-                    {toggleScanner === "second" && <Barcode switchOffScanner={() => setToggleScanner("first")} />}
+                    {toggleScanner === "first" && <Lookup switchToScanner={() => handleToggleScanner('second')} />}
+                    {toggleScanner === "second" && <Barcode switchOffScanner={() => handleToggleScanner('first')} />}
                 </div>
             </div>
 
