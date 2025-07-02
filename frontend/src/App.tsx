@@ -14,11 +14,11 @@ function App() : any {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/" element={<Navigate to="/login" />} /> 
         <Route path="*" element={<Navigate to="/login" />} /> 
-	<Route path='test' element{<TestPage />} />
+	<Route path='/test' element={<TestPage />} />
 
         <Route path="/home" element={<HomePage />} />
 		
-		<Route path="product" element={<ProductPage />} />
+	<Route path="product" element={<ProductPage />} />
 
 
 
