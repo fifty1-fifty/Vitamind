@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { BrowserMultiFormatReader } from "@zxing/browser";
 import "./barcode.css";
-import Background from '../background-comp/BackgroundMain.tsx';
+//import Background from '../background-comp/BackgroundMain.tsx';
 
 
 type Props =
@@ -12,7 +12,7 @@ type Props =
 const BarcodeScanner: React.FC<Props> = ({ switchOffScanner }) =>
 {
 
-  const returnLog = (result) =>
+  const returnLog = (result : any) =>
   {
     //console.log(result);
     switchOffScanner();
@@ -22,18 +22,17 @@ const BarcodeScanner: React.FC<Props> = ({ switchOffScanner }) =>
 
 
   const videoRef = useRef(null);
-  const [result, setResult] = useState(null);
+  const [result, setResult] = useState('');
 
   useEffect(() => {
     const codeReader = new BrowserMultiFormatReader();
 
     codeReader.decodeFromVideoDevice(
-      null, // Use default camera
+      undefined, // Use default camera
       videoRef.current,
-      (result, err) => {    
+      (result) => {    
         if (result) {
           setResult(result.getText());
-		  console.log(results);
           //codeReader.reset(); // Stop after first successful scan
         }
       }
