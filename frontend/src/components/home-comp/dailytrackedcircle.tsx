@@ -23,7 +23,7 @@ strokeWidth = 12, textColor = '#44cf6c', fontSize = 52, text=""
   useEffect(() => 
   {
     let start = any;
-    const animate = (timestamp : any) => 
+    const animate = (timestamp : number) => 
     {
       if (!start) start = timestamp;
         const elapsed = (timestamp - start);
