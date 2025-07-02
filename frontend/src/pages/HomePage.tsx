@@ -1,10 +1,10 @@
 import {useState} from "react";
 import Lookup from "../components/home-comp/lookup";
 //import Maintracker from "../components/home-comp/maintrack";
-import Background from '../components/background-comp/BackgroundMain.tsx';
-import Barcode from '../components/barcode-comp/barcode-scanner.tsx';
-import DailyStats from '../components/home-comp/dailytrackedcircle.tsx';
-import DailyBar from '../components/home-comp/dailytrackedbar.tsx';
+import Background from '../components/background-comp/BackgroundMain';
+import Barcode from '../components/barcode-comp/barcode-scanner';
+import DailyStats from '../components/home-comp/dailytrackedcircle';
+import DailyBar from '../components/home-comp/dailytrackedbar';
 import '../components/home-comp/home.css';
 
 
