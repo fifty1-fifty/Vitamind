@@ -144,13 +144,6 @@ const ProductStats = () =>
           <span>{folate}</span>
           <span>{zinc}</span>
           
-  <svg width="214" height="214" viewBox="-26.75 -26.75 267.5 267.5" version="1.1" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(-90deg)">
-    <circle r="97" cx="107" cy="107" fill="transparent" stroke="#dedede" stroke-width="9"></circle>
-    <circle r="97" cx="107" cy="107" stroke="#dedede" stroke-width="12" stroke-linecap="round" stroke-dashoffset="609px" fill="transparent" stroke-dasharray="610.16px"></circle>
-    <text x="73px" y="124px" fill="#6bdba7" font-size="52px" font-weight="bold" style="transform:rotate(90deg) translate(0px, -210px)">0%</text>
-  </svg>
-    
-
         </div>
     );
 }
