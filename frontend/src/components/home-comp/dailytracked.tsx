@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const RADIUS = 109;
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
@@ -22,8 +22,8 @@ strokeWidth = 12, textColor = '#44cf6c', fontSize = 52, text=""
 
   useEffect(() => 
   {
-    let start = null;
-    const animate = (timestamp) => 
+    let start = any;
+    const animate = (timestamp : any) => 
     {
       if (!start) start = timestamp;
         const elapsed = (timestamp - start);
@@ -53,7 +53,6 @@ strokeWidth = 12, textColor = '#44cf6c', fontSize = 52, text=""
 
   return (
     <svg
-      overflow: hidden
       width={size}
       height={size}
       viewBox="-26.75 -26.75 267.5 267.5"
@@ -95,8 +94,8 @@ strokeWidth = 12, textColor = '#44cf6c', fontSize = 52, text=""
       <text className='progressText'
         x="0"
         y="125"
-        fill="#44cf6c"
-        fontSize="20"
+        fill={textColor}
+        fontSize={fontSize}
         fontWeight="bold"
         transform="rotate(90 73 124)"
              >
