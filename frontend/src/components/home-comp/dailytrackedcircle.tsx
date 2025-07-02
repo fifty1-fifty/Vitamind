@@ -22,7 +22,7 @@ strokeWidth = 12, textColor = '#44cf6c', fontSize = 52, text=""
 
   useEffect(() => 
   {
-    let start = any;
+    let start = 0;
     const animate = (timestamp : number) => 
     {
       if (!start) start = timestamp;
