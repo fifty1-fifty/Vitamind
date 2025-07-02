@@ -15,7 +15,7 @@ const BarcodeScanner: React.FC<Props> = ({ switchOffScanner }) => {
 
   codeReader.decodeFromVideoDevice(
     undefined,
-    videoRef.current!,
+    videoRef.current,
     (result) => {
       if (result) {
         const text = result.getText();
