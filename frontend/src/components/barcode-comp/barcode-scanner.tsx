@@ -49,8 +49,8 @@ const BarcodeScanner: React.FC<Props> = ({ switchOffScanner }) =>
         
 
         <div className="live-feed-container">
-          <video id="feed-styling" ref={videoRef} />
-          {result && returnLog(result)}
+          <video id="feed-styling" ref={videoRef? videoRef:undefined} />
+          {result}
           <button onClick={switchOffScanner}>Return</button>
           </div>
 
