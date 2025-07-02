@@ -21,7 +21,7 @@ const BarcodeScanner: React.FC<Props> = ({ switchOffScanner }) =>
 
 
 
-  const videoRef = useRef(null);
+  const videoRef = useRef('');
   const [result, setResult] = useState('');
 
   useEffect(() => {
