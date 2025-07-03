@@ -139,8 +139,10 @@ function dataScrubber(incomingData, barcode)
 
 exports.setApp = function (app, client) 
 {
-    const db = client.db('NutritionTrack');
-    const dailyDB = client.db('DailyTracked');
+    //const db = client.db('NutritionTrack');
+    //const dailyDB = client.db('DailyTracked');
+	const userDB = client.db('Account-Management');
+	const productDB = client.db('Product-Tracking');
   
 
 
@@ -158,9 +160,9 @@ exports.setApp = function (app, client)
       let cholesterol = incomingData.nutriments.cholesterol + " " + incomingData.nutriments.cholesterol_unit;
       let fiber = incomingData.nutriments.fiber + " " + incomingData.nutriments.fiber_unit;*/
 
-      let isCached = await db.collection('CachedProducts').countDocuments({Barcode : incomingData.barcode, Brand : incomingData.brandName, Product : incomingData.productName});
+      let isCached = await productDB.collection('CachedProducts').countDocuments({Barcode : incomingData.barcode, Brand : incomingData.brandName, Product : incomingData.productName});
       if(isCached <= 0)
-        await db.collection('CachedProducts').insertOne({
+        await productDB.collection('CachedProducts').insertOne({
           barcode : incomingData.barcode,
           imageFront : incomingData.imageFront,
           imageThumb : incomingData.imageThumb,
@@ -200,12 +202,12 @@ exports.setApp = function (app, client)
         if(emailCheck(serverLoginInput) == 1)
         {
           results = await
-            db.collection('Users').find({Email: serverLoginInput, Password: serverPasswordInput}).toArray();
+            userDB.collection('UserInformation').find({Email: serverLoginInput, Password: serverPasswordInput}).toArray();
         }
         else
         {
           results = await
-            db.collection('Users').find({Login: serverLoginInput, Password: serverPasswordInput}).toArray();
+            userDB.collection('UserInformation').find({Login: serverLoginInput, Password: serverPasswordInput}).toArray();
 
         }
         var id = -1;
@@ -228,10 +230,10 @@ exports.setApp = function (app, client)
     app.post('/api/register', async (req, res, next) => {
         var error = '';
         const { serverEmailInput, serverRegisterInput, serverPasswordInput } = req.body;
-        const id = (await db.collection("Users").countDocuments())
+        const id = (await userDB.collection("UserInformation").countDocuments())
           
         const results = await
-            db.collection('Users').insertOne({Email: serverEmailInput, Login: serverRegisterInput, Password: serverPasswordInput });
+            userDB.collection('UserInformation').insertOne({Email: serverEmailInput, Login: serverRegisterInput, Password: serverPasswordInput });
         
         var fn = '';
         var ln = '';
@@ -257,9 +259,9 @@ exports.setApp = function (app, client)
         {
             //https://robotoff.openfoodfacts.org/api/v1
             //barcodeResponse = await axios.get('https://robotoff.openfoodfacts.org/api/v2/product/'+ barcode
-            if(await db.collection('CachedProducts').countDocuments({barcode : barcode}) > 0)
+            if(await productDB.collection('CachedProducts').countDocuments({barcode : barcode}) > 0)
             {
-              cleanedProductResponse = await db.collection('CachedProducts').findOne({barcode : barcode});
+              cleanedProductResponse = await productDB.collection('CachedProducts').findOne({barcode : barcode});
               isCached = true;
               console.log('i am gay');
             }
@@ -290,3 +292,4 @@ exports.setApp = function (app, client)
         'x-app-key': '6b2946f8e0bc9ed031e68f649d259c09  '
     } YOU WILL NEED THIS*/
 }
+
