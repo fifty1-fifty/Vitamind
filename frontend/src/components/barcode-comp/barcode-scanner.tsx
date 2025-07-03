@@ -25,8 +25,8 @@ const BarcodeScanner: React.FC<Props> = ({ switchOffScanner }) => {
 
  /* return () => {
     //(codeReader as any).reset(); // bypass TypeScript error
-  };
-}, []); */
+  }; */
+}, []); 
 
   useEffect(() => {
     if (result) {
