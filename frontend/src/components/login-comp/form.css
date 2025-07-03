@@ -9,6 +9,33 @@
   background: #f1ffe7;
 }
 
+#login-pic-background 
+{
+  background: #f1ffe7;
+}
+
+#full-form-area
+{
+  background: none;
+  max-width: 100%;
+}
+
+#full-form-background
+{
+  background: #f1ffe7;
+  min-height: 100vh;
+  align-items: center;
+  align-content: center;
+  align-self: center;
+  justify-items: center;
+  justify-content: center;
+  justify-self: center;
+  
+
+
+}
+
+
 /* Defined row height to fix bootstrap nonce */
 #gahr
 {
@@ -18,14 +45,22 @@
 
 .form-container
 {
-  background-color: none;
-  margin: auto;
+ 
+  
+  background: none;
+
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    justify-items: center;
+    justify-content: center;
+    justify-self: center;
+
 }
 
 .form-group
 {
   background-color: none;
-  width: 260px;
   margin: auto;
   margin-bottom: 10px;
   margin-top: 10px;

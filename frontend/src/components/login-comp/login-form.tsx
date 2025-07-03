@@ -54,45 +54,49 @@ function Login()
 
 
 
-                <div className='col'>
+                <div className='col-sm-4 align-self-center' id='full-form-background'>
 
-                    <div>
-                        <h2>Welcome Back</h2>
-                        <h6>Please enter your email and password to access your account</h6>
+                    <div id='full-form-area'>
+                        <div>
+                            <h2>Welcome Back</h2>
+                            <h6>Please enter your email and password to access your account</h6>
+                        </div>
+
+                        <form className="form-container" >
+
+                            <div className="form-group" >
+                                <h6 id="input-field-label">Email</h6>
+                                <input type="text" id="input-field" placeholder="email" onChange={handleSetClientLoginInput} />
+                            </div>
+
+
+                            <div className="form-group" >
+                                <h6 id="input-field-label">Password</h6>
+                                <input type="password" id="input-field" placeholder="password" onChange={handleSetClientPasswordInput} />
+                            </div>
+
+
+                            <div className='col' id="login-button-area">
+                                 <button type="button" id="primary-button" onClick={doLogin}>Log In</button>
+                                
+                                 <div className="error-div">
+                                    {loginErrorMessage && <h6 id="error-message">{loginErrorMessage}</h6>}
+                                 </div> 
+
+                                 <h6 id="second-button-label">Don't have an account?</h6>
+                                 <button type="button" id="secondary-button" onClick={doLogin}>Signup Today</button>
+                            </div>
+                        
+
+                        </form>
                     </div>
 
-                    <form className="form-container" >
-
-                        <div className="form-group" >
-                            <h6 id="input-field-label">Email</h6>
-                            <input type="text" id="input-field" placeholder="email" onChange={handleSetClientLoginInput} />
-                        </div>
-
-
-                        <div className="form-group" >
-                            <h6 id="input-field-label">Password</h6>
-                            <input type="password" id="input-field" placeholder="password" onChange={handleSetClientPasswordInput} />
-                        </div>
-
-
-                        <div className='col' id="login-button-area">
-                             <button type="button" id="primary-button" onClick={doLogin}>Log In</button>
-                            
-                             <div className="error-div">
-                                {loginErrorMessage && <h6 id="error-message">{loginErrorMessage}</h6>}
-                             </div> 
-
-                             <h6 id="second-button-label">Don't have an account?</h6>
-                             <button type="button" id="secondary-button" onClick={doLogin}>Signup Today</button>
-                        </div>
-
-                    </form>
                 </div>
 
 
 
 
-                <div className='col' id="testtest2">
+                <div className='col-sm-8' id="login-pic-background">
                    
                 </div>
 
