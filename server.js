@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 
 // MongoDB section
 const MongoClient = require('mongodb').MongoClient;
-const url = 'mongodb+srv://root:assmanturkeysandwhich11@webape.3e0q6.mongodb.net/?retryWrites=true&w=majority&appName=WebApe';
+const url = 'mongodb+srv://root:bigsteppinjordangame7@webapeo.r3jsfnn.mongodb.net/?retryWrites=true&w=majority&appName=WEBAPEO';
 const client = new MongoClient(url);
 client.connect();
 
