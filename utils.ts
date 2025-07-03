@@ -1,4 +1,4 @@
-export const app_name = '142.93.13.217';
+export const app_name = 'myvitamind.life';
 
 export function buildPath(route:string) : string
 {
