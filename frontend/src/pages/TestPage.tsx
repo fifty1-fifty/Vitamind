@@ -1,6 +1,7 @@
 //import {useState} from "react";
 
 import '../components/home-comp/home.css';
+import Test from '../components/test-components/test';
 
 const TestPage = () => 
 {
@@ -10,6 +11,30 @@ const TestPage = () =>
 
    return (  
         <div className='container-fluid' id='top-of-page'>
+        
+          <Test />
+          <Test />
+          <Test />
+
+          <Test />
+
+          <Test />
+
+          <Test />
+
+          <Test />
+
+          <Test />
+
+          <Test />
+
+          <Test />
+
+          <Test />
+
+          <Test />
+
+
         </div>     
 );
 };

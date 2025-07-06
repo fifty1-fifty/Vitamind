@@ -9,6 +9,7 @@ import {buildPath } from '../../../../utils.ts';
 
 const ProductStats = () =>
 {
+  // Store the current barcode locally from the URL
   const query = new URLSearchParams(useLocation().search);
   let currentProductID = query.get("productid");
 
@@ -21,9 +22,9 @@ const ProductStats = () =>
     */
 
   const [barcode, setBarcode] = useState('');
-  const [imageFront, setImageFront] = useState('');
-  const [imageThumb, setImageThumb] = useState('');
-  const [imageNutrition, setImageNutrition] = useState('');
+  const [imageFront, setImageFront] = useState(null);
+  const [imageThumb, setImageThumb] = useState(null);
+  const [imageNutrition, setImageNutrition] = useState(null);
   const [brandName, setBrandName] = useState('');
   const [productName, setProductName] = useState('');
   const [servingSize, setServingSize] = useState('');
@@ -57,9 +58,16 @@ const ProductStats = () =>
       try 
       {
         const response = await fetch(buildPath('/api/foodsearchbarcode'),
-        {method:'POST',body:js,headers:{'Content-Type': 'application/json'}})
+        {method:'POST', credentials: 'include', body:js,headers:{'Content-Type': 'application/json'}})
+       
+        if(response.status == 401 || response.status == 403)
+        {
+          //console.log(data.status);
+          window.location.href = '/login';
+          return;
+        }
+         
         const data = await response.json();
-      
         setBarcode(data.barcode);
         setImageFront(data.imageFront);
         setImageThumb(data.imageThumb);
@@ -92,6 +100,7 @@ const ProductStats = () =>
       catch (err) 
       {
         console.error(err);
+        console.log("im gayt");
       }
     };
 

@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { buildPath } from '../../../../utils.ts'
-import "./form.css"
+import { buildPath } from '../../../../utils.ts';
+import "./form.css";
+
 
 function Login()
 {
@@ -11,6 +12,39 @@ function Login()
     //const [emailErrorMessage, setEmailErrorMessage] = useState('');
     //const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
 
+    async function autoTokenLogin()
+    {
+
+      const savedCookies = document.cookie;
+      var jwtResponse = {};
+      //console.log(savedCookies.toString());
+      if(savedCookies.toString().includes('authorized'))
+      {
+        const responseToken = await fetch(buildPath('/api/verifytoken'),
+           { method: 'GET', credentials: 'include'});
+        jwtResponse = JSON.parse(await responseToken.text());
+       if(jwtResponse != '' && jwtResponse.message == 'user-verified' && savedCookies.toString().includes(jwtResponse.user.id))
+          window.location.href = '/home';
+        else
+        {
+          console.log(jwtResponse.status);
+          console.log('fail');
+          console.log(jwtResponse);
+          console.log(jwtResponse.seed);
+          console.log(savedCookies.toString());
+        } 
+      }
+      else
+        console.log('No Cookie Present Within Browser');
+    }
+
+
+
+ //window.location.href = '/home'; 
+
+    
+ 
+
     async function doLogin(event: any): Promise<void> 
     {
         event.preventDefault();
@@ -19,19 +53,18 @@ function Login()
         try
         {
             const response = await fetch(buildPath('/api/login'),
-                { method: 'POST', body: js, headers: { 'Content-Type': 'application/json' } })
+                { method: 'POST', body: js, headers: { 'Content-Type': 'application/json' }, credentials: 'include' })
             var res = JSON.parse(await response.text());
-            console.log(res);
-
-            if(res.id < 0)
+            //res.id > 0 ? localStorage.setItem('storage', res.id) : console.log("tits");
+            if(res.id <= 0)
                 setLoginErrorMessage('email or password is incorrect');
-                
-
-        }
+            else
+                window.location.href = '/home';
+        }      
         catch(error : any)
         {
-            alert(error.toString())
-            return;                  
+          alert(error.toString())
+          return;                  
         }
     }
 
@@ -45,6 +78,8 @@ function Login()
     {
         setClientPasswordInput(e.target.value);
     }
+
+    autoTokenLogin();
 
 
     return (

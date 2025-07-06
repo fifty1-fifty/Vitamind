@@ -9,6 +9,10 @@ import '../components/home-comp/home.css';
 
 
 
+//test
+//import TrackBarGrop from '../components/home-comp/dailytrackbargrouping';
+
+
 const HomePage = () =>
 {
   const [toggleScanner, setToggleScanner] = useState<"first" | "second">("first");
@@ -35,23 +39,44 @@ const HomePage = () =>
             <div className='row align-items-center justify-content-center' id='main-progress-rings-area'>
 
                 <div className='col align-self-center' id='calorie-ring-area'>
-                    <DailyStats progress={90} size={'512'} text={'Calories'}/>
-                </div>
+                  {toggleScanner === 'first' && <DailyStats
+                    progress={90}
+                    size={'512'}
+                    text={'Calories'}
+                    fontSize={35}
+                    xAxis={-8}
+                    yAxis={135} switchToScanner={() => setToggleScanner('second')}/>
+}
+
+                                
 
 
 
+            </div>
                 <div className='col align-self-center justrify-content-center' id='minor-ring-area'>
                     <div className='row align-items-center' id='minor-rings-row-area'>
                         <div className='col align-self-center' id='individual-ring'>
-                            <DailyStats progress={120} text={'Protein'}/>
+                            
+                            {toggleScanner === 'first' && <DailyStats 
+                              progress={120}
+                              text={'Protein'}
+                              xAxis={20} switchToScanner={() => setToggleScanner('second')}/>}
                         </div>
 
                         <div className='col align-self-center' id='individual-ring'>
-                            <DailyStats progress={90} text={'Carbohydrates'}/>
+                            
+                            {toggleScanner === 'first' && <DailyStats 
+                             progress={90}
+                             text={'Carbohydrates'}
+                             xAxis={-9} switchToScanner={() => setToggleScanner('second')}/>}
                         </div>
 
                         <div className='col align-self-center' id='individual-ring'>
-                            <DailyStats progress={90} text={'Cholesterol'}/>
+                            
+                            {toggleScanner === 'first' && <DailyStats 
+                             progress={90} 
+                             text={'Cholesterol'}
+                             xAxis={4} switchToScanner={() => setToggleScanner('second')}/>}
                         </div>
                     </div>
           
@@ -59,15 +84,24 @@ const HomePage = () =>
 
                     <div className='row align-items-center' id='minor-rings-row-area'>
                        <div className='col align-self-center' id='individual-ring'>
-                            <DailyStats progress={90} text={'Total Fats'}/>
+                            {toggleScanner === 'first' && <DailyStats 
+                             progress={90} 
+                             text={'Total Fats'}
+                             xAxis={10} switchToScanner={() => setToggleScanner('second')}/>}
                         </div>
 
                         <div className='col align-self-center' id='individual-ring'>
-                            <DailyStats progress={90} text={'Saturated Fats'}/>
+                            {toggleScanner === 'first' && <DailyStats 
+                             progress={90} 
+                             text={'Saturated Fats'}
+                             xAxis={-8} switchToScanner={() => setToggleScanner('second')}/>}
                         </div>
 
                          <div className='col align-self-center' id='individual-ring'>
-                            <DailyStats progress={90} text={'Sodium'}/>
+                            {toggleScanner === 'first' && <DailyStats 
+                              progress={90}
+                              text={'Sodium'}
+                              xAxis={20} switchToScanner={() => setToggleScanner('second')}/>}
                         </div>
                     </div>
                 </div>
@@ -78,17 +112,14 @@ const HomePage = () =>
             <div className='row align-items-end justify-content-center'>
 
                 <div className='col align-self-end' id='nuts'>
-                     <DailyBar /> 
-                     <DailyBar />
-                     <DailyBar />
-                     <DailyBar />
-                     <DailyBar /> 
-                     <DailyBar /> 
-                     <DailyBar /> 
-                     <DailyBar /> 
-                     <DailyBar /> 
-                     <DailyBar /> 
-                     <DailyBar /> 
+                    
+                
+
+                   
+
+  
+
+
                 </div>
 
                 
@@ -124,3 +155,21 @@ const HomePage = () =>
 };
 
 export default HomePage;
+
+
+
+
+
+
+//<TrackBarGrop />
+                   /* {toggleScanner === 'first' && <DailyBar switchToScanner={() => setToggleScanner('second')}/>} 
+                    {toggleScanner === 'first' && <DailyBar switchToScanner={() => setToggleScanner('second')}/>} 
+                    {toggleScanner === 'first' && <DailyBar switchToScanner={() => setToggleScanner('second')}/>} 
+                    {toggleScanner === 'first' && <DailyBar switchToScanner={() => setToggleScanner('second')}/>} 
+                    {toggleScanner === 'first' && <DailyBar switchToScanner={() => setToggleScanner('second')}/>} 
+                    {toggleScanner === 'first' && <DailyBar switchToScanner={() => setToggleScanner('second')}/>} 
+                    {toggleScanner === 'first' && <DailyBar switchToScanner={() => setToggleScanner('second')}/>} 
+                    {toggleScanner === 'first' && <DailyBar switchToScanner={() => setToggleScanner('second')}/>} 
+                    {toggleScanner === 'first' && <DailyBar switchToScanner={() => setToggleScanner('second')}/>} 
+                    {toggleScanner === 'first' && <DailyBar switchToScanner={() => setToggleScanner('second')}/>} */
+

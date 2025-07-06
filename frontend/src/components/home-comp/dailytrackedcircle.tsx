@@ -5,7 +5,7 @@ const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 
 const CircularProgress = ({ progress = 0, duration = 300,
 size = '212', strokeColor = '#44cf6c', bgStrokeColor = '#dedede',
-strokeWidth = 12, textColor = '#44cf6c', fontSize = 52, text=""
+strokeWidth = 12, textColor = '#44cf6c', fontSize = 20, text="", xAxis= 0, yAxis = 125 
 }) => {
  
 
@@ -47,7 +47,7 @@ strokeWidth = 12, textColor = '#44cf6c', fontSize = 52, text=""
   CIRCUMFERENCE - (displayedProgress / 100) * CIRCUMFERENCE
 );
   
-  const horizontalShift = (strokeDashoffset != 0 ? 10 : -5); 
+  const horizontalShift = (strokeDashoffset != 0 ? 8 : -4); 
   /*const strokeDashoffset =
     CIRCUMFERENCE - (displayedProgress / 100) * CIRCUMFERENCE;*/
 
@@ -92,8 +92,8 @@ strokeWidth = 12, textColor = '#44cf6c', fontSize = 52, text=""
         {`${Math.round(displayedProgress)}%`}
       </text>
       <text className='progressText'
-        x="0"
-        y="125"
+        x={xAxis}
+        y={yAxis}
         fill={textColor}
         fontSize={fontSize}
         fontWeight="bold"

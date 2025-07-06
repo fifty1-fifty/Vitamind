@@ -1,5 +1,12 @@
 //import {useState} from 'react';
 
+type Props =
+{
+  switchToScanner: () => void;
+}
+
+
+
 const BarProgress = /*({ progress = 0, duration = 300,
 strokeColor = 'white', bgStrokeColor = 'gray',
 text=''})*/ () => {
@@ -22,10 +29,29 @@ text=''})*/ () => {
           y1= '105'
           x2='1158'
           y2='105'
-          stroke='#a9fdac'
+          stroke='white'
           strokeWidth='30'
           strokeLinecap="round"
         />
+        <text className='progressText'
+          x="-500"
+          y="85"
+          fill="white"
+          fontSize="52"
+          fontWeight="bold"
+         >
+        'big nuts'
+      </text>
+      <text className='progressText'
+        x="-50"
+        y="85"
+        fill="white"
+        fontSize="15"
+        fontWeight="bold"
+       >
+        hello beans
+      </text>
+
 
     </svg>
 
