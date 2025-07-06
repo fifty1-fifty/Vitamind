@@ -4,7 +4,7 @@ import Lookup from "../components/home-comp/lookup";
 import Background from '../components/background-comp/BackgroundMain';
 import Barcode from '../components/barcode-comp/barcode-scanner';
 import DailyStats from '../components/home-comp/dailytrackedcircle';
-import DailyBar from '../components/home-comp/dailytrackedbar';
+//import DailyBar from '../components/home-comp/dailytrackedbar';
 import '../components/home-comp/home.css';
 
 
@@ -45,14 +45,11 @@ const HomePage = () =>
                     text={'Calories'}
                     fontSize={35}
                     xAxis={-8}
-                    yAxis={135} switchToScanner={() => setToggleScanner('second')}/>
-}
-
-                                
+                    yAxis={135} switchToScanner={() => setToggleScanner('second')}/>}
+		            </div>
 
 
 
-            </div>
                 <div className='col align-self-center justrify-content-center' id='minor-ring-area'>
                     <div className='row align-items-center' id='minor-rings-row-area'>
                         <div className='col align-self-center' id='individual-ring'>

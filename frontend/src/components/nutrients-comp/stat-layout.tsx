@@ -22,9 +22,9 @@ const ProductStats = () =>
     */
 
   const [barcode, setBarcode] = useState('');
-  const [imageFront, setImageFront] = useState(null);
-  const [imageThumb, setImageThumb] = useState(null);
-  const [imageNutrition, setImageNutrition] = useState(null);
+  const [imageFront, setImageFront] = useState('a');
+  const [imageThumb, setImageThumb] = useState('a');
+  const [imageNutrition, setImageNutrition] = useState('a');
   const [brandName, setBrandName] = useState('');
   const [productName, setProductName] = useState('');
   const [servingSize, setServingSize] = useState('');

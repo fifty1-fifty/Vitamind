@@ -1,5 +1,5 @@
-import React, { useRef, useEffect, useState } from 'react';
-import DailyTrackBar from '../home-comp/dailytrackedbar/'
+import  { useRef, useEffect, useState } from 'react';
+//import DailyTrackBar from '../home-comp/dailytrackedbar/'
 
 // TEST COMPONENT, NOTHING INTERESTING TO SEE HERE
 
@@ -37,7 +37,7 @@ const LazyLoadedComponent = () => {
         <div>
           <h2>Loaded Component</h2>
           <p>This content only loads when scrolled into view.</p>
-          <DailyTrackBar />
+     
         </div>
       ) : (
         <p>Scroll down to load content...</p>

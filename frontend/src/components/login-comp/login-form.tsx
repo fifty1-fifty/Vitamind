@@ -16,22 +16,22 @@ function Login()
     {
 
       const savedCookies = document.cookie;
-      var jwtResponse = {};
+      //var jwtResponse = {};
       //console.log(savedCookies.toString());
       if(savedCookies.toString().includes('authorized'))
       {
         const responseToken = await fetch(buildPath('/api/verifytoken'),
            { method: 'GET', credentials: 'include'});
-        jwtResponse = JSON.parse(await responseToken.text());
+       const jwtResponse = JSON.parse(await responseToken.text());
        if(jwtResponse != '' && jwtResponse.message == 'user-verified' && savedCookies.toString().includes(jwtResponse.user.id))
           window.location.href = '/home';
         else
         {
-          console.log(jwtResponse.status);
+          //console.log(jwtResponse.status);
           console.log('fail');
-          console.log(jwtResponse);
-          console.log(jwtResponse.seed);
-          console.log(savedCookies.toString());
+          //console.log(jwtResponse);
+          //console.log(jwtResponse.seed);
+          //console.log(savedCookies.toString());
         } 
       }
       else
