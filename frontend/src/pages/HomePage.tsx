@@ -57,7 +57,7 @@ const HomePage = () =>
                             {toggleScanner === 'first' && <DailyStats 
                               progress={120}
                               text={'Protein'}
-                              xAxis={20} switchToScanner={() => setToggleScanner('second')}/>}
+                              xAxis={20} />}
                         </div>
 
                         <div className='col align-self-center' id='individual-ring'>
@@ -65,7 +65,7 @@ const HomePage = () =>
                             {toggleScanner === 'first' && <DailyStats 
                              progress={90}
                              text={'Carbohydrates'}
-                             xAxis={-9} switchToScanner={() => setToggleScanner('second')}/>}
+                             xAxis={-9} />}
                         </div>
 
                         <div className='col align-self-center' id='individual-ring'>
@@ -73,7 +73,7 @@ const HomePage = () =>
                             {toggleScanner === 'first' && <DailyStats 
                              progress={90} 
                              text={'Cholesterol'}
-                             xAxis={4} switchToScanner={() => setToggleScanner('second')}/>}
+                             xAxis={4} />}
                         </div>
                     </div>
           
@@ -84,21 +84,21 @@ const HomePage = () =>
                             {toggleScanner === 'first' && <DailyStats 
                              progress={90} 
                              text={'Total Fats'}
-                             xAxis={10} switchToScanner={() => setToggleScanner('second')}/>}
+                             xAxis={10} />}
                         </div>
 
                         <div className='col align-self-center' id='individual-ring'>
                             {toggleScanner === 'first' && <DailyStats 
                              progress={90} 
                              text={'Saturated Fats'}
-                             xAxis={-8} switchToScanner={() => setToggleScanner('second')}/>}
+                             xAxis={-8} />}
                         </div>
 
                          <div className='col align-self-center' id='individual-ring'>
                             {toggleScanner === 'first' && <DailyStats 
                               progress={90}
                               text={'Sodium'}
-                              xAxis={20} switchToScanner={() => setToggleScanner('second')}/>}
+                              xAxis={20} />}
                         </div>
                     </div>
                 </div>
