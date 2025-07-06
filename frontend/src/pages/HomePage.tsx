@@ -45,8 +45,8 @@ const HomePage = () =>
                     text={'Calories'}
                     fontSize={35}
                     xAxis={-8}
-                    yAxis={135} switchToScanner={() => setToggleScanner('second')}/>}
-		            </div>
+                    yAxis={135} />}
+		         </div>
 
 
 
