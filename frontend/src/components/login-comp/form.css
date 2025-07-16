@@ -45,21 +45,18 @@
 
 .form-container
 {
- 
-  
   background: none;
-
-    align-items: center;
-    align-content: center;
-    align-self: center;
-    justify-items: center;
-    justify-content: center;
-    justify-self: center;
-
+  align-items: center;
+  align-content: center;
+  align-self: center;
+  justify-items: center;
+  justify-content: center;
+  justify-self: center;
 }
 
 .form-group
 {
+  max-width: 212px;
   background-color: none;
   margin: auto;
   margin-bottom: 10px;
@@ -160,6 +157,35 @@
   color: #44cf69;
   text-decoration: underline;
 }
+
+
+#secondary-button
+{
+  background: none;
+  padding: 0px;
+  margin: 0px;
+  color: #21823d;
+  
+}
+#secondary-button:hover
+{
+  color: #44cf69;
+  text-decoration: underline;
+}
+
+#forgot-password-button
+{
+  display: flex;
+  background: none;
+  padding: 0px;
+  color: #1e00ff;
+  font-size: 10px;
+  margin-left: auto;
+  font-weight: 400;
+  min-height: 17px;
+}
+
+
 
 
 

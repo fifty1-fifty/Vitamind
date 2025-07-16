@@ -27,7 +27,7 @@ function Login()
           window.location.href = '/home';
         else
         {
-          //console.log(jwtResponse.status);
+          console.log(jwtResponse);
           console.log('fail');
           //console.log(jwtResponse);
           //console.log(jwtResponse.seed);
@@ -53,7 +53,7 @@ function Login()
         try
         {
             const response = await fetch(buildPath('/api/login'),
-                { method: 'POST', body: js, headers: { 'Content-Type': 'application/json' }, credentials: 'include' })
+                { method: 'POST', body: js, headers: { 'Content-Type': 'application/json' }, credentials: 'include' });
             var res = JSON.parse(await response.text());
             //res.id > 0 ? localStorage.setItem('storage', res.id) : console.log("tits");
             if(res.id <= 0)
@@ -78,6 +78,17 @@ function Login()
     {
         setClientPasswordInput(e.target.value);
     }
+	
+    function gotoRegister()
+    {
+      window.location.href = '/register';
+    }
+	
+	  function gotoForgotPassword()
+    {
+      window.location.href = '/forgotpassword';
+    }
+	
 
     autoTokenLogin();
 
@@ -89,7 +100,7 @@ function Login()
 
 
 
-                <div className='col-sm-4 align-self-center' id='full-form-background'>
+                <div className='col-sm-5 align-self-center' id='full-form-background'>
 
                     <div id='full-form-area'>
                         <div>
@@ -108,6 +119,9 @@ function Login()
                             <div className="form-group" >
                                 <h6 id="input-field-label">Password</h6>
                                 <input type="password" id="input-field" placeholder="password" onChange={handleSetClientPasswordInput} />
+                                <div style={{ 'min-height' : '17px' }}>  
+                                  {loginErrorMessage && <button type="button" id="forgot-password-button" onClick={gotoForgotPassword}>Forgot Password?</button>}
+                                </div>
                             </div>
 
 
@@ -119,7 +133,7 @@ function Login()
                                  </div> 
 
                                  <h6 id="second-button-label">Don't have an account?</h6>
-                                 <button type="button" id="secondary-button" onClick={doLogin}>Signup Today</button>
+                                 <button type="button" id="secondary-button" onClick={gotoRegister}>Signup Today</button>
                             </div>
                         
 
@@ -131,7 +145,7 @@ function Login()
 
 
 
-                <div className='col-sm-8' id="login-pic-background">
+                <div className='col-sm-7' id="login-pic-background">
                    
                 </div>
 
