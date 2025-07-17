@@ -4,7 +4,7 @@ import Lookup from "../components/home-comp/lookup";
 import Background from '../components/background-comp/BackgroundMain';
 import Barcode from '../components/barcode-comp/barcode-scanner';
 import DailyStats from '../components/home-comp/dailytrackedcircle';
-//import DailyBar from '../components/home-comp/dailytrackedbar';
+import DailyBar from '../components/home-comp/dailytrackedbar';
 import '../components/home-comp/home.css';
 
 
