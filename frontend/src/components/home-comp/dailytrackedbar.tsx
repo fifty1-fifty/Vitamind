@@ -1,9 +1,5 @@
 //import {useState} from 'react';
 
-type Props =
-{
-  switchToScanner: () => void;
-}
 
 
 
