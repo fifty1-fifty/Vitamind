@@ -86,13 +86,6 @@ font-family: Helvetica, sans-serif;
 
 
 
-
-
-
-
-
-
-
 button 
 {
   color: #f1ffe7;
@@ -113,7 +106,7 @@ button
 @media (prefers-color-scheme: light) {
   :root {
     color: #007be8;
-    background-color: #000000;
+    background-color: #ffffff;
   }
   a:hover {
     color: #747bff;
@@ -122,3 +115,24 @@ button
     background-color: #f9f9f9;
   }
 }
+
+
+.header-safe 
+{
+  padding-top: env(safe-area-inset-top);
+  background-color: blue;
+}
+
+.footer-safe 
+{
+  padding-bottom: env(safe-area-inset-bottom);
+  background-color: red;
+}
+
+
+
+
+
+
+
+
