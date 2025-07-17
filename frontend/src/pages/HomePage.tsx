@@ -110,7 +110,16 @@ const HomePage = () =>
 
                 <div className='col align-self-end' id='nuts'>
                     
-                
+                {toggleScanner === 'first' && <DailyBar switchToScanner={() => setToggleScanner('second')}/>} 
+                    {toggleScanner === 'first' && <DailyBar switchToScanner={() => setToggleScanner('second')}/>} 
+                    {toggleScanner === 'first' && <DailyBar switchToScanner={() => setToggleScanner('second')}/>} 
+                    {toggleScanner === 'first' && <DailyBar switchToScanner={() => setToggleScanner('second')}/>} 
+                    {toggleScanner === 'first' && <DailyBar switchToScanner={() => setToggleScanner('second')}/>} 
+                    {toggleScanner === 'first' && <DailyBar switchToScanner={() => setToggleScanner('second')}/>} 
+                    {toggleScanner === 'first' && <DailyBar switchToScanner={() => setToggleScanner('second')}/>} 
+                    {toggleScanner === 'first' && <DailyBar switchToScanner={() => setToggleScanner('second')}/>} 
+                    {toggleScanner === 'first' && <DailyBar switchToScanner={() => setToggleScanner('second')}/>} 
+                    {toggleScanner === 'first' && <DailyBar switchToScanner={() => setToggleScanner('second')}/>}
 
                    
 
