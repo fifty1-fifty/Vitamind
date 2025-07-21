@@ -17,7 +17,7 @@ function Register()
   //
   //
 
-  async function doRegister(event : any)
+  async function doRegister()
   {
     var obj = { serverRegisterInput: clientRegisterInput, serverPasswordInput: clientPasswordInput, serverEmailInput: clientEmailInput};
     var js = JSON.stringify(obj);
