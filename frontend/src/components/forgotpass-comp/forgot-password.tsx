@@ -7,7 +7,7 @@ const ForgotPass = () =>
 {
   const [clientEmailInput, setClientEmailInput] = useState('');
   const [emailSentFlag, setEmailSentFlag] = useState('');
-  const [newPassword, setNewPassword] = useState('');
+  //const [newPassword, setNewPassword] = useState('');
 
 
 
@@ -16,10 +16,10 @@ const ForgotPass = () =>
     setClientEmailInput(e.target.value);
   }
 
-  function handleSetNewPassword(e : any) : void
+  /*function handleSetNewPassword(e : any) : void
   {
     setNewPassword(e.target.value);
-  }
+  }*/
 
   function gotoLogin()
   {
@@ -27,7 +27,7 @@ const ForgotPass = () =>
   }
 
  
-  async function doRequestPasswordReset(event : any): Promise<void>
+  async function doRequestPasswordReset(): Promise<void>
   {
     var js = JSON.stringify({ serverPasswordRequestEmail : clientEmailInput })
     try 

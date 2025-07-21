@@ -119,7 +119,7 @@ function Login()
                             <div className="form-group" >
                                 <h6 id="input-field-label">Password</h6>
                                 <input type="password" id="input-field" placeholder="password" onChange={handleSetClientPasswordInput} />
-                                <div style={{ 'min-height' : '17px' }}>  
+                                <div style={{ 'minHeight' : '17px' }}>  
                                   {loginErrorMessage && <button type="button" id="forgot-password-button" onClick={gotoForgotPassword}>Forgot Password?</button>}
                                 </div>
                             </div>
