@@ -1,9 +1,9 @@
 import {useState, useEffect} from 'react';
 
-type Props =
+/*type Props =
 {
   switchToScanner: () => void;
-}
+}*/
 
 
 
