@@ -117,20 +117,6 @@ button
 }
 
 
-.header-safe 
-{
-  padding-top: env(safe-area-inset-top);
-  background-color: blue;
-}
-
-.footer-safe 
-{
-  padding-bottom: env(safe-area-inset-bottom);
-  background-color: red;
-}
-
-
-
 
 
 

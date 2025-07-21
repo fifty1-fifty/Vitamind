@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 const RADIUS = 109;
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 
-const CircularProgress = ({ progress = 0, duration = 300,
+const CircularProgress = ({ progress = 0, duration = 1000,
 size = '212', strokeColor = '#44cf6c', bgStrokeColor = '#dedede',
 strokeWidth = 12, textColor = '#44cf6c', fontSize = 20, text="", xAxis= 0, yAxis = 125 
 }) => {
@@ -42,10 +42,7 @@ strokeWidth = 12, textColor = '#44cf6c', fontSize = 20, text="", xAxis= 0, yAxis
   }, [progress, duration]);
 
 
- const strokeDashoffset = Math.max(
-  0,
-  CIRCUMFERENCE - (displayedProgress / 100) * CIRCUMFERENCE
-);
+ const strokeDashoffset = Math.max(0, CIRCUMFERENCE - (displayedProgress / 100) * CIRCUMFERENCE);
   
   const horizontalShift = (strokeDashoffset != 0 ? 8 : -4); 
   /*const strokeDashoffset =
@@ -81,8 +78,8 @@ strokeWidth = 12, textColor = '#44cf6c', fontSize = 20, text="", xAxis= 0, yAxis
           transition: 'stroke-dashoffset 0.1s linear',
         }}
       />
-      <text className='progressText'
-        x={horizontalShift}
+      <text className='progressText' 
+        x={horizontalShift} 
         y="102"
         fill="#44cf6c"
         fontSize="52"
@@ -98,8 +95,8 @@ strokeWidth = 12, textColor = '#44cf6c', fontSize = 20, text="", xAxis= 0, yAxis
         fontSize={fontSize}
         fontWeight="bold"
         transform="rotate(90 73 124)"
-             >
-        {text}
+             > 
+        {text} 
       </text>
     </svg>
   );

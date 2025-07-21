@@ -1,51 +1,93 @@
-//import {useState} from 'react';
+import {useState, useEffect} from 'react';
+
+type Props =
+{
+  switchToScanner: () => void;
+}
 
 
 
+const BarProgress = ({ text='', condRoundLineColor='#44cf6c', progress=0, duration=500 }) => {
 
-const BarProgress = /*({ progress = 0, duration = 300,
-strokeColor = 'white', bgStrokeColor = 'gray',
-text=''})*/ () => {
+    const [displayedProgress, setDisplayedProgress] = useState(0);
+    
+    useEffect(() =>
+    {
+      let start = 0; 
+      const animate = (timestamp : number) => 
+      {
+        if (!start) start = timestamp;
+          const elapsed = (timestamp - start);
+        const percentage = Math.floor(Math.min(progress, (elapsed / duration) * progress));
+        setDisplayedProgress(percentage);
+        if (elapsed < duration) 
+        {
+          requestAnimationFrame(animate);
+        }
+        else 
+        {
+          setDisplayedProgress(progress); // Snap to final value
+        }
+      };
+      requestAnimationFrame(animate);
+    }, [progress, duration]);
 
- // const [displayedProgress, setDisplayedProgress] = useState(0);
+    const strokeDashOffset = Math.floor(((displayedProgress - 0) * (1158 - -950) / (100 - 0) + -950));
 
 
-
-
+ 
 
   return (
-    <svg
-        width='1000'
-        height='120'
+    <svg 
+        width='1050'
+        height='110'
         viewBox="-26.75 -26.75 267.5 267.5"
         xmlns="http://www.w3.org/2000/svg"
     >
-        <line
+        <line // Background Container Line
           x1='-950'
           y1= '105'
           x2='1158'
           y2='105'
-          stroke='white'
-          strokeWidth='30'
+          stroke='#dedede'
+          strokeWidth='28'
           strokeLinecap="round"
         />
-        <text className='progressText'
-          x="-500"
+        <line // Main Progress Fill Line
+          x1='-950' 
+          y1= '105'
+          x2={strokeDashOffset <= 1158 ? strokeDashOffset : 1158}
+          y2='105'
+          stroke='#44cf6c'
+          strokeWidth='30'
+          strokeLinecap="butt"
+        />
+        <line // Conditional Rounded Line Single Side
+          x1='-950'
+          y1= '105'
+          x2='-949'
+          y2='105'
+          stroke={condRoundLineColor}
+          strokeWidth='28'
+          strokeLinecap="round"
+        />
+        <text className='statText'
+          x="-930"
           y="85"
-          fill="white"
-          fontSize="52"
+          fill="#f1ffe7"
+          fontSize="45"
           fontWeight="bold"
          >
-        'big nuts'
+         {text}
       </text>
       <text className='progressText'
-        x="-50"
+        x="1090"
         y="85"
-        fill="white"
-        fontSize="15"
+        fill="#f1ffe7"
+        fontSize="45"
         fontWeight="bold"
        >
-        hello beans
+       {displayedProgress}% 
       </text>
 
 

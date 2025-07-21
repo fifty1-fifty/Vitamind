@@ -1,37 +1,110 @@
-.backity
-{
-    background: #f1ffe7;
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    z-index: -1;
-    pointer-events: none;
-}
-
-#feed-styling
-{
-
-  min-width: 640px;
-  min-height: 480px;
-  background-color; black;
-  border-radius: 10px;
-}
 
 .live-feed-container
 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: green;
+     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    aspect-ratio: 7 / 13;
+    max-height: 810px;
+    z-index: -1;
+    margin-top: 20px;
 }
 
 
 
-#test
+#feed-styling
 {
-  background: red;
-} 
+  /*min-width: 639px;
+  min-height: 799px;*/
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color; black;
+  border-radius: 9px;
+  border-width: 1px;
+  border-color: #a8fdac;
+  border-style: solid;
+  z-index= 0;
+}
+
+#image-barcode-overlay
+{
+  position: absolute;
+  z-index = 1;
+  pointer-events: none;
+}
+
+#return-button
+{
+    min-width: 250px;
+    max-width: 250px;
+    max-height: 65px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    padding: 0px;
+}
+
+#return-icon-style
+{
+    display: flex;
+    padding-bottom: 2px;
+    margin-right: -5px; 
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.material-icons
+{
+    font-size: 35px;
+}
+
+
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+   /*const handleToggleScanner = () =>
+  {
+    setToggleScanner('second');
+  }*/
+
+    
+    loadDailyStats();
+    return (  
+        <div className='container-fluid' id='top-of-page'>
+                  
+
+
+            <div className="row justify-content-center align-items-start" id="search-bar-barcode">
+                <div className="col-auto text-center">
+                    {toggleScanner === "first" && <Lookup switchToScanner={() => setToggleScanner('second')} />}
+                    {toggleScanner === "second" && <Barcode switchOffScanner={() => setToggleScanner('first')} />}
+                </div>
+            </div>
+
+       
+            <div className='row align-items-center justify-content-center' id='main-progress-rings-area'>
+
+                <div className='col align-self-center' id='calorie-ring-area' style={borderStyle}>
+                  {toggleScanner === 'first' && <DailyStats
+                    progress={90}
+                    size={'512'}
+                    text={'Calories'}
+                    fontSize={35}

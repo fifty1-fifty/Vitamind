@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { BrowserMultiFormatReader } from "@zxing/browser";
+import './barcode.css';
+import Overlay from './barcode-overlay.svg';
 
 type Props = {
   switchOffScanner: () => void;
@@ -35,12 +37,20 @@ const BarcodeScanner: React.FC<Props> = ({ switchOffScanner }) => {
     }
   }, [result, switchOffScanner]);
 
+
   return (
-    <div className="row" id="test">
+ 
+    <div className="row">
       <div className="live-feed-container">
+        <img src={Overlay} id='image-barcode-overlay'/>
         <video id="feed-styling" ref={videoRef} />
-        <button onClick={switchOffScanner}>Return</button>
       </div>
+      <button onClick={switchOffScanner} id='return-button'>
+        
+        <i id='return-icon-style' className="material-icons">turn_left</i>Return      
+      </button>
+
+      
     </div>
   );
 };
