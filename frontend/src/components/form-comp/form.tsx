@@ -6,18 +6,18 @@ const DynamicFormComponent = ({ title='',
 					   subTitle='', 
 					   numInputs = 2, 
 					   primaryButtonTitle='', 
-					   primaryButtonFunction? : () => void;
+					   primaryButtonFunction = () => {},
 					   secondaryButtonTitle='',
 					   secondaryButtonLabel='',
-					   secondaryButtonFunction? : () => void;
+					   secondaryButtonFunction = () => {},
 					   forgotPasswordButton=true,
-					   forgotPasswordButtonFunction? : () => void;
+					   forgotPasswordButtonFunction = () => {},
 					   errorMessage='',
-					   userInputs='',
+					   userInputs=[''],
 					   includeLoginInputField=false,
 					   includePasswordInputField=true
 					   
-}); => {
+}) => {
 	
 	const inputConfigs = [
 	  { label: 'Email', placeholder: 'email', include: true},
