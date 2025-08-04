@@ -17,7 +17,7 @@ const DynamicFormComponent = ({ title='',
 					   includeLoginInputField=false,
 					   includePasswordInputField=true
 					   
-}) => {
+}); => {
 	
 	const inputConfigs = [
 	  { label: 'Email', placeholder: 'email', include: true},

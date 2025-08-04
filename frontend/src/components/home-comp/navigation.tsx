@@ -8,7 +8,7 @@ let NavigationBar = ({
 date='',
 incrementDateOffset? : () => void;
 decrementDateOffset? : () => void;
-}) => {
+}); => {
 
 
 
