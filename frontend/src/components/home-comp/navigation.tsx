@@ -6,8 +6,8 @@ import './home.css';
 
 let NavigationBar = ({ 
 date='',
-incrementDateOffset=(),
-decrementDateOffset=()
+incrementDateOffset : () => void,
+decrementDateOffset : () => void
 }) => {
 
 

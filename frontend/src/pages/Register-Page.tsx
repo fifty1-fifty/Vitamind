@@ -79,7 +79,7 @@ const TestPage = () =>
 						  subTitle='Idk bullshit subtitle input'
 						  primaryButtonTitle='Get Started'
 						  primaryButtonFunction={doRegister}
-						  forgotPasswordButtonFunction={() => console.log('i hate my life'}
+						  forgotPasswordButtonFunction={loginErrorMessage}
 						  secondaryButtonTitle=""
 						  secondaryButtonLabel='Return to SignIn'
 						  secondaryButtonFunction={gotoLogin}
