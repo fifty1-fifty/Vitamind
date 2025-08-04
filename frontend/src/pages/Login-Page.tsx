@@ -10,8 +10,8 @@ const TestPage = () =>
    const [loginErrorMessage, setLoginErrorMessage] = useState('');
    
    
-   const [inputsData, setInputsData] = React.useState({});
-   const handleInputChange = (key, value) => {
+   const [inputsData, setInputsData] = React.useState({Email, Password});
+   const handleInputChange = (key : string, value : string) => {
     setInputsData(prev => ({
       ...prev,
       [key]: value,

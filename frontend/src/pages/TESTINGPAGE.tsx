@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+/*import React, {useState} from "react";
 import { buildPath } from '../../../utils.ts';
 import '../components/form-comp/form.css';
 //import Test from '../components/test-components/test';
@@ -84,7 +84,7 @@ const TestPage = () =>
 		
 );
 };
-export default TestPage;
+export default TestPage;*/
 
 
 

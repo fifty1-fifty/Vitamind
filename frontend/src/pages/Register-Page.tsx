@@ -7,11 +7,11 @@ import Form from '../components/form-comp/form';
 const TestPage = () => 
 {
 
-   const [loginErrorMessage, setLoginErrorMessage] = useState('');
+   //const [loginErrorMessage, setLoginErrorMessage] = useState('');
    
    
-   const [inputsData, setInputsData] = React.useState({});
-   const handleInputChange = (key, value) => {
+   const [inputsData, setInputsData] = React.useState({Username, PasswordInput, Password, Email});
+   const handleInputChange = (key : string, value : string) => {
     setInputsData(prev => ({
       ...prev,
       [key]: value,
@@ -24,9 +24,9 @@ const TestPage = () =>
 	
 	
 	
-  async function doRegister(event : any)
+  async function doRegister()
   {
-    var obj = { serverRegisterInput: inputsData.Useername, serverPasswordInput: inputsData.Password, serverEmailInput: inputsData.Email};
+    var obj = { serverRegisterInput: inputsData.Username, serverPasswordInput: inputsData.Password, serverEmailInput: inputsData.Email};
     var js = JSON.stringify(obj);
 	console.log(obj);
 
@@ -79,6 +79,7 @@ const TestPage = () =>
 						  subTitle='Idk bullshit subtitle input'
 						  primaryButtonTitle='Get Started'
 						  primaryButtonFunction={doRegister}
+						  forgotPasswordButtonFunction={() => console.log('i hate my life'}
 						  secondaryButtonTitle=""
 						  secondaryButtonLabel='Return to SignIn'
 						  secondaryButtonFunction={gotoLogin}

@@ -122,7 +122,7 @@ const HomePage = () =>
   {
 
     const scannerFlag = localStorage.getItem('openScannerOnRedirect');
-    if(scannerFlag)
+    if(scannerFlag == 'true')
     {
       setToggleScanner('second');
       localStorage.removeItem('openScannerOnRedirect');
@@ -326,7 +326,7 @@ const HomePage = () =>
                     {toggleScanner === 'first' && <DailyBar text={'Iron'}progressPercent={currentDayProductPercent.iron} progressValue={currentDayProductValue.iron}/>}
                     {toggleScanner === 'first' && <DailyBar text={'Vitamin A'}progressPercent={currentDayProductPercent.vitaminA} progressValue={currentDayProductValue.vitaminA}/>}
                     {toggleScanner === 'first' && <DailyBar text={'Vitamin D'}progressPercent={currentDayProductPercent.vitaminD} progressValue={currentDayProductValue.vitaminD}/>}
-                    {toggleScanner === 'first' && <DailyBar text={'Iodine'}progressPercent={currentDayProductPercent.iodine} progressValue={currentDayProductValue.Iodine}/>}
+                    {toggleScanner === 'first' && <DailyBar text={'Iodine'}progressPercent={currentDayProductPercent.iodine} progressValue={currentDayProductValue.iodine}/>}
                     {toggleScanner === 'first' && <DailyBar text={'Folate'}progressPercent={currentDayProductPercent.folate} progressValue={currentDayProductValue.folate}/>}
                     {toggleScanner === 'first' && <DailyBar text={'Zinc'}progressPercent={currentDayProductPercent.zinc} progressValue={currentDayProductValue.zinc}/>}
                 </div>  

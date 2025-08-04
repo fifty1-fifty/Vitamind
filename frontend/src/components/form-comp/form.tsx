@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+//import React, { useState } from 'react';
 import Background from '../../components/background-comp/Background.tsx';
 import './form.css';
 
@@ -6,14 +6,14 @@ const DynamicFormComponent = ({ title='',
 					   subTitle='', 
 					   numInputs = 2, 
 					   primaryButtonTitle='', 
-					   primaryButtonFunction,
+					   primaryButtonFunction=(),
 					   secondaryButtonTitle='',
 					   secondaryButtonLabel='',
-					   secondaryButtonFunction,
+					   secondaryButtonFunction=(),
 					   forgotPasswordButton=true,
-					   forgotPasswordButtonFunction,
-					   errorMessage,
-					   userInputs,
+					   forgotPasswordButtonFunction=(),
+					   errorMessage='',
+					   userInputs='',
 					   includeLoginInputField=false,
 					   includePasswordInputField=true
 					   

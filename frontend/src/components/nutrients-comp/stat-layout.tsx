@@ -73,7 +73,7 @@ const ProductStats = () =>
 
   // this is bad, and ia hate it, but it works
   const [userServingCount, setUserServingCount] = useState(1);
-  const [servingCountInput, setServingCountInput] = useState('');
+  const [servingCountInput, setServingCountInput] = useState(1);
   const [servingCountChangeFlag, setServingCountChangeFlag] = useState(false);
   
 
@@ -145,14 +145,14 @@ const ProductStats = () =>
     //console.log('im a  gat faggot fig')
     //console.log('test test test' + initialProductData.protein);
 
-
+	let userSetOperate = parseInt(operate)
 
     if(operate == 'increase' && newCount < 99)
       newCount = newCount + 1;  
     else if(operate == 'decrease' && newCount > 1)
       newCount = newCount - 1;
-    else if(100 > parseInt(operate) > 0)
-      newCount = parseInt(operate);
+    else if(userSetOperate > 0 && userSetOperate < 100)
+      newCount = userSetOperate;
     
 
     setUserServingCount(newCount);
@@ -211,7 +211,8 @@ const ProductStats = () =>
     setFinalProductData(prev =>   ({...prev, zinc : (parseFloat(zincSplit[0]) * newCount).toFixed(1) + ' ' + zincSplit[1]}));
 
     setFinalProductData(prev => ({...prev, servingSize : initialProductData.servingSize}));
-    setFinalProductData(prev => ({...prev, calories : initialProductData.calories * newCount}));
+    setFinalProductData(prev => ({...prev, calories: (parseFloat(initialProductData.calories) * newCount).toFixed(1) + ''}));
+
     //console.log('why does this not work fucker helo');
     //console.log('hahaha' + finalProductData.protein)
     //console.log(userServingCount);
@@ -239,7 +240,7 @@ const ProductStats = () =>
     {
       const response = await fetch(buildPath('/api/pushNewItem'),
         {method: 'POST', body: js, headers: {'Content-Type' : 'application/json'}, credentials: 'include'});
-      var res = JSON.parse(await response.text());
+      //var res = JSON.parse(await response.text());
     }
     catch(error : any)
     {

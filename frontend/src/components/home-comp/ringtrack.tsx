@@ -4,7 +4,7 @@ const RADIUS = 109;
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 
 const CircularProgress = ({ 
-progressPercent = 0,
+progressPercent = '',
 progressValue = '0g',
 duration = 1000,
 size = '212', 
@@ -33,7 +33,7 @@ yAxis = 125
     {
       if (!start) start = timestamp;
         const elapsed = (timestamp - start);
-      const percentage = Math.min(progressPercent, (elapsed / duration) * progressPercent);
+      const percentage = Math.min(progressPercent, (elapsed / duration) * parseFloat(progressPercent));
       setDisplayedProgress(percentage);
       if (elapsed < duration) 
       {
@@ -41,7 +41,7 @@ yAxis = 125
       }
       else 
       {
-        setDisplayedProgress(progressPercent); // Snap to final value
+        setDisplayedProgress(parseFloat(progressPercent)); // Snap to final value
       }
     };
     requestAnimationFrame(animate);

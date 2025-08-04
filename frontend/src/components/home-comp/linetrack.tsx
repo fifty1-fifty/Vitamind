@@ -53,13 +53,13 @@ duration=500
      function handleMouseEnter()
      {
        //textColor = '#93fab1';
-       setDisplayedHoverColor(textColor);
+       //setDisplayedHoverColor(textColor);
      }
 
      function handleMouseLeave()
      {
        //textColor = '#44cf6c';
-       setDisplayedHoverColor(textColor);
+       //setDisplayedHoverColor(textColor);
      }
 
 

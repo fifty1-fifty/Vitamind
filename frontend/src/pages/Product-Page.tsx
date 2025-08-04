@@ -19,7 +19,7 @@ const ProductPage = () =>
 
    function gotoScanner()
    {
-     localStorage.setItem('openScannerOnRedirect', true);
+     localStorage.setItem('openScannerOnRedirect', 'true');
      window.location.href = '/home';
    }
 
