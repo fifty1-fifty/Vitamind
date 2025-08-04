@@ -20,7 +20,7 @@ const ForgotPass = () =>
   {
     setNewPassword(e.target.value);
   }*/
-
+ 
   function gotoLogin()
   {
     window.location.href = '/login';
@@ -48,11 +48,6 @@ const ForgotPass = () =>
     {
       console.log(error);
     }
-
-
-
-
-    
   }
 
 
@@ -108,7 +103,7 @@ const ForgotPass = () =>
 
 
 
-<div className='col-sm-7' id="login-pic-background">
+				<div className='col-sm-7' id="login-pic-background">
                    
                 </div>
 

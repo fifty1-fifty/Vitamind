@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Route, Navigate, Routes } from 'react-router-dom';
-import LoginPage from './pages/LoginPage';
-import RegisterPage from './pages/RegisterPage';
-import HomePage from './pages/HomePage';
-import ProductPage from './pages/ProductPage';
-import TestPage from './pages/TestPage';
-import ForgotPassPage from './pages/ForgotPassPage';
+import Loginpage from './pages/Login-Page';
+import Registerpage from './pages/Register-Page';
+import Homepage from './pages/Home-Page';
+import Productpage from './pages/Product-Page';
+import Testpage from './pages/TESTINGPAGE';
+import Passwordpage from './pages/Password-Page';
 import './App.css';
 
 function App() : any {
@@ -13,16 +13,16 @@ function App() : any {
         <Routes>
 
 
-        <Route path="/login" element={<LoginPage />} />
-		<Route path="/register" element={<RegisterPage />} />
-		<Route path="/forgotpassword" element={<ForgotPassPage />} />
+        <Route path="/login" element={<Loginpage />} />
+		<Route path="/register" element={<Registerpage />} />
+		<Route path="/forgotpassword" element={<Passwordpage />} />
         <Route path="/" element={<Navigate to="/login" />} /> 
         <Route path="*" element={<Navigate to="/login" />} /> 
-		<Route path='/test' element={<TestPage />} />
+		<Route path='/test' element={<Testpage />} />
 
-        <Route path="/home" element={<HomePage />} />
+        <Route path="/home" element={<Homepage />} />
 		
-	<Route path="product" element={<ProductPage />} />
+	<Route path="product" element={<Productpage />} />
 
 
 
