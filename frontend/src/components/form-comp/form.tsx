@@ -6,12 +6,12 @@ const DynamicFormComponent = ({ title='',
 					   subTitle='', 
 					   numInputs = 2, 
 					   primaryButtonTitle='', 
-					   primaryButtonFunction : () => void,
+					   primaryButtonFunction? : () => void;
 					   secondaryButtonTitle='',
 					   secondaryButtonLabel='',
-					   secondaryButtonFunction : () => void,
+					   secondaryButtonFunction? : () => void;
 					   forgotPasswordButton=true,
-					   forgotPasswordButtonFunction : () => void,
+					   forgotPasswordButtonFunction? : () => void;
 					   errorMessage='',
 					   userInputs='',
 					   includeLoginInputField=false,
