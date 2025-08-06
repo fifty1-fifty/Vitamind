@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import {useState} from "react";
 import { buildPath } from '../../../utils.ts';
 import '../components/form-comp/form.css';
 //import Test from '../components/test-components/test';
@@ -10,14 +10,21 @@ const TestPage = () =>
    const [loginErrorMessage, setLoginErrorMessage] = useState('');
    
    
-   const [inputsData, setInputsData] = React.useState({Email, Password});
-   const handleInputChange = (key : string, value : string) => {
+   const [inputsData, setInputsData] = useState<{ [key : string]: string }>({});
+   const handleInputChange = (key : string, value : string) => 
+    {
+      //console.log(key);
+      //console.log(value);
+
     setInputsData(prev => ({
       ...prev,
       [key]: value,
     }));
   };
-   
+
+
+
+  
    
    
     async function autoTokenLogin()
@@ -47,9 +54,9 @@ const TestPage = () =>
 	
 	
 	
-	async function doLogin(event: any): Promise<void> 
+	async function doLogin()
     {
-        event.preventDefault();
+       // event.preventDefault();
         var obj = { serverLoginInput: inputsData.Email, serverPasswordInput: inputsData.Password };
         var js = JSON.stringify(obj);
 		console.log(obj);
@@ -99,9 +106,13 @@ const TestPage = () =>
 						  secondaryButtonTitle="Don't have an account?"
 						  secondaryButtonLabel='Signup Today'
 						  secondaryButtonFunction={gotoRegister}
+              forgotPasswordButton={true}
 						  forgotPasswordButtonFunction={gotoForgotPassword}
 						  errorMessage={loginErrorMessage}
-						  userInputs={handleInputChange}
+						  userInputs={inputsData}
+              handleInputChange={handleInputChange}
+              includeLoginInputField={false}
+	            includePasswordInputField={true}
 							
 							
 							/>

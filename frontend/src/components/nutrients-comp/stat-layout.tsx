@@ -134,7 +134,7 @@ const ProductStats = () =>
   function handleSetUserServingCount(operate : string)
   {
     let newCount = userServingCount;
-    setServingCountInput('');
+    setServingCountInput(1);
     /* console.log(initialProductData.totalFats);
     console.log(finalProductData.totalFats); */
     //console.log(operate);
@@ -241,6 +241,7 @@ const ProductStats = () =>
       const response = await fetch(buildPath('/api/pushNewItem'),
         {method: 'POST', body: js, headers: {'Content-Type' : 'application/json'}, credentials: 'include'});
       //var res = JSON.parse(await response.text());
+	  console.log(response);
     }
     catch(error : any)
     {

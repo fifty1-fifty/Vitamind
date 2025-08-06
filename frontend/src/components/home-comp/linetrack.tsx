@@ -3,13 +3,13 @@ import {useState, useEffect} from 'react';
 const BarProgress = ({ 
 text='',
 condRoundLineColor='#44cf6c',
-progressPercent = 0,
-progressValue = 0,
+progressPercent = '',
+progressValue = '',
 duration=500
 }) => {
 
     const [displayedProgress, setDisplayedProgress] = useState(0);
-    const [displayedHoverColor, setDisplayedHoverColor] = useState('boobsd');
+    //const [displayedHoverColor, setDisplayedHoverColor] = useState('boobsd');
     const [toggleBetweenPercentValue, setToggleBetweenPercentValue] = useState(true);
 
     
@@ -20,7 +20,7 @@ duration=500
       {
         if (!start) start = timestamp;
           const elapsed = (timestamp - start);
-        const percentage = Math.floor(Math.min(progressPercent, (elapsed / duration) * progressPercent));
+        const percentage = Math.floor(Math.min(parseFloat(progressPercent), (elapsed / duration) * parseFloat(progressPercent)));
         setDisplayedProgress(percentage);
         if (elapsed < duration) 
         {
@@ -28,7 +28,7 @@ duration=500
         }
         else 
         {
-          setDisplayedProgress(progressPercent); // Snap to final value
+          setDisplayedProgress(parseFloat(progressPercent)); // Snap to final value
         }
       };
       requestAnimationFrame(animate);
@@ -118,13 +118,13 @@ duration=500
         onClick={handleSwitch}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        style={{
-          cursor: displayedHoverColor == '#93fab1' ? 'pointer' : 'default', 
-        }}
+        /*style={{
+          : displayedHoverColor == '#93fab1' ? 'pointer' : 'default', 
+        }}*/
 
         
        >
-       {toggleBetweenPercentValue ? `${Math.round(progressPercent)}%` : progressValue}
+       {toggleBetweenPercentValue ? `${Math.round(parseFloat(progressPercent))}%` : progressValue}
       </text>
 
 

@@ -174,26 +174,26 @@ const HomePage = () =>
     setCurrentDayProductValue(prev => ({ ...prev, iodine: res != null ? res.dailyIodine : 0 }));
     setCurrentDayProductValue(prev => ({ ...prev, folate: res != null ? res.dailyFolate : 0 }));
     setCurrentDayProductValue(prev => ({ ...prev, zinc: res != null ? res.dailyZinc : 0 }));
+    
     // Set percentages (check for existence, then parse & compute, else 0)
-   
-    setCurrentDayProductPercent(prev => ({ ...prev, calories: res != null ? (100 * parseFloat(res.dailyCalories) / 2500) : 0 }));
-    setCurrentDayProductPercent(prev => ({ ...prev, protein: res != null ? (100 * parseFloat(res.dailyProtein) / 55) : 0 }));
-    setCurrentDayProductPercent(prev => ({ ...prev, carbohydrates: res != null ? (100 * parseFloat(res.dailyCarbohydrates) / 333) : 0 }));
-    setCurrentDayProductPercent(prev => ({ ...prev, cholesterol: res != null ? (100 * parseFloat(res.dailyCholesterol) / 0.3) : 0 }));
-    setCurrentDayProductPercent(prev => ({ ...prev, saturatedFats: res != null ? (100 * parseFloat(res.dailySaturatedFats) / 31) : 0 }));
-    setCurrentDayProductPercent(prev => ({ ...prev, totalFats: res != null ? (100 * parseFloat(res.dailyTotalFats) / 97) : 0 }));
-    setCurrentDayProductPercent(prev => ({ ...prev, sodium: res != null ? (100 * parseFloat(res.dailySodium) / 2.3) : 0 }));
-    setCurrentDayProductPercent(prev => ({ ...prev, fiber: res != null ? (100 * parseFloat(res.dailyFiber) / 35) : 0 }));
-    setCurrentDayProductPercent(prev => ({ ...prev, sugar: res != null ? (100 * parseFloat(res.dailySugar) / 33) : 0 }));
-    setCurrentDayProductPercent(prev => ({ ...prev, potassium: res != null ? (100 * parseFloat(res.dailyPotassium) / 3.4) : 0 }));
-    setCurrentDayProductPercent(prev => ({ ...prev, calcium: res != null ? (100 * parseFloat(res.dailyCalcium) / 1) : 0 }));
-    setCurrentDayProductPercent(prev => ({ ...prev, magnesium: res != null ? (100 * parseFloat(res.dailyMagnesium) / 0.3) : 0 }));
-    setCurrentDayProductPercent(prev => ({ ...prev, iron: res != null ? (100 * parseFloat(res.dailyIron) / 0.008) : 0 }));
-    setCurrentDayProductPercent(prev => ({ ...prev, vitaminA: res != null ? (100 * parseFloat(res.dailyVitaminA) / 0.8) : 0 }));
-    setCurrentDayProductPercent(prev => ({ ...prev, vitaminD: res != null ? (100 * parseFloat(res.dailyVitaminD) / 0.01) : 0 }));
-    setCurrentDayProductPercent(prev => ({ ...prev, iodine: res != null ? (100 * parseFloat(res.dailyIodine) / 0.15) : 0 }));
-    setCurrentDayProductPercent(prev => ({ ...prev, folate: res != null ? (100 * parseFloat(res.dailyFolate) / 0.4) : 0 }));
-    setCurrentDayProductPercent(prev => ({ ...prev, zinc: res != null ? (100 * parseFloat(res.dailyZinc) / 0.014) : 0 }));
+    setCurrentDayProductPercent(prev => ({ ...prev, calories: res != null ? (100 * parseFloat(res.dailyCalories) / 2500).toString() : '0' }));
+    setCurrentDayProductPercent(prev => ({ ...prev, protein: res != null ? (100 * parseFloat(res.dailyProtein) / 55).toString() : '0' }));
+    setCurrentDayProductPercent(prev => ({ ...prev, carbohydrates: res != null ? (100 * parseFloat(res.dailyCarbohydrates) / 333).toString() : '0' }));
+    setCurrentDayProductPercent(prev => ({ ...prev, cholesterol: res != null ? (100 * parseFloat(res.dailyCholesterol) / 0.3).toString() : '0' }));
+    setCurrentDayProductPercent(prev => ({ ...prev, saturatedFats: res != null ? (100 * parseFloat(res.dailySaturatedFats) / 31).toString() : '0' }));
+    setCurrentDayProductPercent(prev => ({ ...prev, totalFats: res != null ? (100 * parseFloat(res.dailyTotalFats) / 97).toString() : '0' }));
+    setCurrentDayProductPercent(prev => ({ ...prev, sodium: res != null ? (100 * parseFloat(res.dailySodium) / 2.3).toString() : '0' }));
+    setCurrentDayProductPercent(prev => ({ ...prev, fiber: res != null ? (100 * parseFloat(res.dailyFiber) / 35).toString() : '0' }));
+    setCurrentDayProductPercent(prev => ({ ...prev, sugar: res != null ? (100 * parseFloat(res.dailySugar) / 33).toString() : '0' }));
+    setCurrentDayProductPercent(prev => ({ ...prev, potassium: res != null ? (100 * parseFloat(res.dailyPotassium) / 3.4).toString() : '0' }));
+    setCurrentDayProductPercent(prev => ({ ...prev, calcium: res != null ? (100 * parseFloat(res.dailyCalcium) / 1).toString() : '0' }));
+    setCurrentDayProductPercent(prev => ({ ...prev, magnesium: res != null ? (100 * parseFloat(res.dailyMagnesium) / 0.3).toString() : '0' }));
+    setCurrentDayProductPercent(prev => ({ ...prev, iron: res != null ? (100 * parseFloat(res.dailyIron) / 0.008).toString() : '0' }));
+    setCurrentDayProductPercent(prev => ({ ...prev, vitaminA: res != null ? (100 * parseFloat(res.dailyVitaminA) / 0.8).toString() : '0' }));
+    setCurrentDayProductPercent(prev => ({ ...prev, vitaminD: res != null ? (100 * parseFloat(res.dailyVitaminD) / 0.01).toString() : '0' }));
+    setCurrentDayProductPercent(prev => ({ ...prev, iodine: res != null ? (100 * parseFloat(res.dailyIodine) / 0.15).toString() : '0' }));
+    setCurrentDayProductPercent(prev => ({ ...prev, folate: res != null ? (100 * parseFloat(res.dailyFolate) / 0.4).toString() : '0' }));
+    setCurrentDayProductPercent(prev => ({ ...prev, zinc: res != null ? (100 * parseFloat(res.dailyZinc) / 0.014).toString() : '0' }));
   }
 
 

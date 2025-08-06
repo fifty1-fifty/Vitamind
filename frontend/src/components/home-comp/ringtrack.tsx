@@ -8,7 +8,6 @@ progressPercent = '',
 progressValue = '0g',
 duration = 1000,
 size = '212', 
-strokeColor = '#44cf6c', 
 bgStrokeColor = '#dedede',
 strokeWidth = 12, 
 textColor = '#44cf6c', 
@@ -33,7 +32,7 @@ yAxis = 125
     {
       if (!start) start = timestamp;
         const elapsed = (timestamp - start);
-      const percentage = Math.min(progressPercent, (elapsed / duration) * parseFloat(progressPercent));
+      const percentage = Math.min(parseFloat(progressPercent), (elapsed / duration) * parseFloat(progressPercent));
       setDisplayedProgress(percentage);
       if (elapsed < duration) 
       {
@@ -56,11 +55,11 @@ yAxis = 125
    {
      if(toggleBetweenPercentValue) // Percent being shown
      {
-       if(progressPercent < 10)
+       if(parseFloat(progressPercent) < 10)
          setHorizontalShift(18);
-       else if (10 <= progressPercent && progressPercent < 100)
+       else if (10 <= parseFloat(progressPercent) && parseFloat(progressPercent) < 100)
          setHorizontalShift(6);
-       else if (progressPercent >= 100)
+       else if (parseFloat(progressPercent) >= 100)
          setHorizontalShift(-8);
          
        console.log('ilkikrbeansd');

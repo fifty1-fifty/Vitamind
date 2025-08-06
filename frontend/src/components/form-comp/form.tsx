@@ -1,21 +1,44 @@
 //import React, { useState } from 'react';
+//import { on } from 'events';
 import Background from '../../components/background-comp/Background.tsx';
 import './form.css';
 
-const DynamicFormComponent = ({ title='', 
-					   subTitle='', 
-					   numInputs = 2, 
-					   primaryButtonTitle='', 
-					   primaryButtonFunction = () => {},
-					   secondaryButtonTitle='',
-					   secondaryButtonLabel='',
-					   secondaryButtonFunction = () => {},
-					   forgotPasswordButton=true,
-					   forgotPasswordButtonFunction = () => {},
-					   errorMessage='',
-					   userInputs=[''],
-					   includeLoginInputField=false,
-					   includePasswordInputField=true
+
+type formProps = {
+	title : string;
+	subTitle : string;
+	numInputs : number;
+	primaryButtonTitle : string;
+	primaryButtonFunction : () => void;
+	secondaryButtonFunction : () => void;
+	secondaryButtonTitle : string;
+	secondaryButtonLabel : string;
+	forgotPasswordButton : boolean;
+	forgotPasswordButtonFunction : () => void;
+	errorMessage : string;
+	includeLoginInputField : boolean;
+	includePasswordInputField : boolean;
+	userInputs: { [key: string]: string };
+  	handleInputChange: (field: string, value: string) => void;
+}
+
+const DynamicFormComponent: React.FC<formProps> = ({ title, 
+					   subTitle, 
+					   numInputs, 
+					   primaryButtonTitle, 
+					   primaryButtonFunction,
+					   secondaryButtonTitle,
+					   secondaryButtonLabel,
+					   secondaryButtonFunction,
+					   forgotPasswordButton,
+					   forgotPasswordButtonFunction,
+					   errorMessage,
+					   userInputs,
+					   handleInputChange,
+					   includeLoginInputField,
+					   includePasswordInputField
+
+					   
 					   
 }) => {
 	
@@ -25,6 +48,12 @@ const DynamicFormComponent = ({ title='',
 	  { label: 'Password', placeholder: 'password', include: includePasswordInputField},
 	];
 	
+
+	function handleSetUserInputs(label : string ,e : any)
+	{
+		handleInputChange?.(label, e.target.value);
+		console.log(userInputs);
+	}
     
 	
 
@@ -44,7 +73,7 @@ const DynamicFormComponent = ({ title='',
 									  <input
 										type={config.label == 'Password' ? 'password' : 'text'}
 										id={`input-field`}
-										onChange={(e) => userInputs(config.label, e.target.value)}
+										onChange={(e) => handleSetUserInputs(config.label, e)}
 										placeholder={config.placeholder}
 									  />
 									</div>

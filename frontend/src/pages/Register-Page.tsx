@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import {useState} from "react";
 import { buildPath } from '../../../utils.ts';
 import '../components/form-comp/form.css';
 //import Test from '../components/test-components/test';
@@ -9,8 +9,8 @@ const TestPage = () =>
 
    //const [loginErrorMessage, setLoginErrorMessage] = useState('');
    
-   
-   const [inputsData, setInputsData] = React.useState({Username, PasswordInput, Password, Email});
+   const [registerErrorMessage, setRegisterErrorMessage] = useState('');
+   const [inputsData, setInputsData] = useState<{ [key : string]: string }>({});
    const handleInputChange = (key : string, value : string) => {
     setInputsData(prev => ({
       ...prev,
@@ -21,7 +21,6 @@ const TestPage = () =>
    
    
   
-	
 	
 	
   async function doRegister()
@@ -42,7 +41,7 @@ const TestPage = () =>
       }
         
       else
-        console.log('failed to register');
+        setRegisterErrorMessage('something wrong lol l xD');
           
     } 
     catch (error) 
@@ -57,7 +56,10 @@ const TestPage = () =>
   } 
 	
 	
-	
+	function dummyFunction()
+  {
+    console.log('kill youselfg');
+  }
 	
 	
 	
@@ -79,13 +81,16 @@ const TestPage = () =>
 						  subTitle='Idk bullshit subtitle input'
 						  primaryButtonTitle='Get Started'
 						  primaryButtonFunction={doRegister}
-						  forgotPasswordButtonFunction={loginErrorMessage}
+              forgotPasswordButton={false}
+						  forgotPasswordButtonFunction={dummyFunction}
 						  secondaryButtonTitle=""
 						  secondaryButtonLabel='Return to SignIn'
 						  secondaryButtonFunction={gotoLogin}
-						  errorMessage={loginErrorMessage}
-						  userInputs={handleInputChange}
+						  errorMessage={registerErrorMessage}
+						  userInputs={inputsData}
+              handleInputChange={handleInputChange}
 						  includeLoginInputField={true}
+              includePasswordInputField={true}
 							
 							/>
 				</div>

@@ -3,7 +3,7 @@ import Loginpage from './pages/Login-Page';
 import Registerpage from './pages/Register-Page';
 import Homepage from './pages/Home-Page';
 import Productpage from './pages/Product-Page';
-import Testpage from './pages/TESTINGPAGE';
+//import Testpage from './pages/TESTINGPAGE';
 import Passwordpage from './pages/Password-Page';
 import './App.css';
 
@@ -18,7 +18,7 @@ function App() : any {
 		<Route path="/forgotpassword" element={<Passwordpage />} />
         <Route path="/" element={<Navigate to="/login" />} /> 
         <Route path="*" element={<Navigate to="/login" />} /> 
-		<Route path='/test' element={<Testpage />} />
+		
 
         <Route path="/home" element={<Homepage />} />
 		
@@ -42,3 +42,4 @@ function App() : any {
 }
 
 export default App
+// <Route path='/test' element={<Testpage />} />
