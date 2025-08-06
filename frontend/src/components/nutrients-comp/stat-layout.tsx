@@ -305,7 +305,7 @@ const ProductStats = () =>
                   <div id='serving-chooser-area'>
                       <button id='decrease-serving-chooser-button'><i className='material-icons' id='serving-chooser-icon' onClick={() => handleSetUserServingCount('decrease')}>arrow_drop_down</i></button>
                       <span id='serving-counter'>Serving(s): 
-                          <input id='servings-input' type='number' value={servingCountInput} placeholder={userServingCount} onBlur={e => handleSetUserServingCount(e.target.value)} onChange={e => setServingCountInput(e.target.value)}></input>
+                          <input id='servings-input' type='number' value={servingCountInput} placeholder={userServingCount.toString()} onBlur={e => handleSetUserServingCount(e.target.value)} onChange={e => setServingCountInput(parseInt(e.target.value))}></input>
                           <span>{initialProductData.servingSize}</span>
                       </span>
                       <button id='increase-serving-chooser-button'><i className='material-icons' id='serving-chooser-icon' onClick={() => handleSetUserServingCount('increase')}>arrow_drop_up</i></button>
@@ -314,7 +314,7 @@ const ProductStats = () =>
                   <div id='nutrition-info'>
                       <div id='individual-stat-container'>
                           <span>Calories</span>
-                          <span>{(initialProductData.calories * userServingCount).toFixed(1)}</span>
+                          <span>{(parseInt(initialProductData.calories) * userServingCount).toFixed(1)}</span>
                       </div>
                       
                       <div id='individual-stat-container'>
