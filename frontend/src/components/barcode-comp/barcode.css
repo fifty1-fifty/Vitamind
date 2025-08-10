@@ -27,13 +27,13 @@
   border-width: 1px;
   border-color: #a8fdac;
   border-style: solid;
-  z-index= 0;
+  z-index: 0;
 }
 
 #image-barcode-overlay
 {
   position: absolute;
-  z-index = 1;
+  z-index: 1;
   pointer-events: none;
 }
 
@@ -67,45 +67,4 @@
 }
 
 
-
-
-
-  }
-
-
-
-
-
-
-
-
-
-   /*const handleToggleScanner = () =>
-  {
-    setToggleScanner('second');
-  }*/
-
-    
-    loadDailyStats();
-    return (  
-        <div className='container-fluid' id='top-of-page'>
-                  
-
-
-            <div className="row justify-content-center align-items-start" id="search-bar-barcode">
-                <div className="col-auto text-center">
-                    {toggleScanner === "first" && <Lookup switchToScanner={() => setToggleScanner('second')} />}
-                    {toggleScanner === "second" && <Barcode switchOffScanner={() => setToggleScanner('first')} />}
-                </div>
-            </div>
-
-       
-            <div className='row align-items-center justify-content-center' id='main-progress-rings-area'>
-
-                <div className='col align-self-center' id='calorie-ring-area' style={borderStyle}>
-                  {toggleScanner === 'first' && <DailyStats
-                    progress={90}
-                    size={'512'}
-                    text={'Calories'}
-                    fontSize={35}
 
