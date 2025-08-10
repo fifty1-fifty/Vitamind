@@ -135,7 +135,7 @@ const ProductStats = () =>
   {
     let newCount = userServingCount;
     setServingCountInput(1);
-
+    console.log(servingCountInput);
 
     setServingCountChangeFlag(true);
 
