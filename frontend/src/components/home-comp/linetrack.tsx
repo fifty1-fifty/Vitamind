@@ -68,7 +68,7 @@ duration=500
 
   return (
     <svg 
-        width='1050'
+        width='975'
         height='110'
         viewBox="-26.75 -26.75 267.5 267.5"
         xmlns="http://www.w3.org/2000/svg"

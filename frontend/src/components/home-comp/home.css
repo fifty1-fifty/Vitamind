@@ -1,6 +1,12 @@
 
 /* SHIT FOR THE SEARCH  BAR */
 
+#row-container
+{
+  min-width: 1700px;
+}
+
+
 .search-bar-area
 {
     display: flex;
@@ -118,16 +124,17 @@
 
 #main-progress-rings-area
 {
-  min-width: 1300px;
-  background: none;
-  height: auto;
-  margin: 5px;
- 
+    display: flex;
+    min-width: 1300px;
+    background: none;
+    height: auto;
+    margin: 5px;
+    flex-wrap: nowrap;
 }
 
 #calorie-ring-area
 {
-  max-width: 512px;
+  max-width: 650px;
   height:auto;
   border-width: 2px;
   border-style: solid;
@@ -153,14 +160,15 @@
 
 #minor-ring-area
 {
-  max-width: 670px;
-  margin: 5px;
-  margin-left: 10px;
-  border-width: 2px;
-  border-style: solid;
-  border-color: #a9fdac;
-  border-radius: 5px;
-  box-shadow: 0 0 1px #9ecaed;
+    max-width: 800px;
+    margin: 5px;
+    margin-left: 10px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #a9fdac;
+    border-radius: 5px;
+    box-shadow: 0 0 1px #9ecaed;
+    min-width: 800px;
 }
 
 
@@ -179,25 +187,32 @@
 
 #nuts
 {
-  margin-top: 70px;
-  justify-items: center;
-  background: none;
-  align-items: center;
-  align-content: center;
-  align-self: center;
-  justify-items: center;
-  justify-content: center;
-  justify-self: center;
-  /*border-width: 2px;
-  border-style: solid;
-  border-color: #a9fdac;
-  border-radius: 5px;
-  box-shadow: 0 0 1px #9ecaed;*/
-  max-width: 1100px;
-  min-width: 1000px;
+    margin-top: 95px;
+    justify-items: center;
+    background: none;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    justify-items: center;
+    justify-content: center;
+    justify-self: center;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #a9fdac;
+    border-radius: 5px;
+    box-shadow: 0 0 1px #9ecaed;
+    max-width: 975px;
+    min-width: 975px;
+    height: 850px;
+    overflow-y: scroll;
 
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
 
-
+#nuts::-webkit-scrollbar 
+{
+  display: none; /* Chrome, Safari, Opera */
 }
 
 
@@ -222,7 +237,7 @@
     max-width: 400px;
     max-height: 30px;
     border-radius: 0px 0px 10px 10px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     justify-content: center;
     align-items: center;
     flex-wrap: nowrap;
@@ -260,8 +275,31 @@
 
 #navigation-icon
 {
-    color: #e9e9e9;
-    font-size: 23px;
+  color: #e9e9e9;
+  font-size: 23px;
+}
+
+#settings-button-area
+{
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+#settings-button
+{
+  padding: 0px;
+  background: none;
+  display: flex;
+  margin-top: 10px;
+}
+
+#settings-icon
+{
+  font-size: 45px;
+  color: #a9fdac;
 }
 
 
@@ -276,7 +314,8 @@
 
 
 
-/*@keyframes fadeIn {
+
+@keyframes fadeIn {
   from {
     opacity: 0;
     transform: translateY(20px);
@@ -289,4 +328,4 @@
 
 #calorie-ring-area, #minor-ring-area {
   animation: fadeIn 1.2s ease-out;
-}*/
+}

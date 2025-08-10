@@ -20,45 +20,49 @@
 
 #navigation-button-area
 {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+
 }
 
 #navigation-button-area-shift
 {
   display: flex;
-  margin-left: 30%;
 }
 
 
 #navi-button
 {
-  display: flex;
-  flex-direction: column-reverse;
-  width: 110px;
-  height: 70px;
-  padding: 0px;
+display: flex;
+    flex-direction: row-reverse;
+    background: none;
+    width: fit-content;
+    font-size: 20px;
+    margin-right: 19px;
+    padding: 0px;
+    align-content: center;
+    align-items: center;
 }
 
 
 #navigation-bar-button-icon
 {
-  width: fit-content;
-  display: flex;
-  margin: auto;
-  font-size: 50px;
-  margin-bottom: -10px;
+  font-size: 45px;
+    margin-right: 7px;
+    color: #a9fdac;
 }
 
 #navigation-return-button-icon
 {
-  width: fit-content;
-  display: flex;
-  margin: auto;
-  font-size: 50px;
-  margin-bottom: -10px;
+    width: 27px;
+    display: flex;
+    margin: auto;
+    margin-right: 21px;
+    font-size: 59px;
+    margin-bottom: 7px;
+    color: #a9fdac;
 }
 
 
@@ -157,7 +161,6 @@
 #add-item-button
 {
   padding: 0px 10px;
-  height: fit-content;
   width: fit-content;
   display: flex;
   flex-direction: row-reverse;
@@ -183,8 +186,30 @@
 
 
 
+#settings-button-area
+{
+    display: flex;
+    flex-direction: row;
+    align-content: flex-end;
+    justify-content: center;
+    align-items: flex-start;
+}
 
+#settings-button
+{
+   padding: 0px;
+    background: none;
+    display: flex;
+    flex-direction: row-reverse;
+    font-size: 20px;
+    align-items: center;
+}
 
+#settings-icon
+{
+  color: #a9fdac;
+  margin-right: 5px;
+}
 
 
 

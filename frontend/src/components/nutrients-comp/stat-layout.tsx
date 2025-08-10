@@ -72,9 +72,9 @@ const ProductStats = () =>
 
 
   // this is bad, and ia hate it, but it works
-  const [userServingCount, setUserServingCount] = useState(1);
-  const [servingCountInput, setServingCountInput] = useState(1);
-  const [servingCountChangeFlag, setServingCountChangeFlag] = useState(false);
+  const [userServingCount, setUserServingCount] = useState(1); // I think this is for the input
+  const [servingCountInput, setServingCountInput] = useState(1); // I think this one is affected by arrows LOL im lazy and dont wanna check
+  const [servingCountChangeFlag, setServingCountChangeFlag] = useState(false); // Flag for switching between which serving is shown (user input or arrows)
   
 
 
@@ -135,28 +135,30 @@ const ProductStats = () =>
   {
     let newCount = userServingCount;
     setServingCountInput(1);
-    /* console.log(initialProductData.totalFats);
-    console.log(finalProductData.totalFats); */
-    //console.log(operate);
 
-    console.log(newCount);
-    //let count = userServingCount;
+
     setServingCountChangeFlag(true);
-    //console.log('im a  gat faggot fig')
-    //console.log('test test test' + initialProductData.protein);
 
-	let userSetOperate = parseInt(operate)
+	  let userSetOperate = parseInt(operate)
 
     if(operate == 'increase' && newCount < 99)
+    {
       newCount = newCount + 1;  
+      setUserServingCount(prev => prev + 1);
+    }
     else if(operate == 'decrease' && newCount > 1)
+    {
       newCount = newCount - 1;
+      setUserServingCount(prev => prev - 1);
+    }
     else if(userSetOperate > 0 && userSetOperate < 100)
+    {
+      setUserServingCount(userSetOperate);
       newCount = userSetOperate;
-    
+    }
 
-    setUserServingCount(newCount);
-    console.log(userServingCount);
+    //setUserServingCount(newCount);
+    //console.log(userServingCount);
 
 
     let proteinSplit = initialProductData.protein.split(' ');
@@ -258,7 +260,10 @@ const ProductStats = () =>
   }
 
 
-
+  function gotoEditProduct()
+  {
+    window.location.href = `/edit?productid=${encodeURIComponent(currentProductID != null ? currentProductID : 6969 )}`;
+  }
 
   /*function userInputServerCount(e: any) : void
   {
@@ -283,7 +288,7 @@ const ProductStats = () =>
                     <h6 id='product-title'>{initialProductData.productName}</h6>
                     <h6 id='product-subtitle'>{initialProductData.brandName}</h6>
                     <div id='item-button-area'>
-                        <button id='edit-item-button'>Edit Item<i className='material-icons' id='edit-item-icon'>edit_note</ i></button>
+                        <button id='edit-item-button' onClick={() => gotoEditProduct()}>Edit Item<i className='material-icons' id='edit-item-icon'>edit_note</ i></button>
                         <button id='add-item-button' onClick={() => pushItemStats()}>Add Item<i className='material-icons' id='add-item-icon'>library_add</ i></button>
                     </div>
                 </div>
@@ -305,7 +310,7 @@ const ProductStats = () =>
                   <div id='serving-chooser-area'>
                       <button id='decrease-serving-chooser-button'><i className='material-icons' id='serving-chooser-icon' onClick={() => handleSetUserServingCount('decrease')}>arrow_drop_down</i></button>
                       <span id='serving-counter'>Serving(s): 
-                          <input id='servings-input' type='number' value={servingCountInput} placeholder={userServingCount.toString()} onBlur={e => handleSetUserServingCount(e.target.value)} onChange={e => setServingCountInput(parseInt(e.target.value))}></input>
+                          <input id='servings-input' type='number' placeholder={userServingCount.toString()} onBlur={e => handleSetUserServingCount(e.target.value)} onChange={e => setServingCountInput(parseInt(e.target.value))}></input>
                           <span>{initialProductData.servingSize}</span>
                       </span>
                       <button id='increase-serving-chooser-button'><i className='material-icons' id='serving-chooser-icon' onClick={() => handleSetUserServingCount('increase')}>arrow_drop_up</i></button>
