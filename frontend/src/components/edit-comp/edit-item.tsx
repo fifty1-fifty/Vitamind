@@ -131,8 +131,8 @@ const EditItem = () =>
 
 
                     <div className='row'>
-                        <div id='product-title-area'>
-                            <div id='individual-edit-container'>
+                        <div id='product-title-areaa'>
+                            <div id='individual-edit-containera'>
                               <span>Product</span>
                               <input id='edit-product-title' placeholder={pulledPlaceholderProductData.productName}></input>
                             </div>
@@ -315,6 +315,7 @@ const EditItem = () =>
 }
 
 export default EditItem;
+
 
 
 
