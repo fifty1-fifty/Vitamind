@@ -30,7 +30,7 @@ const TestPage = () =>
     async function autoTokenLogin()
     {
       const body = document.getElementById('body-body');
-	  body.style.backgroundColor = 'rgb(241, 255, 231)'; 
+	  body.style.backgroundColor = '#f1ffe7'; 
 		
       const savedCookies = document.cookie;
       //var jwtResponse = {};
