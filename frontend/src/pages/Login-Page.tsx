@@ -29,7 +29,7 @@ const TestPage = () =>
    
     async function autoTokenLogin()
     {
-      const body = document.getElementById('body-body);
+      const body = document.getElementById('body-body');
 	  body.style.backgroundColor = 'rgb(241, 255, 231)'; 
 		
       const savedCookies = document.cookie;
