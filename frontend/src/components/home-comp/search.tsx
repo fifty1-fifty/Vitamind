@@ -13,11 +13,6 @@ const Lookup: React.FC<Props> = ({ switchToScanner }) =>
         <div className="search-bar-area">
              <span className="material-icons" id="search-icon">search</span>
              <input type="text" id="searchbar" placeholder=""></input>
-             <button id='barcode-scan-button' onClick={switchToScanner}>
-                <span className="material-symbols-outlined" id='barcode-icon'>
-                    barcode_scanner
-                </span>
-             </button>
         </div>
        
     );

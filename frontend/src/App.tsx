@@ -4,7 +4,7 @@ import Registerpage from './pages/Register-Page';
 import Homepage from './pages/Home-Page';
 import Productpage from './pages/Product-Page';
 import EditPage from './pages/Edit-Page';
-//import Testpage from './pages/TESTINGPAGE';
+import Testpage from './pages/TestPage';
 import Passwordpage from './pages/Password-Page';
 import './App.css';
 
@@ -26,7 +26,7 @@ function App() : any {
 	<Route path="product" element={<Productpage />} />
   <Route path='edit' element={<EditPage />} />
 
-
+  <Route path='test' element={<Testpage />} />
 
 
 

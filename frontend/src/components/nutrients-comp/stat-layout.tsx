@@ -45,6 +45,12 @@ const ProductStats = () =>
   });
 
   const [finalProductData, setFinalProductData] = useState({
+      barcode: '',
+      imageFront: 'a',
+      imageThumb: 'a',
+      imageNutrition: 'a',
+      brandName: '',
+      productName: '',
       servingSize: '',
       calories: '',
       protein: '',
@@ -214,12 +220,11 @@ const ProductStats = () =>
 
     setFinalProductData(prev => ({...prev, servingSize : initialProductData.servingSize}));
     setFinalProductData(prev => ({...prev, calories: (parseFloat(initialProductData.calories) * newCount).toFixed(1) + ''}));
-
-    //console.log('why does this not work fucker helo');
-    //console.log('hahaha' + finalProductData.protein)
-    //console.log(userServingCount);
-    //console.log(protein);
-    //console.log(initialProductData);
+    setFinalProductData(prev => ({...prev, barcode : initialProductData.barcode}));
+    setFinalProductData(prev => ({...prev, imageThumb : initialProductData.imageThumb}));
+    setFinalProductData(prev => ({...prev, brandName : initialProductData.brandName}));
+    setFinalProductData(prev => ({...prev, productName : initialProductData.productName}));
+    setFinalProductData(prev => ({...prev, imageFront : initialProductData.imageFront}));
   }
 
 

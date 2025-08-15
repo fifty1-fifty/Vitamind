@@ -32,66 +32,59 @@ const BarProgress = ({ text='', condRoundLineColor='#44cf6c', progress=0, durati
       requestAnimationFrame(animate);
     }, [progress, duration]);
 
-    const strokeDashOffset = Math.floor(((displayedProgress - 0) * (1158 - -950) / (100 - 0) + -950));
-
+    //const strokeDashOffset = Math.floor(((displayedProgress - 0) * (100 - 0) / (90 - 10) + 10));
+    const strokeDashOffset = ((displayedProgress - 0) / (100 - 0)) * (95 -5) + 5; 
 
  
 
   return (
     <svg 
-        width='1050'
-        height='110'
-        viewBox="-26.75 -26.75 267.5 267.5"
+        width='100%'
+        height='100%'
+        viewBox="0 46 100 5"
         xmlns="http://www.w3.org/2000/svg"
+        style={{'margin' : '5% auto'}}
     >
-        <line // Background Container Line
-          x1='-950'
-          y1= '105'
-          x2='1158'
-          y2='105'
+
+    <line // Background Container Line
+          x1='5'
+          y1= '50'
+          x2='95'
+          y2='50'
           stroke='#dedede'
-          strokeWidth='28'
+          strokeWidth='1.5'
           strokeLinecap="round"
         />
-        <line // Main Progress Fill Line
-          x1='-950' 
-          y1= '105'
-          x2={strokeDashOffset <= 1158 ? strokeDashOffset : 1158}
-          y2='105'
+    <line // Main Progress Fill Line 
+          x1='5'
+          y1= '50'
+          x2={strokeDashOffset}
+          y2='50'
           stroke='#44cf6c'
-          strokeWidth='30'
-          strokeLinecap="butt"
-        />
-        <line // Conditional Rounded Line Single Side
-          x1='-950'
-          y1= '105'
-          x2='-949'
-          y2='105'
-          stroke={condRoundLineColor}
-          strokeWidth='28'
+          strokeWidth='1.5'
           strokeLinecap="round"
         />
-        <text className='statText'
-          x="-930"
-          y="85"
+    <text className='statText'
+          x="7"
+          y="48.5"
           fill="#f1ffe7"
-          fontSize="45"
+          fontSize="15%"
           fontWeight="bold"
          >
          {text}
-      </text>
-      <text className='progressText'
-        x="1090"
-        y="85"
+    </text>
+    <text className='progressText'
+        x="85"
+        y="48.5"
         fill="#f1ffe7"
-        fontSize="45"
+        fontSize="15%"
         fontWeight="bold"
        >
        {displayedProgress}% 
-      </text>
+    </text> 
 
 
-    </svg>
+           </svg>
 
 
 
@@ -110,3 +103,22 @@ const BarProgress = ({ text='', condRoundLineColor='#44cf6c', progress=0, durati
 };
 
 export default BarProgress;
+
+
+
+
+
+/*
+             <line // Conditional Rounded Line Single Side
+          x1='-950'
+          y1= '105'
+          x2='-949'
+          y2='105'
+          stroke={condRoundLineColor}
+          strokeWidth='28'
+          strokeLinecap="round"
+        />
+*/
+
+
+

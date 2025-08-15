@@ -18,4 +18,3 @@ const Background = ({ varColor = '#FFFFFF' }) =>
 };
 export default Background;
 
-

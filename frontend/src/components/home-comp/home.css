@@ -14,18 +14,15 @@
     align-content: center;
     justify-items: center;
     outline:none;
-
 	  z-index: 1;
     box-sizing: border-box;
     border: 1px solid #44cf6c;;
     border-radius: 5px;
     box-shadow: 0 0 1px #9ecaed;
-
-
-
-    width: 700px;
+    width: 80%;
     min-height:40px;
     max-height: 42px;
+    margin-top: 12%;
 }
 
 #search-icon
@@ -214,6 +211,7 @@
 {
   display: none; /* Chrome, Safari, Opera */
 }
+
 
 
 

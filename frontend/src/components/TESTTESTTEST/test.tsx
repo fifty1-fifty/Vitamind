@@ -1,49 +1,66 @@
-import  { useRef, useEffect, useState } from 'react';
-//import DailyTrackBar from '../home-comp/dailytrackedbar/'
+import React, {useState} from 'react';
+import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { Button } from '@mui/material';
+import { createTheme } from '@mui/material/styles';
 
-// TEST COMPONENT, NOTHING INTERESTING TO SEE HERE
 
-const LazyLoadedComponent = () => {
-  const componentRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            observer.unobserve(entry.target); // Stop observing once visible
-          }
-        });
-      },
-      { threshold: 0.9 } // Trigger when 10% of the component is visible
-    );
 
-    if (componentRef.current) {
-      observer.observe(componentRef.current);
-    }
+type formProps = {
+  setValue : () => void;
+}
 
-    return () => {
-      if (componentRef.current) {
-        observer.unobserve(componentRef.current);
-      }
-    };
-  }, []);
+const CustomOpenDatePicker = ({setValue}) => {
+  //const [value, setValue] = React.useState(null);
+  const [open, setOpen] = React.useState(false);
 
+
+
+  function handleSetDate(newValue : any)
+  {
+    setValue(newValue);
+  }
+
+
+	
+  //console.log(value);
   return (
-    <div ref={componentRef} style={{ minHeight: '300px', border: '1px solid gray' }}>
-      {isVisible ? (
-        <div>
-          <h2>Loaded Component</h2>
-          <p>This content only loads when scrolled into view.</p>
-     
-        </div>
-      ) : (
-        <p>Scroll down to load content...</p>
-      )}
-    </div>
-  );
-};
+    <LocalizationProvider dateAdapter={AdapterDateFns}>
+      {/* Your custom button to trigger the datepicker */}
+      <Button onClick={() => setOpen(true)} style={{'padding' : '2px'}}>
+        <span className="material-icons navi-icon-formatting">calendar_today</span>
+      </Button>
 
-export default LazyLoadedComponent;
+      {/* The DatePicker itself */}
+		  {<MobileDatePicker
+
+        open={open}
+        onOpen={() => setOpen(true)}
+        onClose={() => setOpen(false)}
+        
+        onChange={(newValue) => handleSetDate(newValue)}
+		    disableFuture={true}
+		    slotProps={{
+            field: {
+                sx: { display: 'none',},},
+            dayCalendar: {
+                sx: {'./MuiDayCalendar-weekDarlabel': {color : 'red',},},
+            }
+            
+
+        }}
+            
+
+    		onClick={() => console.log('beans')}
+		    desktopModeMediaQuery
+/>}
+    </LocalizationProvider>
+  );
+}; export default CustomOpenDatePicker;
+
+
+
+
+//         renderInput={(params) => <input {...params} style={{ display: 'none' }} />}

@@ -30,9 +30,8 @@ const TestPage = () =>
     async function autoTokenLogin()
     {
       const body = document.getElementById('body-body');
-	  if(body !== null)
-	  	body.style.backgroundColor = '#f1ffe7'; 
-		
+	    body.style.backgroundColor = '#f1ffe7'; 
+
       const savedCookies = document.cookie;
       //var jwtResponse = {};
       //console.log(savedCookies.toString());
@@ -41,7 +40,7 @@ const TestPage = () =>
         const responseToken = await fetch(buildPath('/api/verifytoken'),
            { method: 'GET', credentials: 'include'});
        const jwtResponse = JSON.parse(await responseToken.text());
-       if(jwtResponse != '' && jwtResponse.message == 'user-verified' && savedCookies.toString().includes(jwtResponse.user.id))
+       if(jwtResponse != '' && jwtRespons/e.message == 'user-verified' && savedCookies.toString().includes(jwtResponse.user.id))
           window.location.href = '/home';
         else
         {

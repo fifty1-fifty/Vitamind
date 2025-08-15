@@ -1,41 +1,179 @@
-//import {useState} from "react";
+import React, { useState, useEffect, Suspense } from 'react';
+import { buildPath } from '../../../utils.ts';
+import '../components/TESTTESTTEST/test.css';
 
-import '../components/home-comp/home.css';
-import Test from '../components/test-components/test';
+// Lazy-load large/heavy components
+const Background = React.lazy(() => import('../components/background-comp/Background'));
+const Ringtrack = React.lazy(() => import('../components/home-comp/ringtrack'));
+const Search = React.lazy(() => import('../components/home-comp/search'));
+const Navigation = React.lazy(() => import('../components/home-comp/navigation-bar'));
+const Test = React.lazy(() => import('../components/TESTTESTTEST/test'));
+const BarRegion = React.lazy(() => import('../components/TESTTESTTEST/bar-carousel'));
+const DailyLog = React.lazy(() => import('../components/TESTTESTTEST/log-scroll'));
 
-const TestPage = () => 
-{
-   //const [testNuts, setTestNuts] = useState('');
+const TestPage = () => {
+  const [date, setDate] = useState(null);
 
+  const [currentDayProductValue, setCurrentDayProductValue] = useState({});
+  const [currentDayProductPercent, setCurrentDayProductPercent] = useState({});
 
+  async function loadDailyStats() {
+    const obj = { currentDate: date };
+    const js = JSON.stringify(obj);
 
-   return (  
-        <div className='container-fluid' id='top-of-page'>
-        
-          <Test />
-          <Test />
-          <Test />
+    try {
+      const response = await fetch(buildPath('/api/callDailyStats'), {
+        method: 'POST',
+        body: js,
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+      });
 
-          <Test />
+      if (response.status === 403) {
+        window.location.href = '/login';
+        return;
+      }
 
-          <Test />
+      const res = JSON.parse(await response.text()) || {};
 
-          <Test />
+      // Batch product values
+      const productValues = {
+        calories: res.dailyCalories || 0,
+        protein: res.dailyProtein || 0,
+        carbohydrates: res.dailyCarbohydrates || 0,
+        cholesterol: res.dailyCholesterol || 0,
+        saturatedFats: res.dailySaturatedFats || 0,
+        totalFats: res.dailyTotalFats || 0,
+        sodium: res.dailySodium || 0,
+        sugar: res.dailySugar || 0,
+        fiber: res.dailyFiber || 0,
+        potassium: res.dailyPotassium || 0,
+        calcium: res.dailyCalcium || 0,
+        magnesium: res.dailyMagnesium || 0,
+        iron: res.dailyIron || 0,
+        vitaminA: res.dailyVitaminA || 0,
+        vitaminD: res.dailyVitaminD || 0,
+        iodine: res.dailyIodine || 0,
+        folate: res.dailyFolate || 0,
+        zinc: res.dailyZinc || 0,
+      };
 
-          <Test />
+      // Batch product percentages
+      const productPercents = {
+        calories: (100 * parseFloat(res.dailyCalories || 0) / 2500).toString(),
+        protein: (100 * parseFloat(res.dailyProtein || 0) / 55).toString(),
+        carbohydrates: (100 * parseFloat(res.dailyCarbohydrates || 0) / 333).toString(),
+        cholesterol: (100 * parseFloat(res.dailyCholesterol || 0) / 0.3).toString(),
+        saturatedFats: (100 * parseFloat(res.dailySaturatedFats || 0) / 31).toString(),
+        totalFats: (100 * parseFloat(res.dailyTotalFats || 0) / 97).toString(),
+        sodium: (100 * parseFloat(res.dailySodium || 0) / 2.3).toString(),
+        fiber: (100 * parseFloat(res.dailyFiber || 0) / 35).toString(),
+        sugar: (100 * parseFloat(res.dailySugar || 0) / 33).toString(),
+        potassium: (100 * parseFloat(res.dailyPotassium || 0) / 3.4).toString(),
+        calcium: (100 * parseFloat(res.dailyCalcium || 0) / 1).toString(),
+        magnesium: (100 * parseFloat(res.dailyMagnesium || 0) / 0.3).toString(),
+        iron: (100 * parseFloat(res.dailyIron || 0) / 0.008).toString(),
+        vitaminA: (100 * parseFloat(res.dailyVitaminA || 0) / 0.8).toString(),
+        vitaminD: (100 * parseFloat(res.dailyVitaminD || 0) / 0.01).toString(),
+        iodine: (100 * parseFloat(res.dailyIodine || 0) / 0.15).toString(),
+        folate: (100 * parseFloat(res.dailyFolate || 0) / 0.4).toString(),
+        zinc: (100 * parseFloat(res.dailyZinc || 0) / 0.014).toString(),
+      };
 
-          <Test />
+      setCurrentDayProductValue(productValues);
+      setCurrentDayProductPercent(productPercents);
+    } catch (error) {
+      console.error(error);
+    }
 
-          <Test />
+    try {
+      const response = await fetch(buildPath('/api/callDailyLog'), {
+        method: 'POST',
+        body: js,
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+      });
 
-          <Test />
+      if (response.status === 403) {
+        window.location.href = '/login';
+        return;
+      }
 
-          <Test />
+      const res = JSON.parse(await response.text());
+      console.log(res);
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
-          <Test />
+  useEffect(() => {
+    if (date) {
+      loadDailyStats();
+    }
+  }, [date]);
 
+  function handleUserSetDate(selectedDate) {
+    const userSelectedDate = `${selectedDate.getMonth() + 1} - ${selectedDate.getDate()} - ${selectedDate.getFullYear()}`;
+    setDate(userSelectedDate);
+  }
 
-        </div>     
-);
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <div className="container-fluid" id="home-top-container">
+        <div className="row justify-content-center">
+          <Search />
+        </div>
+
+        <div className="row justify-content-center align-items-center" id="all-rings-container">
+          <div className="col">
+            <div className="row justify-content-center all-rings-formatting">
+              <div className="col container-border" style={{ width: '50%', flex: '0 0 auto' }}>
+                <Ringtrack size="100%" text="Calories" progressPercent={currentDayProductPercent.calories} />
+              </div>
+
+              <div className="col container-border" style={{ width: '45%', flex: '0 0 auto' }}>
+                <div className="row justify-content-center" style={{ margin: 'auto' }}>
+                  <div className="col minor-rings-container">
+                    <Ringtrack size="100%" text="Protein" progressPercent={currentDayProductPercent.protein} />
+                  </div>
+                  <div className="col minor-rings-container" style={{ margin: 'auto' }}>
+                    <Ringtrack size="100%" text="Fat" progressPercent={currentDayProductPercent.totalFats} />
+                  </div>
+                </div>
+
+                <div className="row justify-content-center">
+                  <div className="col minor-rings-container ">
+                    <Ringtrack size="47%" text="Carbohydrates" progressPercent={currentDayProductPercent.carbohydrates} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="row justify-content-center align-items-center">
+          <BarRegion productPercents={currentDayProductPercent} productValue={currentDayProductValue} />
+        </div>
+
+        <div className="row justify-content-center">
+          <DailyLog />
+        </div>
+
+        <div className="row justify-content-center" id="fix-nav-bar">
+          <Navigation setValue={handleUserSetDate} displayedDate={date} />
+        </div>
+
+        <Background varColor="#040C1E" />
+      </div>
+    </Suspense>
+  );
 };
+
 export default TestPage;
+
+
+
+
+
+//                 <button> <span class="material-icons"> search</span> hello</button>
+

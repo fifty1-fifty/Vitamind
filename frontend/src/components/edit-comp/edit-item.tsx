@@ -45,6 +45,25 @@ const EditItem = () =>
   });
 
 
+  function handleEditDataReplacement(operate : any)
+  {
+    const userKey = (operate.target.id);
+    const userValue = (operate.target.value);
+
+    setPulledPlaceholderProductData(prev => ({...prev, [userKey] : userValue}));
+    console.log(pulledPlaceholderProductData);
+
+    operate.target.value = '';
+
+
+    /*console.log(operate);
+    console.log(operate.target);
+    console.log(operate.target.id);
+    console.log(operate.target.value);*/
+
+  }
+
+
 
 
 
@@ -131,19 +150,19 @@ const EditItem = () =>
 
 
                     <div className='row'>
-                        <div id='product-title-areaa'>
-                            <div id='individual-edit-containera'>
-                              <span>Product</span>
+                        <div id='edit-title-area'>
+                            <div id='individual-edit-container'>
+                              <span id='edit-title'>Product</span>
                               <input id='edit-product-title' placeholder={pulledPlaceholderProductData.productName}></input>
                             </div>
 
                             <div id='individual-edit-container'>
-                              <span>Brand</span>
+                              <span id='edit-subtitle'>Brand</span>
                               <input id='edit-product-subtitle' placeholder={pulledPlaceholderProductData.brandName}></input>
                             </div>
 
                             <div id='individual-edit-container'>
-                              <span>Serving Size</span>
+                              <span id='edit-serving-size'>Serving Size</span>
                               <input id='edit-product-subtitle' placeholder={pulledPlaceholderProductData.servingSize}></input>
                             </div>
                         </div>
@@ -160,13 +179,13 @@ const EditItem = () =>
                     <div id='nutrition-edit'>
                       <div id='individual-edit-container'>
                           <span>Calories</span>
-                          <input id='user-edit' placeholder={(pulledPlaceholderProductData.calories)}></input>                          
+                          <input id='calories' type='number' className='user-edit' onBlur={e => handleEditDataReplacement(e)} placeholder={(pulledPlaceholderProductData.calories)}></input>                          
                       </div>
                       
                       <div id='individual-edit-container'>
                           <span>Protein</span>
                           <div id='input-plus-unit-container'>
-                            <input id='user-edit' placeholder={pulledPlaceholderProductData.protein.substring(0, pulledPlaceholderProductData.protein.indexOf(' '))}></input>    
+                            <input id='protein' type='number' className='user-edit' onBlur={e => handleEditDataReplacement(e)} placeholder={pulledPlaceholderProductData.protein.substring(0, pulledPlaceholderProductData.protein.indexOf(' '))}></input>    
                             <span>g</span>
                           </div>
                       </div>
@@ -174,7 +193,7 @@ const EditItem = () =>
                       <div id='individual-edit-container'>
                           <span>Carbohydrates</span>
                           <div id='input-plus-unit-container'>
-                            <input id='user-edit' placeholder={pulledPlaceholderProductData.carbohydrates.substring(0, pulledPlaceholderProductData.carbohydrates.indexOf(' '))}></input>    
+                            <input id='carbohydrates' type='number' className='user-edit' onBlur={e => handleEditDataReplacement(e)} placeholder={pulledPlaceholderProductData.carbohydrates.substring(0, pulledPlaceholderProductData.carbohydrates.indexOf(' '))}></input>    
                             <span>g</span>
                           </div>  
                       </div>
@@ -182,7 +201,7 @@ const EditItem = () =>
                       <div id='individual-edit-container'>
                           <span>Cholesterol</span>
                           <div id='input-plus-unit-container'>
-                            <input id='user-edit' placeholder={pulledPlaceholderProductData.cholesterol.substring(0, pulledPlaceholderProductData.cholesterol.indexOf(' '))}></input>    
+                               <input id='cholesterol' type='number' className='user-edit' onBlur={e => handleEditDataReplacement(e)} placeholder={pulledPlaceholderProductData.cholesterol.substring(0, pulledPlaceholderProductData.cholesterol.indexOf(' '))}></input>    
                             <span>g</span>
                           </div> 
                       </div>
@@ -190,7 +209,7 @@ const EditItem = () =>
                       <div id='individual-edit-container'>
                           <span>Saturated Fats</span>
                           <div id='input-plus-unit-container'>
-                            <input id='user-edit' placeholder={pulledPlaceholderProductData.saturatedFats.substring(0, pulledPlaceholderProductData.saturatedFats.indexOf(' '))}></input>    
+                            <input id='saturatedFatsFats' type='number' className='user-edit' onBlur={e => handleEditDataReplacement(e)} placeholder={pulledPlaceholderProductData.saturatedFats.substring(0, pulledPlaceholderProductData.saturatedFats.indexOf(' '))}></input>    
                             <span>g</span>
                           </div>   
                       </div>
@@ -198,7 +217,7 @@ const EditItem = () =>
                       <div id='individual-edit-container'>
                           <span>Total Fats</span>
                           <div id='input-plus-unit-container'>
-                            <input id='user-edit' placeholder={pulledPlaceholderProductData.totalFats.substring(0, pulledPlaceholderProductData.totalFats.indexOf(' '))}></input>    
+                            <input id='totalFats' type='number' className='user-edit' onBlur={e => handleEditDataReplacement(e)} placeholder={pulledPlaceholderProductData.totalFats.substring(0, pulledPlaceholderProductData.totalFats.indexOf(' '))}></input>    
                             <span>g</span>
                           </div> 
                       </div>
@@ -206,7 +225,7 @@ const EditItem = () =>
                       <div id='individual-edit-container'>
                           <span>Sodium</span>
                           <div id='input-plus-unit-container'>
-                            <input id='user-edit' placeholder={pulledPlaceholderProductData.sodium.substring(0, pulledPlaceholderProductData.sodium.indexOf(' '))}></input>    
+                            <input id='sodium' type='number' className='user-edit' onBlur={e => handleEditDataReplacement(e)} placeholder={pulledPlaceholderProductData.sodium.substring(0, pulledPlaceholderProductData.sodium.indexOf(' '))}></input>    
                             <span>g</span>
                           </div>   
                       </div>
@@ -214,7 +233,7 @@ const EditItem = () =>
                       <div id='individual-edit-container'>
                           <span>Sugar</span>
                           <div id='input-plus-unit-container'>
-                            <input id='user-edit' placeholder={pulledPlaceholderProductData.sugar.substring(0, pulledPlaceholderProductData.sugar.indexOf(' '))}></input>    
+                            <input id='sugar' type='number' className='user-edit' onBlur={e => handleEditDataReplacement(e)} placeholder={pulledPlaceholderProductData.sugar.substring(0, pulledPlaceholderProductData.sugar.indexOf(' '))}></input>    
                             <span>g</span>
                           </div> 
                       </div>
@@ -222,7 +241,7 @@ const EditItem = () =>
                       <div id='individual-edit-container'>
                           <span>Fiber</span>
                           <div id='input-plus-unit-container'>
-                            <input id='user-edit' placeholder={pulledPlaceholderProductData.fiber.substring(0, pulledPlaceholderProductData.fiber.indexOf(' '))}></input>    
+                            <input id='fiber' type='number' className='user-edit' onBlur={e => handleEditDataReplacement(e)} placeholder={pulledPlaceholderProductData.fiber.substring(0, pulledPlaceholderProductData.fiber.indexOf(' '))}></input>    
                             <span>g</span>
                           </div>
                       </div>
@@ -230,7 +249,7 @@ const EditItem = () =>
                       <div id='individual-edit-container'>
                           <span>Potassium</span>
                           <div id='input-plus-unit-container'>
-                            <input id='user-edit' placeholder={pulledPlaceholderProductData.potassium.substring(0, pulledPlaceholderProductData.potassium.indexOf(' '))}></input>    
+                            <input id='potassium' type='number' className='user-edit' onBlur={e => handleEditDataReplacement(e)} placeholder={pulledPlaceholderProductData.potassium.substring(0, pulledPlaceholderProductData.potassium.indexOf(' '))}></input>    
                             <span>g</span>
                           </div> 
                       </div>
@@ -239,7 +258,7 @@ const EditItem = () =>
                       <div id='individual-edit-container'>
                           <span>Calcium</span>
                           <div id='input-plus-unit-container'>
-                            <input id='user-edit' placeholder={pulledPlaceholderProductData.calcium.substring(0, pulledPlaceholderProductData.calcium.indexOf(' '))}></input>    
+                            <input id='calcium' type='number' className='user-edit'onBlur={e => handleEditDataReplacement(e)} placeholder={pulledPlaceholderProductData.calcium.substring(0, pulledPlaceholderProductData.calcium.indexOf(' '))}></input>    
                             <span>g</span>
                           </div>  
                       </div>
@@ -248,7 +267,7 @@ const EditItem = () =>
                       <div id='individual-edit-container'>
                           <span>Magnesium</span>
                           <div id='input-plus-unit-container'>
-                            <input id='user-edit' placeholder={pulledPlaceholderProductData.magnesium.substring(0, pulledPlaceholderProductData.magnesium.indexOf(' '))}></input>    
+                            <input input='magnesium' type='number' className='user-edit' onBlur={e => handleEditDataReplacement(e)} placeholder={pulledPlaceholderProductData.magnesium.substring(0, pulledPlaceholderProductData.magnesium.indexOf(' '))}></input>    
                             <span>g</span>
                           </div> 
                       </div>
@@ -256,7 +275,7 @@ const EditItem = () =>
                       <div id='individual-edit-container'>
                           <span>Iron</span>
                           <div id='input-plus-unit-container'>
-                            <input id='user-edit' placeholder={pulledPlaceholderProductData.iron.substring(0, pulledPlaceholderProductData.iron.indexOf(' '))}></input>    
+                            <input id='iron' type='number' className='user-edit' onBlur={e => handleEditDataReplacement(e)} placeholder={pulledPlaceholderProductData.iron.substring(0, pulledPlaceholderProductData.iron.indexOf(' '))}></input>    
                             <span>g</span>
                           </div>   
                       </div>
@@ -265,7 +284,7 @@ const EditItem = () =>
                       <div id='individual-edit-container'>
                           <span>Vitamin A</span>
                           <div id='input-plus-unit-container'>
-                            <input id='user-edit' placeholder={pulledPlaceholderProductData.vitaminA.substring(0, pulledPlaceholderProductData.vitaminA.indexOf(' '))}></input>    
+                            <input id='vitamindA' type='number' className='user-edit' onBlur={e => handleEditDataReplacement(e)} placeholder={pulledPlaceholderProductData.vitaminA.substring(0, pulledPlaceholderProductData.vitaminA.indexOf(' '))}></input>    
                             <span>g</span>
                           </div>  
                       </div>
@@ -274,7 +293,7 @@ const EditItem = () =>
                       <div id='individual-edit-container'>
                           <span>Vitamin D</span>
                           <div id='input-plus-unit-container'>
-                            <input id='user-edit' placeholder={pulledPlaceholderProductData.vitaminD.substring(0, pulledPlaceholderProductData.vitaminD.indexOf(' '))}></input>    
+                            <input id='vitaminD' type='number' className='user-edit' onBlur={e => handleEditDataReplacement(e)} placeholder={pulledPlaceholderProductData.vitaminD.substring(0, pulledPlaceholderProductData.vitaminD.indexOf(' '))}></input>    
                             <span>g</span>
                           </div>
                       </div>
@@ -283,7 +302,7 @@ const EditItem = () =>
                       <div id='individual-edit-container'>
                           <span>Iodine</span>
                           <div id='input-plus-unit-container'>
-                            <input id='user-edit' placeholder={pulledPlaceholderProductData.iodine.substring(0, pulledPlaceholderProductData.iodine.indexOf(' '))}></input>    
+                            <input id='iodine' className='user-edit' onBlur={e => handleEditDataReplacement(e)} placeholder={pulledPlaceholderProductData.iodine.substring(0, pulledPlaceholderProductData.iodine.indexOf(' '))}></input>    
                             <span>g</span>
                           </div>  
                       </div>
@@ -291,7 +310,7 @@ const EditItem = () =>
                       <div id='individual-edit-container'>
                           <span>Folate</span>
                           <div id='input-plus-unit-container'>
-                            <input id='user-edit' placeholder={pulledPlaceholderProductData.folate.substring(0, pulledPlaceholderProductData.folate.indexOf(' '))}></input>    
+                            <input id='folate' type='number' className='user-edit' onBlur={e => handleEditDataReplacement(e)} placeholder={pulledPlaceholderProductData.folate.substring(0, pulledPlaceholderProductData.folate.indexOf(' '))}></input>    
                             <span>g</span>
                           </div>   
                       </div>
@@ -300,7 +319,7 @@ const EditItem = () =>
                       <div id='individual-edit-container'>
                           <span>Zinc</span>
                           <div id='input-plus-unit-container'>
-                            <input id='user-edit' placeholder={pulledPlaceholderProductData.zinc.substring(0, pulledPlaceholderProductData.zinc.indexOf(' '))}></input>    
+                            <input id='zinc' type='number' className='user-edit' onBlur={e => handleEditDataReplacement(e)} placeholder={pulledPlaceholderProductData.zinc.substring(0, pulledPlaceholderProductData.zinc.indexOf(' '))}></input>    
                             <span>g</span>
                           </div>  
                       </div>

@@ -139,70 +139,84 @@ const HomePage = () =>
     const obj = { currentDate : newDateToString};
     const js = JSON.stringify(obj);
     console.log(js);
-    console.log('hello line 71 home-page');
-    const response = await fetch(buildPath('/api/callDailyStats'),
-        { method: 'POST', body: js, headers: { 'Content-Type': 'application/json' }, credentials: 'include'});
-    var res = JSON.parse(await response.text());
-    console.log('hello ' + res);
-    
-    // Set values
-    setCurrentDayProductValue(prev => ({ ...prev, calories: res != null ? res.dailyCalories : 0 }));
-    setCurrentDayProductValue(prev => ({ ...prev, protein: res != null ? res.dailyProtein : 0 }));
-    setCurrentDayProductValue(prev => ({ ...prev, carbohydrates: res != null ? res.dailyCarbohydrates : 0 }));
-    setCurrentDayProductValue(prev => ({ ...prev, cholesterol: res != null ? res.dailyCholesterol : 0 }));
-    setCurrentDayProductValue(prev => ({ ...prev, saturatedFats: res != null ? res.dailySaturatedFats : 0 }));
-    setCurrentDayProductValue(prev => ({ ...prev, totalFats: res != null ? res.dailyTotalFats : 0 }));
-    setCurrentDayProductValue(prev => ({ ...prev, sodium: res != null ? res.dailySodium : 0 }));
-    setCurrentDayProductValue(prev => ({ ...prev, sugar: res != null ? res.dailySugar : 0 }));
-    setCurrentDayProductValue(prev => ({ ...prev, fiber: res != null ? res.dailyFiber : 0 }));
-    setCurrentDayProductValue(prev => ({ ...prev, potassium: res != null ? res.dailyPotassium : 0 }));
-    setCurrentDayProductValue(prev => ({ ...prev, calcium: res !=null ? res.dailyCalcium : 0 }));
-    setCurrentDayProductValue(prev => ({ ...prev, magnesium: res != null ? res.dailyMagnesium : 0 }));
-    setCurrentDayProductValue(prev => ({ ...prev, iron: res != null ? res.dailyIron : 0 }));
-    setCurrentDayProductValue(prev => ({ ...prev, vitaminA: res != null ? res.dailyVitaminA : 0 }));
-    setCurrentDayProductValue(prev => ({ ...prev, vitaminD: res != null ? res.dailyVitaminD : 0 }));
-    setCurrentDayProductValue(prev => ({ ...prev, iodine: res != null ? res.dailyIodine : 0 }));
-    setCurrentDayProductValue(prev => ({ ...prev, folate: res != null ? res.dailyFolate : 0 }));
-    setCurrentDayProductValue(prev => ({ ...prev, zinc: res != null ? res.dailyZinc : 0 }));
 
-    // Set percentages (check for existence, then parse & compute, else 0)
-    setCurrentDayProductPercent(prev => ({ ...prev, calories: res != null ? (100 * parseFloat(res.dailyCalories) / 2500).toString() : '0' }));
-    setCurrentDayProductPercent(prev => ({ ...prev, protein: res != null ? (100 * parseFloat(res.dailyProtein) / 55).toString() : '0' }));
-    setCurrentDayProductPercent(prev => ({ ...prev, carbohydrates: res != null ? (100 * parseFloat(res.dailyCarbohydrates) / 333).toString() : '0' }));
-    setCurrentDayProductPercent(prev => ({ ...prev, cholesterol: res != null ? (100 * parseFloat(res.dailyCholesterol) / 0.3).toString() : '0' }));
-    setCurrentDayProductPercent(prev => ({ ...prev, saturatedFats: res != null ? (100 * parseFloat(res.dailySaturatedFats) / 31).toString() : '0' }));
-    setCurrentDayProductPercent(prev => ({ ...prev, totalFats: res != null ? (100 * parseFloat(res.dailyTotalFats) / 97).toString() : '0' }));
-    setCurrentDayProductPercent(prev => ({ ...prev, sodium: res != null ? (100 * parseFloat(res.dailySodium) / 2.3).toString() : '0' }));
-    setCurrentDayProductPercent(prev => ({ ...prev, fiber: res != null ? (100 * parseFloat(res.dailyFiber) / 35).toString() : '0' }));
-    setCurrentDayProductPercent(prev => ({ ...prev, sugar: res != null ? (100 * parseFloat(res.dailySugar) / 33).toString() : '0' }));
-    setCurrentDayProductPercent(prev => ({ ...prev, potassium: res != null ? (100 * parseFloat(res.dailyPotassium) / 3.4).toString() : '0' }));
-    setCurrentDayProductPercent(prev => ({ ...prev, calcium: res != null ? (100 * parseFloat(res.dailyCalcium) / 1).toString() : '0' }));
-    setCurrentDayProductPercent(prev => ({ ...prev, magnesium: res != null ? (100 * parseFloat(res.dailyMagnesium) / 0.3).toString() : '0' }));
-    setCurrentDayProductPercent(prev => ({ ...prev, iron: res != null ? (100 * parseFloat(res.dailyIron) / 0.008).toString() : '0' }));
-    setCurrentDayProductPercent(prev => ({ ...prev, vitaminA: res != null ? (100 * parseFloat(res.dailyVitaminA) / 0.8).toString() : '0' }));
-    setCurrentDayProductPercent(prev => ({ ...prev, vitaminD: res != null ? (100 * parseFloat(res.dailyVitaminD) / 0.01).toString() : '0' }));
-    setCurrentDayProductPercent(prev => ({ ...prev, iodine: res != null ? (100 * parseFloat(res.dailyIodine) / 0.15).toString() : '0' }));
-    setCurrentDayProductPercent(prev => ({ ...prev, folate: res != null ? (100 * parseFloat(res.dailyFolate) / 0.4).toString() : '0' }));
-    setCurrentDayProductPercent(prev => ({ ...prev, zinc: res != null ? (100 * parseFloat(res.dailyZinc) / 0.014).toString() : '0' }));
+    try 
+    {
+       const response = await fetch(buildPath('/api/callDailyStats'),
+              { method: 'POST', body: js, headers: { 'Content-Type': 'application/json' }, credentials: 'include'});
+
+
+       var res = JSON.parse(await response.text());
+       console.log(response);
+
+       if(response.status == 403)
+       {
+         console.log('hello I like beans and cake');
+         window.location.href = '/login';
+
+
+       }
+        
+       /*if(res.message)
+       {
+          console.log(res.message); 
+          //if(res.message == 'Access Denied: No Token Provided')
+          //window.location.href = '/login';
+       }*/
+
+
+      // Set values
+      setCurrentDayProductValue(prev => ({ ...prev, calories: res != null ? res.dailyCalories : 0 }));
+      setCurrentDayProductValue(prev => ({ ...prev, protein: res != null ? res.dailyProtein : 0 }));
+      setCurrentDayProductValue(prev => ({ ...prev, carbohydrates: res != null ? res.dailyCarbohydrates : 0 }));
+      setCurrentDayProductValue(prev => ({ ...prev, cholesterol: res != null ? res.dailyCholesterol : 0 }));
+      setCurrentDayProductValue(prev => ({ ...prev, saturatedFats: res != null ? res.dailySaturatedFats : 0 }));
+      setCurrentDayProductValue(prev => ({ ...prev, totalFats: res != null ? res.dailyTotalFats : 0 }));
+      setCurrentDayProductValue(prev => ({ ...prev, sodium: res != null ? res.dailySodium : 0 }));
+      setCurrentDayProductValue(prev => ({ ...prev, sugar: res != null ? res.dailySugar : 0 }));
+      setCurrentDayProductValue(prev => ({ ...prev, fiber: res != null ? res.dailyFiber : 0 }));
+      setCurrentDayProductValue(prev => ({ ...prev, potassium: res != null ? res.dailyPotassium : 0 }));
+      setCurrentDayProductValue(prev => ({ ...prev, calcium: res !=null ? res.dailyCalcium : 0 }));
+      setCurrentDayProductValue(prev => ({ ...prev, magnesium: res != null ? res.dailyMagnesium : 0 }));
+      setCurrentDayProductValue(prev => ({ ...prev, iron: res != null ? res.dailyIron : 0 }));
+      setCurrentDayProductValue(prev => ({ ...prev, vitaminA: res != null ? res.dailyVitaminA : 0 }));
+      setCurrentDayProductValue(prev => ({ ...prev, vitaminD: res != null ? res.dailyVitaminD : 0 }));
+      setCurrentDayProductValue(prev => ({ ...prev, iodine: res != null ? res.dailyIodine : 0 }));
+      setCurrentDayProductValue(prev => ({ ...prev, folate: res != null ? res.dailyFolate : 0 }));
+      setCurrentDayProductValue(prev => ({ ...prev, zinc: res != null ? res.dailyZinc : 0 }));
+
+      // Set percentages (check for existence, then parse & compute, else 0)
+      setCurrentDayProductPercent(prev => ({ ...prev, calories: res != null ? (100 * parseFloat(res.dailyCalories) / 2500).toString() : '0' }));
+      setCurrentDayProductPercent(prev => ({ ...prev, protein: res != null ? (100 * parseFloat(res.dailyProtein) / 55).toString() : '0' }));
+      setCurrentDayProductPercent(prev => ({ ...prev, carbohydrates: res != null ? (100 * parseFloat(res.dailyCarbohydrates) / 333).toString() : '0' }));
+      setCurrentDayProductPercent(prev => ({ ...prev, cholesterol: res != null ? (100 * parseFloat(res.dailyCholesterol) / 0.3).toString() : '0' }));
+      setCurrentDayProductPercent(prev => ({ ...prev, saturatedFats: res != null ? (100 * parseFloat(res.dailySaturatedFats) / 31).toString() : '0' }));
+      setCurrentDayProductPercent(prev => ({ ...prev, totalFats: res != null ? (100 * parseFloat(res.dailyTotalFats) / 97).toString() : '0' }));
+      setCurrentDayProductPercent(prev => ({ ...prev, sodium: res != null ? (100 * parseFloat(res.dailySodium) / 2.3).toString() : '0' }));
+      setCurrentDayProductPercent(prev => ({ ...prev, fiber: res != null ? (100 * parseFloat(res.dailyFiber) / 35).toString() : '0' }));
+      setCurrentDayProductPercent(prev => ({ ...prev, sugar: res != null ? (100 * parseFloat(res.dailySugar) / 33).toString() : '0' }));
+      setCurrentDayProductPercent(prev => ({ ...prev, potassium: res != null ? (100 * parseFloat(res.dailyPotassium) / 3.4).toString() : '0' }));
+      setCurrentDayProductPercent(prev => ({ ...prev, calcium: res != null ? (100 * parseFloat(res.dailyCalcium) / 1).toString() : '0' }));
+      setCurrentDayProductPercent(prev => ({ ...prev, magnesium: res != null ? (100 * parseFloat(res.dailyMagnesium) / 0.3).toString() : '0' }));
+      setCurrentDayProductPercent(prev => ({ ...prev, iron: res != null ? (100 * parseFloat(res.dailyIron) / 0.008).toString() : '0' }));
+      setCurrentDayProductPercent(prev => ({ ...prev, vitaminA: res != null ? (100 * parseFloat(res.dailyVitaminA) / 0.8).toString() : '0' }));
+      setCurrentDayProductPercent(prev => ({ ...prev, vitaminD: res != null ? (100 * parseFloat(res.dailyVitaminD) / 0.01).toString() : '0' }));
+      setCurrentDayProductPercent(prev => ({ ...prev, iodine: res != null ? (100 * parseFloat(res.dailyIodine) / 0.15).toString() : '0' }));
+      setCurrentDayProductPercent(prev => ({ ...prev, folate: res != null ? (100 * parseFloat(res.dailyFolate) / 0.4).toString() : '0' }));
+      setCurrentDayProductPercent(prev => ({ ...prev, zinc: res != null ? (100 * parseFloat(res.dailyZinc) / 0.014).toString() : '0' }));
+
+
+    } 
+    catch (error)
+    {
+      console.log(error);
+      //window.location.href = '/login';
+    }
   }
+ 
 
 
-
-  
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-   //console.log(currentDayProductPercent.calories);
+  //console.log(currentDayProductPercent.calories);
    //console.log(currentDayProductPercent.protein);
 
       window.addEventListener('scroll', () => {
@@ -212,6 +226,8 @@ const HomePage = () =>
     });
   
 
+
+    //console.log(currentDayProductValue);
     return (  
       <div className='container-fluid' id='top-of-page'>
 

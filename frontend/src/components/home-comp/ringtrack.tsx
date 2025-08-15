@@ -132,15 +132,15 @@ yAxis = 125
 
   return (
     <svg
-      width={size}
-      height={size}
+      /*width={size}
+      height={size}*/
       viewBox="-26.75 -26.75 267.5 267.5"
       xmlns="http://www.w3.org/2000/svg"
       onClick={handleSwitch}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      style={{ transform: 'rotate(-90deg)' }}
-    >
+      style={{ transform: 'rotate(-90deg)', width : size, height : size}}
+      >
       <circle
         r={RADIUS}
         cx="107"

@@ -25,17 +25,21 @@ const EditProductPage = () =>
     <div className='container-fluid'>
         <div className='row justify-content-center' >
 
+            <div className='col' id='return-button-area'>
+                <button id='edit-return-button' onClick={gotoProduct}>Return<i className='material-icons' id='return-item-icon'>turn_left</ i></button>
+            </div>
+
 
 
             <div className='col-6' id='main-area-container'>
                 <EditPage />
                 <div id='below-button-area'>
-                    <button id='edit-page-buttons' onClick={gotoProduct}>Return<i className='material-icons' id='return-item-icon'>reply</ i></button>
-                    <button id='edit-page-buttons' onClick={gotoProduct}>Add Item<i className='material-icons' id='add-item-icon'>library_add</ i></button>
+                <button id='edit-page-buttons' onClick={gotoProduct}>Add Item<i className='material-icons' id='add-item-icon'>library_add</ i></button>
                 </div>
             </div>
 
-   
+            <div className='col'>
+            </div>
                 
         </div>
         <Background varColor='#040C1E' />
