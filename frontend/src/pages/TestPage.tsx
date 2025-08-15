@@ -7,12 +7,13 @@ const Background = React.lazy(() => import('../components/background-comp/Backgr
 const Ringtrack = React.lazy(() => import('../components/home-comp/ringtrack'));
 const Search = React.lazy(() => import('../components/home-comp/search'));
 const Navigation = React.lazy(() => import('../components/home-comp/navigation-bar'));
-const Test = React.lazy(() => import('../components/TESTTESTTEST/test'));
+//const Test = React.lazy(() => import('../components/TESTTESTTEST/test'));
 const BarRegion = React.lazy(() => import('../components/TESTTESTTEST/bar-carousel'));
 const DailyLog = React.lazy(() => import('../components/TESTTESTTEST/log-scroll'));
 
+
 const TestPage = () => {
-  const [date, setDate] = useState(null);
+  const [date, setDate] = useState('');
 
   const [currentDayProductValue, setCurrentDayProductValue] = useState({});
   const [currentDayProductPercent, setCurrentDayProductPercent] = useState({});
@@ -82,6 +83,10 @@ const TestPage = () => {
 
       setCurrentDayProductValue(productValues);
       setCurrentDayProductPercent(productPercents);
+	  
+	  
+	  console.log(currentDayProductPercent);
+	  console.log(currentDayProductPercent.productPercents);
     } catch (error) {
       console.error(error);
     }
@@ -112,7 +117,7 @@ const TestPage = () => {
     }
   }, [date]);
 
-  function handleUserSetDate(selectedDate) {
+  function handleUserSetDate(selectedDate : Date) {
     const userSelectedDate = `${selectedDate.getMonth() + 1} - ${selectedDate.getDate()} - ${selectedDate.getFullYear()}`;
     setDate(userSelectedDate);
   }
@@ -121,7 +126,7 @@ const TestPage = () => {
     <Suspense fallback={<div>Loading...</div>}>
       <div className="container-fluid" id="home-top-container">
         <div className="row justify-content-center">
-          <Search />
+          <Search switchToScanner={() => console.log('beef 125 Testpage.tsx')}/>
         </div>
 
         <div className="row justify-content-center align-items-center" id="all-rings-container">

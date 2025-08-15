@@ -267,7 +267,7 @@ const EditItem = () =>
                       <div id='individual-edit-container'>
                           <span>Magnesium</span>
                           <div id='input-plus-unit-container'>
-                            <input input='magnesium' type='number' className='user-edit' onBlur={e => handleEditDataReplacement(e)} placeholder={pulledPlaceholderProductData.magnesium.substring(0, pulledPlaceholderProductData.magnesium.indexOf(' '))}></input>    
+                            <input id='magnesium' type='number' className='user-edit' onBlur={e => handleEditDataReplacement(e)} placeholder={pulledPlaceholderProductData.magnesium.substring(0, pulledPlaceholderProductData.magnesium.indexOf(' '))}></input>    
                             <span>g</span>
                           </div> 
                       </div>

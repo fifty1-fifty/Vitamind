@@ -1,8 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 //import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 //import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 //import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 //import { Button } from '@mui/material';
+
 import TrackBar from '../home-comp/dailytrackedbar';
 
 type Props = {
@@ -101,7 +102,7 @@ Fiber : {
 }
 
 
-const Carousel = ({
+const Carousel : React.FC<Props> = ({
   productValues,
   productPercents
 }) => {
@@ -109,13 +110,13 @@ const Carousel = ({
   const [touchStart, setTouchStart] = React.useState(0);
   const [touchEnd, setTouchEnd] = React.useState(0);
 
-  function handleTouchStart(e) {
+  function handleTouchStart(e : number) {
       const startTouch = e.targetTouches[0].clientX;
       //console.log(startTouch);
       setTouchStart(startTouch);
   }
 
-  function handleTouchMove(e) {
+  function handleTouchMove(e : number) {
     /*console.log(e);
     console.log(e.changedTouches);
     console.log(e.changedTouches[0].clientX);*/
@@ -125,13 +126,13 @@ const Carousel = ({
   }
 
   function handleTouchEnd() {
-      if (touchStart - touchEnd > 150) {
+      if (touchStart - touchEnd > 150 && document.querySelector('#myCarousel .carousel-control-next') instanceof HTMLButtonElement) {
           // do your stuff here for left swipe
           console.log('left swipe');
           document.querySelector('#myCarousel .carousel-control-next').click(); // Next
       }
 
-      if (touchStart - touchEnd < -150) {
+      if (touchStart - touchEnd < -150 && document.querySelector('#myCarousel .carousel-control-prev') instanceof HTMLButtonElement) {
           // do your stuff here for right swipe
           console.log('right swipe');
           document.querySelector('#myCarousel .carousel-control-prev').click(); // Prev
@@ -143,11 +144,11 @@ const Carousel = ({
   console.log(productValues);
   return (
 
-      <div id="myCarousel" className="carousel slide container-border" data-bs-ride="carousel" onTouchStart={handleTouchStart} onTouchEnd={handleTouchMove} style={{'width' : '75%', 'maxWidth' : '850px', 'margin-top' : '2vh', 'padding' : '0'}}>
+      <div id="myCarousel" className="carousel slide container-border" data-bs-ride="carousel" onTouchStart={handleTouchStart} onTouchEnd={handleTouchMove} style={{'width' : '75%', 'maxWidth' : '850px', 'marginTop' : '2vh', 'padding' : '0'}}>
       
 
       {/* Slides */}
-      <div className="carousel-inner" style={{'margin-top' : '2vh'}}>
+      <div className="carousel-inner" style={{'marginTop' : '2vh'}}>
         <div className="carousel-item active" id='format-individual-card'>
             <div className='carousel-item-header'>
                 <h5 className='carousel-item-text'>Fats</h5>

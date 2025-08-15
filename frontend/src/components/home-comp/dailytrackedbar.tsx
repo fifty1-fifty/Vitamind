@@ -13,6 +13,7 @@ const BarProgress = ({ text='', condRoundLineColor='#44cf6c', progress=0, durati
     
     useEffect(() =>
     {
+	  console.log(condRoundLineColor); //for typescrdipt bullshit
       let start = 0; 
       const animate = (timestamp : number) => 
       {

@@ -2,18 +2,19 @@
 //import { buildPath } from '../../../utils.ts';
 //import '../components/home-comp/home.css';
 //import './home.css';
-import '../TESTTESTTEST/test.css'
-import Test from '../TESTTESTTEST/Test'
+import '../TESTTESTTEST/test.css';
+import Test from '../TESTTESTTEST/test';
+import React from 'react';
 
 
 
-type formProps = {
+type Props = {
   setValue : () => void;
   displayedDate : number;
 }
 
 
-let NavigationBar = ({ 
+let NavigationBar : React.FC<Props> = ({ 
   setValue,
   displayedDate
 }) => {

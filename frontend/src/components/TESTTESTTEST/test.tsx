@@ -1,24 +1,25 @@
-import React, {useState} from 'react';
+//import React, {useState} from 'react';
+import React from 'react';
 import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { Button } from '@mui/material';
-import { createTheme } from '@mui/material/styles';
+//import { createTheme } from '@mui/material/styles';
 
 
 
 
-type formProps = {
+type Props = {
   setValue : () => void;
 }
 
-const CustomOpenDatePicker = ({setValue}) => {
+const CustomOpenDatePicker : React.FC<Props> = ({setValue}) => {
   //const [value, setValue] = React.useState(null);
   const [open, setOpen] = React.useState(false);
 
 
 
-  function handleSetDate(newValue : any)
+  function handleSetDate(newValue : string)
   {
     setValue(newValue);
   }

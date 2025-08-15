@@ -9,6 +9,7 @@ type Props =
 
 const Lookup: React.FC<Props> = ({ switchToScanner }) =>
 {
+	console.log('balls search.tsx' + switchToScanner);
     return (
         <div className="search-bar-area">
              <span className="material-icons" id="search-icon">search</span>
