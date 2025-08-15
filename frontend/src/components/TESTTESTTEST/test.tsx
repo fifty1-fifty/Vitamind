@@ -41,7 +41,7 @@ const CustomOpenDatePicker : React.FC<Props> = ({setValue}) => {
         onOpen={() => setOpen(true)}
         onClose={() => setOpen(false)}
         
-        onChange={(newValue) => handleSetDate(newValue)}
+        onChange={(newValue : string) => handleSetDate(newValue)}
 		    disableFuture={true}
 		    slotProps={{
             field: {

@@ -85,8 +85,8 @@ const TestPage = () => {
       setCurrentDayProductPercent(productPercents);
 	  
 	  
-	  console.log(currentDayProductPercent);
-	  console.log(currentDayProductPercent.productPercents);
+	  //console.log(currentDayProductPercent);
+	  //console.log(currentDayProductPercent.productPercents);
     } catch (error) {
       console.error(error);
     }
@@ -122,6 +122,9 @@ const TestPage = () => {
     setDate(userSelectedDate);
   }
 
+
+	console.log(currentDayProductPercent);
+	console.log(currentDayProductValue);
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <div className="container-fluid" id="home-top-container">

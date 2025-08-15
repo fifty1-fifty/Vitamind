@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 //import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 //import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 //import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
@@ -6,7 +6,7 @@ import React, {useState} from 'react';
 
 import TrackBar from '../home-comp/dailytrackedbar';
 
-type Props = {
+/*type Props = {
   /*UnsaturatedFats : {
     title : string; 
     percent : number;
@@ -94,29 +94,47 @@ Fiber : {
   title : string;
   percent : string;
   value : number;
-}>;*/
+}>;
 
  productValues : {};
  productPercents : {};
 
+} */
+
+
+type ProductPercents = {
+  unsaturatedFats: number;
+  saturatedFats: number;
+  cholesterol: number;
+  zinc: number;
+  sodium: number;
+  iron: number;
+  potassium: number;
+  calcium: number;
+  magnesium: number;
+};
+
+interface BarCarouselProps {
+  productPercents: ProductPercents;
+  // ... any other props you already have
 }
 
 
-const Carousel : React.FC<Props> = ({
-  productValues,
+const Carousel : React.FC<BarCarouselProps> = ({
+  //productValues,
   productPercents
 }) => {
 
   const [touchStart, setTouchStart] = React.useState(0);
   const [touchEnd, setTouchEnd] = React.useState(0);
 
-  function handleTouchStart(e : number) {
+  function handleTouchStart(e : event) {
       const startTouch = e.targetTouches[0].clientX;
       //console.log(startTouch);
       setTouchStart(startTouch);
   }
 
-  function handleTouchMove(e : number) {
+  function handleTouchMove(e : event) {
     /*console.log(e);
     console.log(e.changedTouches);
     console.log(e.changedTouches[0].clientX);*/
@@ -126,13 +144,13 @@ const Carousel : React.FC<Props> = ({
   }
 
   function handleTouchEnd() {
-      if (touchStart - touchEnd > 150 && document.querySelector('#myCarousel .carousel-control-next') instanceof HTMLButtonElement) {
+      if (touchStart - touchEnd > 150 && document.querySelector('#myCarousel .carousel-control-next') != null) {
           // do your stuff here for left swipe
           console.log('left swipe');
           document.querySelector('#myCarousel .carousel-control-next').click(); // Next
       }
 
-      if (touchStart - touchEnd < -150 && document.querySelector('#myCarousel .carousel-control-prev') instanceof HTMLButtonElement) {
+      if (touchStart - touchEnd < -150 && document.querySelector('#myCarousel .carousel-control-prev') != null) {
           // do your stuff here for right swipe
           console.log('right swipe');
           document.querySelector('#myCarousel .carousel-control-prev').click(); // Prev
