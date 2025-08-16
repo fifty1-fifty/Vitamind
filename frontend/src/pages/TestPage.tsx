@@ -12,15 +12,15 @@ const BarRegion = React.lazy(() => import('../components/TESTTESTTEST/bar-carous
 const DailyLog = React.lazy(() => import('../components/TESTTESTTEST/log-scroll'));
 
 type NutritionValues = {
-  unsaturatedFats: number;
-  saturatedFats: number;
-  cholesterol: number;
-  zinc: number;
-  sodium: number;
-  iron: number;
-  potassium: number;
-  calcium: number;
-  magnesium: number;
+  unsaturatedFats: string;
+  saturatedFats: string;
+  cholesterol: string;
+  zinc: string;
+  sodium: string;
+  iron: string;
+  potassium: string;
+  calcium: string;
+  magnesium: string;
 };
 
 
@@ -31,25 +31,45 @@ const TestPage = () => {
   const [date, setDate] = useState('');
 
 	const [currentDayProductValue, setCurrentDayProductValue] = useState<NutritionValues>({
-	  saturatedFats: 0,
-	  cholesterol: 0,
-	  zinc: 0,
-	  sodium: 0,
-	  iron: 0,
-	  potassium: 0,
-	  calcium: 0,
-	  magnesium: 0,
+		calories : '',
+		protein : '',
+		carbohydrates : '',
+		cholesterol : '',
+		saturatedFats : '',
+		totalFats : '',
+		sodium : '',
+		fiber : '',
+		sugar : '',
+		potassium : '',
+		calicum : '',
+		magnesium : '',
+		iron : '',
+		vitamindA : '',
+		vitamindD : '',
+		iodine : '',
+		folate : '',
+		zinc : ''
 	});
 
 	const [currentDayProductPercent, setCurrentDayProductPercent] = useState<NutritionValues>({
-	  saturatedFats: 0,
-	  cholesterol: 0,
-	  zinc: 0,
-	  sodium: 0,
-	  iron: 0,
-	  potassium: 0,
-	  calcium: 0,
-	  magnesium: 0,
+		calories : '',
+		protein : '',
+		carbohydrates : '',
+		cholesterol : '',
+		saturatedFats : '',
+		totalFats : '',
+		sodium : '',
+		fiber : '',
+		sugar : '',
+		potassium : '',
+		calicum : '',
+		magnesium : '',
+		iron : '',
+		vitamindA : '',
+		vitamindD : '',
+		iodine : '',
+		folate : '',
+		zinc : ''
 	});
 
   async function loadDailyStats() {
