@@ -102,7 +102,7 @@ Fiber : {
 } */
 
 
-type ProductPercents = {
+type NutritionValues = {
 		calories : string;
 		protein : string;
 		carbohydrates : string;
@@ -124,8 +124,8 @@ type ProductPercents = {
 };
 
 interface BarCarouselProps {
-  productPercents: ProductPercents;
-  productValues : ProductPercents;
+  productPercents: NutritionValues;
+  productValues : NutritionValues;
   // ... any other props you already have
 }
 
@@ -169,7 +169,7 @@ const Carousel : React.FC<BarCarouselProps> = ({
 	  }
 	}
   console.log(productPercents);
-  //console.log(productValues);
+  console.log(productValues);
   return (
 
       <div id="myCarousel" className="carousel slide container-border" data-bs-ride="carousel" onTouchStart={handleTouchStart} onTouchEnd={handleTouchMove} style={{'width' : '75%', 'maxWidth' : '850px', 'marginTop' : '2vh', 'padding' : '0'}}>
