@@ -175,6 +175,7 @@ const TestPage = () => {
   }
 
   useEffect(() => {
+	handleUserSetDate(new Date());
     if (date) {
       loadDailyStats();
     }
