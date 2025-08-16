@@ -9,8 +9,8 @@ import React from 'react';
 
 
 type Props = {
-  setValue : () => void;
-  displayedDate : number;
+  setValue : (date) => void;
+  displayedDate : string;
 }
 
 

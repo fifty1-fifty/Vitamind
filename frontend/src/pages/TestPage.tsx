@@ -11,12 +11,48 @@ const Navigation = React.lazy(() => import('../components/home-comp/navigation-b
 const BarRegion = React.lazy(() => import('../components/TESTTESTTEST/bar-carousel'));
 const DailyLog = React.lazy(() => import('../components/TESTTESTTEST/log-scroll'));
 
+type NutritionValues = {
+  unsaturatedFats: number;
+  saturatedFats: number;
+  cholesterol: number;
+  zinc: number;
+  sodium: number;
+  iron: number;
+  potassium: number;
+  calcium: number;
+  magnesium: number;
+};
+
+
+
+
 
 const TestPage = () => {
   const [date, setDate] = useState('');
 
-  const [currentDayProductValue, setCurrentDayProductValue] = useState({});
-  const [currentDayProductPercent, setCurrentDayProductPercent] = useState({});
+	const [currentDayProductValue, setCurrentDayProductValue] = useState<NutritionValues>({
+	  unsaturatedFats: 0,
+	  saturatedFats: 0,
+	  cholesterol: 0,
+	  zinc: 0,
+	  sodium: 0,
+	  iron: 0,
+	  potassium: 0,
+	  calcium: 0,
+	  magnesium: 0,
+	});
+
+	const [currentDayProductPercent, setCurrentDayProductPercent] = useState<NutritionValues>({
+	  unsaturatedFats: 0,
+	  saturatedFats: 0,
+	  cholesterol: 0,
+	  zinc: 0,
+	  sodium: 0,
+	  iron: 0,
+	  potassium: 0,
+	  calcium: 0,
+	  magnesium: 0,
+	});
 
   async function loadDailyStats() {
     const obj = { currentDate: date };
@@ -118,7 +154,12 @@ const TestPage = () => {
   }, [date]);
 
   function handleUserSetDate(selectedDate : Date) {
-    const userSelectedDate = `${selectedDate.getMonth() + 1} - ${selectedDate.getDate()} - ${selectedDate.getFullYear()}`;
+	  //console.log(selectedDate);
+	console.log((selectedDate.getMonth() + 1).toString());
+	console.log(selectedDate.getDate().toString());
+	console.log(selectedDate.getFullYear().toString());
+    const userSelectedDate = (selectedDate.getMonth() + 1).toString() + ' - ' + selectedDate.getDate().toString() + ' - ' + selectedDate.getFullYear().toString();
+	//console.log(userSelectedDate);
     setDate(userSelectedDate);
   }
 

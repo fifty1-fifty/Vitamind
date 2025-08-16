@@ -128,13 +128,13 @@ const Carousel : React.FC<BarCarouselProps> = ({
   const [touchStart, setTouchStart] = React.useState(0);
   const [touchEnd, setTouchEnd] = React.useState(0);
 
-  function handleTouchStart(e : event) {
+  function handleTouchStart(e : React.TouchEvent) {
       const startTouch = e.targetTouches[0].clientX;
       //console.log(startTouch);
       setTouchStart(startTouch);
   }
 
-  function handleTouchMove(e : event) {
+  function handleTouchMove(e : React.TouchEvent) {
     /*console.log(e);
     console.log(e.changedTouches);
     console.log(e.changedTouches[0].clientX);*/
@@ -159,7 +159,7 @@ const Carousel : React.FC<BarCarouselProps> = ({
   }
 
   console.log(productPercents);
-  console.log(productValues);
+  //console.log(productValues);
   return (
 
       <div id="myCarousel" className="carousel slide container-border" data-bs-ride="carousel" onTouchStart={handleTouchStart} onTouchEnd={handleTouchMove} style={{'width' : '75%', 'maxWidth' : '850px', 'marginTop' : '2vh', 'padding' : '0'}}>
@@ -174,7 +174,7 @@ const Carousel : React.FC<BarCarouselProps> = ({
 
                 <TrackBar progress={productPercents.unsaturatedFats} text={'UnsaturatedFats'}/>
                 <TrackBar progress={productPercents.saturatedFats} text={'SaturatedFats'}/>
-                <TrackBar progress={productPercents.Cholesterol} text={'Cholesterol'}/>
+                <TrackBar progress={productPercents.cholesterol} text={'Cholesterol'}/>
 
         </div>
         
