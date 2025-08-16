@@ -125,6 +125,7 @@ type ProductPercents = {
 
 interface BarCarouselProps {
   productPercents: ProductPercents;
+  productValues : ProductPercents;
   // ... any other props you already have
 }
 
@@ -132,6 +133,7 @@ interface BarCarouselProps {
 const Carousel : React.FC<BarCarouselProps> = ({
   //productValues,
   productPercents
+  productValues
 }) => {
 
   const [touchStart, setTouchStart] = React.useState(0);
