@@ -103,15 +103,24 @@ Fiber : {
 
 
 type ProductPercents = {
-  unsaturatedFats: number;
-  saturatedFats: number;
-  cholesterol: number;
-  zinc: number;
-  sodium: number;
-  iron: number;
-  potassium: number;
-  calcium: number;
-  magnesium: number;
+		calories : string;
+		protein : string;
+		carbohydrates : string;
+		cholesterol : string;
+		saturatedFats : string;
+		totalFats : string;
+		sodium : string;
+		fiber : string;
+		sugar : string;
+		potassium : string;
+		calicum : string;
+		magnesium : string;
+		iron : string;
+		vitaminA : string;
+		vitaminD : string;
+		iodine : string;
+		folate : string;
+		zinc : string;
 };
 
 interface BarCarouselProps {

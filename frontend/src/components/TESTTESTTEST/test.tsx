@@ -31,7 +31,6 @@ const CustomOpenDatePicker: React.FC<Props> = ({ setValue }) => {
         onClose={() => setOpen(false)}
         onChange={(newValue) => handleSetDate(newValue)}
         disableFuture
-        desktopModeMediaQuery="(pointer: fine)"
         slotProps={{
           textField: { style: { display: 'none' } },
         }}

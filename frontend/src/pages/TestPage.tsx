@@ -25,8 +25,8 @@ type NutritionValues = {
 		calicum : string;
 		magnesium : string;
 		iron : string;
-		vitamindA : string;
-		vitamindD : string;
+		vitaminA : string;
+		vitaminD : string;
 		iodine : string;
 		folate : string;
 		zinc : string;
@@ -53,8 +53,8 @@ const TestPage = () => {
 		calicum : '',
 		magnesium : '',
 		iron : '',
-		vitamindA : '',
-		vitamindD : '',
+		vitaminA : '',
+		vitaminD : '',
 		iodine : '',
 		folate : '',
 		zinc : ''
@@ -71,11 +71,11 @@ const TestPage = () => {
 		fiber : '',
 		sugar : '',
 		potassium : '',
-		calicum : '',
+		calciuum : '',
 		magnesium : '',
 		iron : '',
-		vitamindA : '',
-		vitamindD : '',
+		vitaminA : '',
+		vitaminD : '',
 		iodine : '',
 		folate : '',
 		zinc : ''
