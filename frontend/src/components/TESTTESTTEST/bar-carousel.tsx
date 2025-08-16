@@ -113,7 +113,7 @@ type ProductPercents = {
 		fiber : string;
 		sugar : string;
 		potassium : string;
-		calciuum : string;
+		calcium : string;
 		magnesium : string;
 		iron : string;
 		vitaminA : string;

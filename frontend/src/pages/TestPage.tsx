@@ -22,7 +22,7 @@ type NutritionValues = {
 		fiber : string;
 		sugar : string;
 		potassium : string;
-		calicum : string;
+		calcium : string;
 		magnesium : string;
 		iron : string;
 		vitaminA : string;
@@ -50,7 +50,7 @@ const TestPage = () => {
 		fiber : '',
 		sugar : '',
 		potassium : '',
-		calicum : '',
+		calcium : '',
 		magnesium : '',
 		iron : '',
 		vitaminA : '',
@@ -71,7 +71,7 @@ const TestPage = () => {
 		fiber : '',
 		sugar : '',
 		potassium : '',
-		calciuum : '',
+		calcium : '',
 		magnesium : '',
 		iron : '',
 		vitaminA : '',
