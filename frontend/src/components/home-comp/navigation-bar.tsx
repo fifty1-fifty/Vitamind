@@ -9,7 +9,7 @@ import React from 'react';
 
 
 type Props = {
-  setValue : (date) => void;
+  setValue : (date : Date) => void;
   displayedDate : string;
 }
 

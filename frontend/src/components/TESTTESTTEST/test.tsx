@@ -5,7 +5,7 @@ import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { Button } from '@mui/material';
 
 type Props = {
-  setValue: (date) => void;
+  setValue: (date : Date) => void;
 };
 
 const CustomOpenDatePicker: React.FC<Props> = ({ setValue }) => {
@@ -34,9 +34,6 @@ const CustomOpenDatePicker: React.FC<Props> = ({ setValue }) => {
         desktopModeMediaQuery="(pointer: fine)"
         slotProps={{
           textField: { style: { display: 'none' } },
-          dayCalendar: {
-            sx: { ".MuiDayCalendar-weekDayLabel": { color: "red" } }
-          }
         }}
       />
     </LocalizationProvider>

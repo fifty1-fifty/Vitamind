@@ -31,7 +31,6 @@ const TestPage = () => {
   const [date, setDate] = useState('');
 
 	const [currentDayProductValue, setCurrentDayProductValue] = useState<NutritionValues>({
-	  unsaturatedFats: 0,
 	  saturatedFats: 0,
 	  cholesterol: 0,
 	  zinc: 0,
@@ -43,7 +42,6 @@ const TestPage = () => {
 	});
 
 	const [currentDayProductPercent, setCurrentDayProductPercent] = useState<NutritionValues>({
-	  unsaturatedFats: 0,
 	  saturatedFats: 0,
 	  cholesterol: 0,
 	  zinc: 0,

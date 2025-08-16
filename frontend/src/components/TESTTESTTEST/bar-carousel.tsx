@@ -143,21 +143,20 @@ const Carousel : React.FC<BarCarouselProps> = ({
     handleTouchEnd();
   }
 
-  function handleTouchEnd() {
-      if (touchStart - touchEnd > 150 && document.querySelector('#myCarousel .carousel-control-next') != null) {
-          // do your stuff here for left swipe
-          console.log('left swipe');
-          document.querySelector('#myCarousel .carousel-control-next').click(); // Next
-      }
+	function handleTouchEnd() {
+	  const nextBtn = document.querySelector('#myCarousel .carousel-control-next') as HTMLElement | null;
+	  const prevBtn = document.querySelector('#myCarousel .carousel-control-prev') as HTMLElement | null;
 
-      if (touchStart - touchEnd < -150 && document.querySelector('#myCarousel .carousel-control-prev') != null) {
-          // do your stuff here for right swipe
-          console.log('right swipe');
-          document.querySelector('#myCarousel .carousel-control-prev').click(); // Prev
+	  if (touchStart - touchEnd > 150 && nextBtn) {
+		console.log('left swipe');
+		nextBtn.click(); // Next
+	  }
 
-      }
-  }
-
+	  if (touchStart - touchEnd < -150 && prevBtn) {
+		console.log('right swipe');
+		prevBtn.click(); // Prev
+	  }
+	}
   console.log(productPercents);
   //console.log(productValues);
   return (
