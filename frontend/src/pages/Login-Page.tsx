@@ -41,7 +41,8 @@ const TestPage = () =>
         const responseToken = await fetch(buildPath('/api/verifytoken'),
            { method: 'GET', credentials: 'include'});
        const jwtResponse = JSON.parse(await responseToken.text());
-       if(jwtResponse != '' && jwtResponse.message == 'user-verified' && savedCookies.toString().includes(jwtResponse.user.id))
+	   console.log(jwtResponse);
+       if(jwtResponse != '' && jwtResponse.message == 'user-verified')
           window.location.href = '/home';
         else
         {
