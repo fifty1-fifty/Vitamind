@@ -12,15 +12,24 @@ const BarRegion = React.lazy(() => import('../components/TESTTESTTEST/bar-carous
 const DailyLog = React.lazy(() => import('../components/TESTTESTTEST/log-scroll'));
 
 type NutritionValues = {
-  unsaturatedFats: string;
-  saturatedFats: string;
-  cholesterol: string;
-  zinc: string;
-  sodium: string;
-  iron: string;
-  potassium: string;
-  calcium: string;
-  magnesium: string;
+		calories : string;
+		protein : string;
+		carbohydrates : string;
+		cholesterol : string;
+		saturatedFats : string;
+		totalFats : string;
+		sodium : string;
+		fiber : string;
+		sugar : string;
+		potassium : string;
+		calicum : string;
+		magnesium : string;
+		iron : string;
+		vitamindA : string;
+		vitamindD : string;
+		iodine : string;
+		folate : string;
+		zinc : string;
 };
 
 
