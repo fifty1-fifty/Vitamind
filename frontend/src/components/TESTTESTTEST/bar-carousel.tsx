@@ -113,7 +113,7 @@ type ProductPercents = {
 		fiber : string;
 		sugar : string;
 		potassium : string;
-		calicum : string;
+		calciuum : string;
 		magnesium : string;
 		iron : string;
 		vitaminA : string;
@@ -180,9 +180,9 @@ const Carousel : React.FC<BarCarouselProps> = ({
                 <h5 className='carousel-item-text'>Fats</h5>
             </div>
 
-                <TrackBar progress={productPercents.unsaturatedFats} text={'UnsaturatedFats'}/>
-                <TrackBar progress={productPercents.saturatedFats} text={'SaturatedFats'}/>
-                <TrackBar progress={productPercents.cholesterol} text={'Cholesterol'}/>
+                <TrackBar progress={parseInt(productPercents.totalFats)} text={'total Fats'}/>
+                <TrackBar progress={parseInt(productPercents.saturatedFats)} text={'SaturatedFats'}/>
+                <TrackBar progress={parseInt(productPercents.cholesterol)} text={'Cholesterol'}/>
 
         </div>
         
@@ -191,9 +191,9 @@ const Carousel : React.FC<BarCarouselProps> = ({
                 <h5 className='carousel-item-text'>Vitamins</h5>
             </div>
 
-                  <TrackBar progress={productPercents.zinc} text={'Zinc'}/>
-                  <TrackBar progress={productPercents.sodium} text={'Sodium'}/>
-                  <TrackBar progress={productPercents.iron} text={'Iron'}/>
+                  <TrackBar progress={parseInt(productPercents.zinc)} text={'Zinc'}/>
+                  <TrackBar progress={parseInt(productPercents.sodium)} text={'Sodium'}/>
+                  <TrackBar progress={parseInt(productPercents.iron)} text={'Iron'}/>
 
         </div>
 
@@ -202,9 +202,9 @@ const Carousel : React.FC<BarCarouselProps> = ({
                 <h5 className='carousel-item-text'>Carbs</h5>
             </div>
 
-                <TrackBar progress={productPercents.potassium} text={'Potassium'}/>
-                <TrackBar progress={productPercents.calcium} text={'Calicum'}/>
-                <TrackBar progress={productPercents.magnesium} text={'Magnesium'}/>
+                <TrackBar progress={parseInt(productPercents.potassium)} text={'Potassium'}/>
+                <TrackBar progress={parseInt(productPercents.calcium)} text={'Calicum'}/>
+                <TrackBar progress={parseInt(productPercents.magnesium)} text={'Magnesium'}/>
 
         </div>
       </div> 
