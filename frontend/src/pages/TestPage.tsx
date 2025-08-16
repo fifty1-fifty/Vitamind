@@ -228,7 +228,7 @@ const TestPage = () => {
         </div>
 
         <div className="row justify-content-center align-items-center">
-          <BarRegion productPercents={currentDayProductPercent} productValue={currentDayProductValue} />
+          <BarRegion productPercents={currentDayProductPercent} productValues={currentDayProductValue} />
         </div>
 
         <div className="row justify-content-center">
