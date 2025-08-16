@@ -132,7 +132,7 @@ interface BarCarouselProps {
 
 const Carousel : React.FC<BarCarouselProps> = ({
   //productValues,
-  productPercents
+  productPercents,
   productValues
 }) => {
 
