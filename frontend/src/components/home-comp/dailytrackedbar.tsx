@@ -44,7 +44,7 @@ const BarProgress = ({ text='', condRoundLineColor='#44cf6c', progress=0, durati
         height='100%'
         viewBox="0 46 100 5"
         xmlns="http://www.w3.org/2000/svg"
-        style={{'margin' : '5% auto'}}
+        style={{'margin' : '0% auto'}}
     >
 
     <line // Background Container Line

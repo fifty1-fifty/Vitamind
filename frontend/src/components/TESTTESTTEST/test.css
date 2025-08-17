@@ -81,7 +81,7 @@
 .carousel-item-text
 {
   color: white;
-  font-size: clamp(10px, 3.5vw, 35px);
+  font-size: clamp(10px, 1.3vh, 35px);
   margin: 0;
 }
 
@@ -111,6 +111,8 @@
 
 #home-top-container
 {
+  /*max-width: 430px;*/
+  width: 40vh;
   
 }
 
@@ -121,7 +123,7 @@
 {
     position: fixed;
     width: 100%;
-    bottom: 0;
+    bottom: -5px;
 }
 
 
