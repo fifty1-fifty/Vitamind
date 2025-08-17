@@ -32,6 +32,18 @@ type NutritionValues = {
 		zinc : string;
 };
 
+type UserDailyLoggedProductStats = 
+{
+	barcode : string;
+	imageThumb : string;
+	brandName : string;
+	productName : string;
+	calories : string;
+	userID : string;
+	date : string;
+}
+
+
 
 
 
@@ -80,6 +92,12 @@ const TestPage = () => {
 		folate : '',
 		zinc : ''
 	});
+	
+	
+	
+	const [userDailyLog, setUserDailyLog] = useState<UserDailyLoggedProductStats[]>([]);
+	
+	
 
   async function loadDailyStats() {
     const obj = { currentDate: date };
@@ -169,19 +187,41 @@ const TestPage = () => {
 
       const res = JSON.parse(await response.text());
       console.log(res);
+	  
+		const dailyLogFetched = res.map((item: any) => ({
+		  barcode: item.barcode,
+		  imageThumb: item.imageThumb,
+		  brandName: item.brandName,
+		  productName: item.productName,
+		  calories: item.calories,
+		  userID: item.userID,
+		  date: item.date
+		}));
+		
+	  console.log(dailyLogFetched);
+	  setUserDailyLog(dailyLogFetched);
+	  console.log(userDailyLog);
+	  
+	  
     } catch (error) {
       console.error(error);
     }
   }
 
   useEffect(() => {
-	handleUserSetDate(new Date());
+	if(date == '')
+	  handleUserSetDate(new Date());
     if (date) {
       loadDailyStats();
     }
   }, [date]);
+  
+  
+  
+  
 
-  function handleUserSetDate(selectedDate : Date) {
+  function handleUserSetDate(selectedDate : Date) 
+  {
 	  //console.log(selectedDate);
 	console.log((selectedDate.getMonth() + 1).toString());
 	console.log(selectedDate.getDate().toString());
@@ -190,10 +230,14 @@ const TestPage = () => {
 	//console.log(userSelectedDate);
     setDate(userSelectedDate);
   }
+  
+  
+  
+  
 
 
-	console.log(currentDayProductPercent);
-	console.log(currentDayProductValue);
+	//console.log(currentDayProductPercent);
+	//console.log(currentDayProductValue);
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <div className="container-fluid" id="home-top-container">
@@ -233,7 +277,7 @@ const TestPage = () => {
         </div>
 
         <div className="row justify-content-center">
-          <DailyLog />
+          <DailyLog userDailyLog={userDailyLog}/>
         </div>
 
         <div className="row justify-content-center" id="fix-nav-bar">

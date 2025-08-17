@@ -105,32 +105,6 @@
   font-size: 21px;
 }
 
-.scroll-log-container
-{
-  display: flex;
-  gap: 16px;
-  overflow: scroll;
-  scroll-snap-type: x mandatory;
-  padding:  16px;
-  scroll-padding-left: 16px;
-}
-
-.item-container
-{
-  width: 400px;
-  border: 2px solid black;
-  scroll-snap-align: start;
-  max-width: 80%;
-}
-
-.text-container
-{
-
-}
-
-
-
-
 
 
 
@@ -151,5 +125,97 @@
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* STUFF RELATED TO THE SCROLLING DAILY LOG OF PRODUCTS */
+.scroll-log-container
+{
+  display: flex;
+  gap: 32px;
+  overflow: scroll;
+  scroll-snap-type: x mandatory;
+  padding: 15px 10px;
+  scroll-padding-left: 16px;
+  min-height: 10vh;
+  max-height: 180px;
+}
+
+.item-container
+{
+  max-width : 200px;
+  min-width: 28%;
+  scroll-snap-align: end;
+  max-width: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
+.text-container
+{
+  display : flex;
+  flex-direction : column;
+  align-items : center;
+  margin-top: 12px;
+}
+
+
+.thumbnail-container
+{
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width : 90%;
+  max-height : 70%;
+  background: white;
+  border: 2px solid white;
+  border-radius: 2px;
+}
+
+#image-thumbnail
+{
+  width: 100%;
+  height: 100%;
+}
+
+#item-title
+{
+  color: white;
+  font-size: 15px;
+  margin-bottom: 0px;
+  line-height: 1.1;
+}
+
+#item-subtitle
+{
+  color: white;
+  font-size: 11px;
+  margin-bottom: 0px;
+  line-height: 1.1; 
+}
+
+#item-calories
+{
+  color : white;
+  font-size: 10px;
+
+}
 
 

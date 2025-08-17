@@ -1,98 +1,41 @@
-//import React, {useState, useEffect} from 'react';
+import React from 'react';
 
+type UserDailyLoggedProductStats = {
+  barcode: string;
+  imageThumb: string;
+  brandName: string;
+  productName: string;
+  calories: string;
+  userID: string;
+  date: string;
+};
 
+type DailyLogProps = {
+  userDailyLog: UserDailyLoggedProductStats[];
+};
 
-
-const DailyLog = () => {
-
-
+const DailyLog: React.FC<DailyLogProps> = ({ userDailyLog }) => {
   return (
-    <div className='container-border' style={{'width' : '95%', 'marginTop' : '2vh'}}>
-        <div className='scroll-log-container'>
-
-
-            <div className='item-container'>
-                <div className='image-container'>
-                    <img src="a"></img>
-                </div>
-                <div className='text-container'>
-                    <span>text</span>
-                </div>
+    <div
+      className="container-border"
+      style={{ width: '95%', marginTop: '2vh' }}
+    >
+      <div className="scroll-log-container">
+        {userDailyLog.map((item) => (
+          <div className="item-container" key={item.barcode}>
+            <div className="thumbnail-container">
+              <img id='image-thumbnail' src={item.imageThumb} alt={item.productName} />
             </div>
-
-            <div className='item-container'>
-                <div className='image-container'>
-                    <img src="a"></img>
-                </div>
-                <div className='text-container'>
-                    <span>text</span>
-                </div>
+            <div className="text-container">
+              <span id='item-title'>{item.brandName != 'N/A' ? item.brandName : ' '}</span>
+              <span id='item-subtitle'>{item.productName}</span>
+              <span id='item-calories'>{item.calories} cal</span>
             </div>
-            
-            <div className='item-container'>
-                <div className='image-container'>
-                    <img src="a"></img>
-                </div>
-                <div className='text-container'>
-                    <span>text</span>
-                </div>
-
-            </div>
-
-
-
-            <div className='item-container'>
-                <div className='image-container'>
-                    <img src="a"></img>
-                </div>
-                <div className='text-container'>
-                    <span>text</span>
-                </div>
-            </div>
-
-        <div className='item-container'>
-                <div className='image-container'>
-                    <img src="a"></img>
-                </div>
-                <div className='text-container'>
-                    <span>text</span>
-                </div>
-            </div>
-
-        <div className='item-container'>
-                <div className='image-container'>
-                    <img src="a"></img>
-                </div>
-                <div className='text-container'>
-                    <span>text</span>
-                </div>
-            </div>
-
-        <div className='item-container'>
-                <div className='image-container'>
-                    <img src="a"></img>
-                </div>
-                <div className='text-container'>
-                    <span>text</span>
-                </div>
-            </div>
-
-
-
-
-
-
-
-
-
-
-        </div>
+          </div>
+        ))}
+      </div>
     </div>
+  );
+};
 
-
-
-
-
-
-  )}; export default DailyLog;
-
+export default DailyLog;
