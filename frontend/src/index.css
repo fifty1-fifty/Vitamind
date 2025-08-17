@@ -30,7 +30,7 @@ body
   flex-direction: column;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+  height: 1vh;
   background: transparent;
   overflow-y: hidden;
 }
