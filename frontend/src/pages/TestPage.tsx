@@ -248,11 +248,11 @@ const TestPage = () => {
         <div className="row justify-content-center align-items-center" id="all-rings-container">
           <div className="col">
             <div className="row justify-content-center all-rings-formatting">
-              <div className="col container-border" style={{ width: '45%', flex: '0 0 auto' }}>
+              <div className="col container-border" style={{ width: '49%', flex: '0 0 auto' }}>
                 <Ringtrack size="100%" text="Calories" progressPercent={currentDayProductPercent.calories} />
               </div>
 
-              <div className="col container-border" style={{ width: '40%', flex: '0 0 auto' }}>
+              <div className="col container-border" style={{ width: '41%', flex: '0 0 auto' }}>
                 <div className="row justify-content-center" style={{ margin: 'auto' }}>
                   <div className="col minor-rings-container">
                     <Ringtrack size="100%" text="Protein" progressPercent={currentDayProductPercent.protein} />

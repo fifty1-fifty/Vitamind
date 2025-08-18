@@ -172,7 +172,7 @@ const Carousel : React.FC<BarCarouselProps> = ({
   console.log(productValues);
   return (
 
-      <div id="myCarousel" className="carousel slide container-border" data-bs-ride="carousel" onTouchStart={handleTouchStart} onTouchEnd={handleTouchMove} style={{'width' : '100%', 'maxWidth' : '850px', 'marginTop' : '2vh', 'padding' : '0'}}>
+      <div id="myCarousel" className="carousel slide container-border" data-bs-ride="carousel" onTouchStart={handleTouchStart} onTouchEnd={handleTouchMove} style={{'width' : '100%', 'maxWidth' : '850px', 'marginTop' : '3vh', 'padding' : '0'}}>
       
 
       {/* Slides */}
@@ -212,7 +212,7 @@ const Carousel : React.FC<BarCarouselProps> = ({
       </div> 
 
       {/* Indicators */}
-      <div className="carousel-indicators" style={{'position' : 'relative', 'marginBottom' : '0.3rem' }}>
+      <div className="carousel-indicators" style={{'position' : 'relative', 'marginBottom' : '0.0rem' }}>
         <button id='dynamicIndicatorWidth' type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" className="active"></button>
         <button id='dynamicIndicatorWidth' type="button" data-bs-target="#myCarousel" data-bs-slide-to="1"></button>
         <button id='dynamicIndicatorWidth' type="button" data-bs-target="#myCarousel" data-bs-slide-to="2"></button>

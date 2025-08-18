@@ -18,7 +18,7 @@ const DailyLog: React.FC<DailyLogProps> = ({ userDailyLog }) => {
   return (
     <div
       className="container-border"
-      style={{ width: '100%', marginTop: '2vh' }}
+      style={{ width: '100%', marginTop: '3vh' }}
     >
       <div className="scroll-log-container">
         {userDailyLog.map((item) => (
