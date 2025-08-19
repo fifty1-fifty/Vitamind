@@ -7,7 +7,7 @@ import EditPage from './pages/Edit-Page';
 import Passwordpage from './pages/Password-Page';
 import './App.css';
 
-import Testpage from './pages/Testpage';
+import Testpage from './pages/TestPage';
 
 function App() : any {
   return (
