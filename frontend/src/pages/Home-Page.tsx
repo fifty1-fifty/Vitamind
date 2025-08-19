@@ -246,8 +246,8 @@ const HomePage = () =>
 
               <div className="row justify-content-center align-items-start" id="search-bar-barcode">
                   <div className="col-auto text-center">
-                      {toggleScanner === "first" && <Search switchToScanner={() => setToggleScanner('second')} />}
-                      {toggleScanner === "second" && <Scanner switchOffScanner={() => setToggleScanner('first')} />}
+                      {toggleScanner === "first" && <Search  />}
+                      {toggleScanner === "second" && <Scanner />}
                   </div>
               </div>
 

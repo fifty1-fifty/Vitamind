@@ -33,12 +33,11 @@ const BarcodeScanner: React.FC<Props> = ({ toggleScanner, setToggleScanner }) =>
 
   useEffect(() => {
     if (result) {
-      switchOffScanner();
       window.location.href = `/product?productid=${encodeURIComponent(result)}`;
     }
   }, [result, toggleScanner]);
 
-
+  console.log(toggleScanner);
   return (
  
     <div className="row">
