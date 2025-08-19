@@ -4,9 +4,10 @@ import Registerpage from './pages/Register-Page';
 import Homepage from './pages/Home-Page';
 import Productpage from './pages/Product-Page';
 import EditPage from './pages/Edit-Page';
-import Testpage from './pages/TestPage';
 import Passwordpage from './pages/Password-Page';
 import './App.css';
+
+import Testpage from './pages/Testpage';
 
 function App() : any {
   return (
@@ -23,10 +24,10 @@ function App() : any {
 
         <Route path="/home" element={<Homepage />} />
 		
-	<Route path="product" element={<Productpage />} />
-  <Route path='edit' element={<EditPage />} />
+		<Route path="product" element={<Productpage />} />
+		<Route path='edit' element={<EditPage />} />
 
-  <Route path='test' element={<Testpage />} />
+		<Route path='test' element={<Testpage />} />
 
 
 

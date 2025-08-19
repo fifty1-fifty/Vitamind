@@ -35,6 +35,7 @@
   position: absolute;
   z-index: 1;
   pointer-events: none;
+  width: 100%;
 }
 
 #return-button
@@ -62,11 +63,6 @@
     margin-right: -5px; 
     display: flex;
     flex-direction: column-reverse;
-}
-
-.material-icons
-{
-    font-size: 35px;
 }
 
 
