@@ -26,7 +26,7 @@ let NavigationBar : React.FC<Props> = ({
 
 
   
-
+  console.log(toggleScanner);
   return (  
 
   <div className='navbar-containee'>
