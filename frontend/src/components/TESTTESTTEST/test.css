@@ -149,7 +149,7 @@
 {
   display: flex;
   gap: 32px;
-  overflow: scroll;
+  overflow-x: scroll;
   scroll-snap-type: x mandatory;
   padding: 10px 10px;
   scroll-padding-left: 16px;
@@ -217,6 +217,15 @@
 {
   color : white;
   font-size: calc(0.6vw + 0.6vh + 0.6vmin);
+}
+
+
+
+
+.placeholder-text
+{
+  color : #676464;
+  font-size : calc(1.5vw + 1.5vh + 0.75vmin);
 }
 
 

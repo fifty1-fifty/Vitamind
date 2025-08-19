@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import { buildPath } from '../../../utils.ts';
 import '../components/TESTTESTTEST/test.css';
+import Scanner from '../components/barcode-comp/barcode-scanner';
 
 // Lazy-load large/heavy components
 const Background = React.lazy(() => import('../components/background-comp/Background'));
@@ -49,8 +50,13 @@ type UserDailyLoggedProductStats =
 
 
 const TestPage = () => {
-  const [date, setDate] = useState('');
+  
+  const [toggleScanner, setToggleScanner] = useState<true | false>(true);
 
+
+  
+  const [date, setDate] = useState('');
+ 
 	const [currentDayProductValue, setCurrentDayProductValue] = useState<NutritionValues>({
 		calories : '',
 		protein : '',
@@ -216,6 +222,12 @@ const TestPage = () => {
     }
   }, [date]);
   
+  useEffect(() => {
+    console.log(toggleScanner);
+
+    }
+  , [toggleScanner]);
+  
   
   
   
@@ -242,29 +254,30 @@ const TestPage = () => {
     <Suspense fallback={<div>Loading...</div>}>
       <div className="container-fluid" id="home-top-container">
         <div className="row justify-content-center">
-          <Search switchToScanner={() => console.log('beef 125 Testpage.tsx')}/>
+          {!toggleScanner && <Scanner setToggleScanner={setToggleScanner} toggleScanner={toggleScanner} />}
+            {toggleScanner && <Search />}
         </div>
 
         <div className="row justify-content-center align-items-center" id="all-rings-container">
           <div className="col">
             <div className="row justify-content-center all-rings-formatting">
               <div className="col container-border" style={{ width: '49%', flex: '0 0 auto' }}>
-                <Ringtrack size="100%" text="Calories" progressPercent={currentDayProductPercent.calories} />
+                {toggleScanner && <Ringtrack size="100%" text="Calories" progressPercent={currentDayProductPercent.calories} />}
               </div>
 
               <div className="col container-border" style={{ width: '41%', flex: '0 0 auto' }}>
                 <div className="row justify-content-center" style={{ margin: 'auto' }}>
                   <div className="col minor-rings-container">
-                    <Ringtrack size="100%" text="Protein" progressPercent={currentDayProductPercent.protein} />
+                    {toggleScanner && <Ringtrack size="100%" text="Protein" progressPercent={currentDayProductPercent.protein} />}
                   </div>
                   <div className="col minor-rings-container" style={{ margin: 'auto' }}>
-                    <Ringtrack size="100%" text="Fat" progressPercent={currentDayProductPercent.totalFats} />
+                    {toggleScanner && <Ringtrack size="100%" text="Fat" progressPercent={currentDayProductPercent.totalFats} />}
                   </div>
                 </div>
 
                 <div className="row justify-content-center">
                   <div className="col minor-rings-container ">
-                    <Ringtrack size="47%" text="Carbohydrates" progressPercent={currentDayProductPercent.carbohydrates} />
+                  {toggleScanner && <Ringtrack size="47%" text="Carbohydrates" progressPercent={currentDayProductPercent.carbohydrates} />}
                   </div>
                 </div>
               </div>
@@ -273,18 +286,18 @@ const TestPage = () => {
         </div>
 
         <div className="row justify-content-center align-items-center">
-          <BarRegion productPercents={currentDayProductPercent} productValues={currentDayProductValue} />
+         {toggleScanner && <BarRegion productPercents={currentDayProductPercent} productValues={currentDayProductValue} />}
         </div>
 
         <div className="row justify-content-center">
-          <DailyLog userDailyLog={userDailyLog}/>
+         {toggleScanner && <DailyLog userDailyLog={userDailyLog}/>}
         </div>
 
         <Background varColor="#040C1E" />
       </div>
 
         <div id="fix-nav-bar">
-          <Navigation setValue={handleUserSetDate} displayedDate={date} />
+          {toggleScanner && <Navigation setValue={handleUserSetDate} displayedDate={date} toggleScanner={toggleScanner} setToggleScanner={setToggleScanner}/>}
         </div>
     </Suspense>
   );

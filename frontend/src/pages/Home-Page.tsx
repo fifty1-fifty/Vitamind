@@ -115,6 +115,7 @@ const HomePage = () =>
 
 
  
+
   useEffect(() =>
   {
     const scannerFlag = localStorage.getItem('openScannerOnRedirect');

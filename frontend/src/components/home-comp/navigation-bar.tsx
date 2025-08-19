@@ -11,12 +11,16 @@ import React from 'react';
 type Props = {
   setValue : (date : Date) => void;
   displayedDate : string;
-}
+  toggleScanner : true | false;
+  setToggleScanner : React.Dispatch<React.SetStateAction<true | false>>;
+};
 
 
 let NavigationBar : React.FC<Props> = ({ 
   setValue,
-  displayedDate
+  displayedDate,
+  toggleScanner,
+  setToggleScanner
 }) => {
 
 
@@ -41,7 +45,7 @@ let NavigationBar : React.FC<Props> = ({
           </div>
 
           <div className='col'>
-              <button className='navigation-buttons-formatting'> <span className="material-symbols-outlined navi-icon-formatting">barcode_scanner</span>  </button>
+              <button className='navigation-buttons-formatting' onClick={() => setToggleScanner(false)}> <span className="material-symbols-outlined navi-icon-formatting">barcode_scanner</span>  </button>
           </div>
 
           <div className='col'>

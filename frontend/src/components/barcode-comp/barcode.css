@@ -50,6 +50,9 @@
     align-items: center;
     font-size: 28px;
     padding: 0px;
+    z-index: 10;
+    position: relative;
+    pointer-events: auto;
 }
 
 #return-icon-style

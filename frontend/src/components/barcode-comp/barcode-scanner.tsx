@@ -4,10 +4,11 @@ import './barcode.css';
 import Overlay from './barcode-overlay.svg';
 
 type Props = {
-  switchOffScanner: () => void;
+    toggleScanner : true | false;
+    setToggleScanner : React.Dispatch<React.SetStateAction<true | false>>
 };
 
-const BarcodeScanner: React.FC<Props> = ({ switchOffScanner }) => {
+const BarcodeScanner: React.FC<Props> = ({ toggleScanner, setToggleScanner }) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [result, setResult] = useState<string>("");
 
@@ -35,7 +36,7 @@ const BarcodeScanner: React.FC<Props> = ({ switchOffScanner }) => {
       switchOffScanner();
       window.location.href = `/product?productid=${encodeURIComponent(result)}`;
     }
-  }, [result, switchOffScanner]);
+  }, [result, toggleScanner]);
 
 
   return (
@@ -45,7 +46,7 @@ const BarcodeScanner: React.FC<Props> = ({ switchOffScanner }) => {
         <img src={Overlay} id='image-barcode-overlay'/>
         <video id="feed-styling" ref={videoRef} />
       </div>
-      <button onClick={switchOffScanner} id='return-button'>
+      <button onClick={() => setToggleScanner(true)} id='return-button'>
         
         <i id='return-icon-style' className="material-icons">turn_left</i>Return      
       </button>
