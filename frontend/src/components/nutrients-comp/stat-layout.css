@@ -3,8 +3,6 @@
 
 #product-container-width-formatting
 {
-  min-width:1500px;
-  max-width: 3000px;
   margin: auto;
 }
 
@@ -75,7 +73,6 @@ display: flex;
 #main-content-area
 {
   /*border: 1px solid white;*/
-  width: 750px;
 }
 
 #product-title-area
