@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 
 type UserDailyLoggedProductStats = {
   barcode: string;
@@ -15,6 +16,30 @@ type DailyLogProps = {
 };
 
 const DailyLog: React.FC<DailyLogProps> = ({ userDailyLog }) => {
+
+    
+
+    function gotoProduct(barcode : string)
+    {
+      window.location.href = `/product?productid=${encodeURIComponent(barcode)}`; 
+    }
+
+    function handleHoverEffectForProduct(incomingEvent : event)
+    {
+      console.log(incomingEvent);
+      console.log(incomingEvent);
+      /*if(incomingEvent... == onMouseEnter)
+      {
+        setToggleHoverOverItemEffect(true);
+      }
+      else if(incomingEvent... == onMouseLEave)
+      {
+        setToggleHoverOverItemEffect(false);
+      }*/
+    }
+
+    const [toggleHoverOverItemEffect, setToggleHoverOverItemEffect] = useState(false);
+
     return (
       <div
         className="container-border"
@@ -24,11 +49,15 @@ const DailyLog: React.FC<DailyLogProps> = ({ userDailyLog }) => {
           {userDailyLog.length > 0 ? (
             userDailyLog.map((item) => (
               <div className="item-container" key={item.barcode}>
-                <div className="thumbnail-container">
+                <div className="thumbnail-container" style={{width : toggleHoverOverItemEffect ? '65%' : '60%'}}>
                   <img
                     id="image-thumbnail"
                     src={item.imageThumb}
                     alt={item.productName}
+                    onClick={() => gotoProduct(item.barcode)}
+                    onMouseEnter={(e) => handleHoverEffectForProduct(e)}
+                    onMouseLeave={(e) => handleHoverEffectForProduct(e)}
+                    
                   />
                 </div>
                 <div className="text-container">

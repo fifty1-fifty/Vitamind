@@ -6,102 +6,6 @@ import React from 'react';
 
 import TrackBar from '../home-comp/dailytrackedbar';
 
-/*type Props = {
-  /*UnsaturatedFats : {
-    title : string; 
-    percent : number;
-    value : string;
-  }
-  SaturatedFats : {
-    title : string; 
-    percent : number;
-    value : string;
-  }
-  Cholesterol : {
-    title : string; 
-    percent : number;
-    value : string;
-  }
-  Zinc : {
-    title : string; 
-    percent : number;
-    value : string;
-  }
-  Sodium : {
-    title : string; 
-    percent : number;
-    value : string;
-  }
-  Iron : {
-    title : string; 
-    percent : number;
-    value : string;
-  }
-  Potassium : {
-    title : string; 
-    percent : number;
-    value : string;
-  }
-  Calcium : {
-    title : string; 
-    percent : number;
-    value : string;
-  }
-  Iodine : {
-    title : string; 
-    percent : number;
-    value : string;
-  }
-  VitaminA : {
-    title : string; 
-    percent : number;
-    value : string;
-  }
-  VitaminD : {
-    title : string; 
-    percent : number;
-    value : string;
-  }
-  Folate : {
-    title : string; 
-    percent : number;
-    value : string;
-  }
-  TotalCarbs : {
-    title : string; 
-    percent : number;
-    value : string;
-  }
-TotalCarbs : {
-    title : string; 
-    percent : number;
-    value : string;
-  }
-Sugar : {
-    title : string; 
-    percent : number;
-    value : string;
-  }
-Fiber : {
-    title : string; 
-    percent : number;
-    value : string;
-  } */
-
-
-/*
- * stat : Array<{
-  title : string;
-  percent : string;
-  value : number;
-}>;
-
- productValues : {};
- productPercents : {};
-
-} */
-
-
 type NutritionValues = {
 		calories : string;
 		protein : string;
@@ -126,7 +30,6 @@ type NutritionValues = {
 interface BarCarouselProps {
   productPercents: NutritionValues;
   productValues : NutritionValues;
-  // ... any other props you already have
 }
 
 
