@@ -24,19 +24,25 @@ const DailyLog: React.FC<DailyLogProps> = ({ userDailyLog }) => {
       window.location.href = `/product?productid=${encodeURIComponent(barcode)}`; 
     }
 
-    function handleHoverEffectForProduct(incomingEvent : event)
+
+
+    const [touchStart, setTouchStart] = React.useState(0);
+    const [touchEnd, setTouchEnd] = React.useState(0);
+    function handleTouchStart(e : React.TouchEvent)
     {
-      console.log(incomingEvent);
-      console.log(incomingEvent);
-      /*if(incomingEvent... == onMouseEnter)
-      {
-        setToggleHoverOverItemEffect(true);
-      }
-      else if(incomingEvent... == onMouseLEave)
-      {
-        setToggleHoverOverItemEffect(false);
-      }*/
+      const startTouchTime = e.targetTouches[0].clientX;
+      gotoProduct();
+      setTouchStart(startTouchTime);
+      console.log(startTouchTime);
     }
+
+    function handleTouchEnd(e : React.TouchEvent)
+    {
+      const endTouchTime = e.changedTouches[0].clientX;
+      setTouchEnd(endTouchTime);
+    }
+
+
 
     const [toggleHoverOverItemEffect, setToggleHoverOverItemEffect] = useState(false);
 
@@ -55,9 +61,8 @@ const DailyLog: React.FC<DailyLogProps> = ({ userDailyLog }) => {
                     src={item.imageThumb}
                     alt={item.productName}
                     onClick={() => gotoProduct(item.barcode)}
-                    onMouseEnter={(e) => handleHoverEffectForProduct(e)}
-                    onMouseLeave={(e) => handleHoverEffectForProduct(e)}
-                    
+                    onTouchStart={handleTouchStart}
+                    onTouchEnd={handleTouchEnd}
                   />
                 </div>
                 <div className="text-container">
