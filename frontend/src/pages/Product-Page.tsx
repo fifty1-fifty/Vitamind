@@ -31,7 +31,7 @@ const ProductPage = () =>
             
    
 
-                <div className='col-7' id='main-content-area'>
+                <div className='col' id='main-content-area'>
                     <ProductStats />
                 </div>
 

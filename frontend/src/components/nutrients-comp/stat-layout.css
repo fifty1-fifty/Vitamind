@@ -33,7 +33,7 @@
 
 #navi-button
 {
-display: flex;
+    display: flex;
     flex-direction: row-reverse;
     background: none;
     width: fit-content;
@@ -85,7 +85,7 @@ display: flex;
 
 #product-title
 {
-    font-size: 75px;
+    font-size: calc(4vw + 4vh + 2vmin);
     text-wrap: nowrap;
     margin: 0px auto;
     width: 100%;
@@ -99,7 +99,7 @@ display: flex;
 {
   text-wrap: nowrap;
   margin: 0px auto;
-  font-size: 30px;
+  font-size: calc(2.5vw + 2.5vh + 1.75vmin);
   text-align: left;
   width: 95%;
   color: white;
@@ -115,8 +115,6 @@ display: flex;
 {
   aspect-ratio: 35 / 34;
   position: relative;
-  max-width: 300px;
-  max-height: 225px;
   overflow: hidden;
   margin:auto;
   display:flex;
@@ -153,6 +151,7 @@ display: flex;
   flex-direction: row-reverse;
   text-align: center;
   align-items: center;
+  font-size: calc(0.75vw + 0.75vh + 0.45vmin);
 }
 
 #add-item-button
@@ -163,17 +162,18 @@ display: flex;
   flex-direction: row-reverse;
   text-align: center;
   align-items: center;
+  font-size: calc(0.75vw + 0.75vh + 0.45vmin);
 }
 
 #edit-item-icon
 {
-  font-size: 25px;
+  font-size: calc(1.5vw + 1.5vh + 0.8vmin);
   margin-top: 3px;
 }
 
 #add-item-icon
 {
-  font-size: 20px;
+  font-size: calc(1.5vw + 1.5vh + 0.8vmin);
   margin-top: 3px;
   margin-right: 2px;
 }
@@ -229,7 +229,7 @@ display: flex;
   margin: auto;
   border-radius: 15px;
   border: 1px solid white;
-  font-size: 19px;
+  font-size: calc(0.75vw + 0.75vh + 0.4vmin);
 }
 
 
@@ -286,7 +286,7 @@ display: flex;
 {
   background: white;
   padding: 0px 20px;
-  font-size: 14px;
+  font-size: calc(0.75vw + 0.75vh + 0.35vmin);
   display: flex;
   align-items: center;
 }
@@ -297,7 +297,7 @@ display: flex;
   text-align: center;
   background: none;
   border: none;
-  font-size: 14px;
+  font-size: calc(0.75vw + 0.75vh + 0.35vmin);
   color: black;
 }
 
@@ -305,22 +305,6 @@ display: flex;
 {
   color: black;
 }
-
-/* To get rid of stupid increment arrows on input type=number */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button 
-{
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-
-input[type=number] 
-{
-  -moz-appearance: textfield;
-}
-
-
 
 
 #testtest
