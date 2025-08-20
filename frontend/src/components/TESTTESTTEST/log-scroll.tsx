@@ -34,17 +34,17 @@ const DailyLog: React.FC<DailyLogProps> = ({ userDailyLog }) => {
       gotoProduct();
       setTouchStart(startTouchTime);
       console.log(startTouchTime);
+      console.log(touchStart);
     }
 
     function handleTouchEnd(e : React.TouchEvent)
     {
       const endTouchTime = e.changedTouches[0].clientX;
       setTouchEnd(endTouchTime);
+      console.log(endTouchTime);
+      console.log(touchEnd);
     }
 
-
-
-    const [toggleHoverOverItemEffect, setToggleHoverOverItemEffect] = useState(false);
 
     return (
       <div
