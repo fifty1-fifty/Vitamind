@@ -12,7 +12,7 @@ import '../components/nutrients-comp/stat-layout.css';
 
 const ProductPage = () =>
 {
-   /*function gotoHome()
+   function gotoHome()
    {
      window.location.href = '/home';
    }
@@ -21,27 +21,25 @@ const ProductPage = () =>
    {
      localStorage.setItem('openScannerOnRedirect', 'true');
      window.location.href = '/home';
-   }*/
+   }
 
 
  
     return (  
         <div className="container-fluid">
             <div className='row justify-content-center' id='product-container-width-formatting'>
-            
-   
+           
+                 <div className='col' id='main-content-area'>
+                      <div className='row' id='top-navigation-button-area'>  
+                           <button className='top-navigation-buttons' onClick={gotoHome}><i className='material-icons' id='return-icon'>arrow_back_ios</i>Return</button>
+                           <button className='top-navigation-buttons' onClick={gotoScanner}><i className='material-symbols-outlined' id='rescan-icon'>barcode_scanner</i>New Scan</button>
+                      </div>
+                      <div className='row'>
+                          <ProductStats />
+                      </div>
+ 
 
-                <div className='col' id='main-content-area'>
-                    <ProductStats />
                 </div>
-
-
-
-
-                
-
-
-
 
             </div>
             <Background varColor='#040C1E' />

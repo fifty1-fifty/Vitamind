@@ -144,11 +144,6 @@
     
 }
 
-#add-item-icon
-{
-    font-size: 21px;
-}
-
 
 #edit-title
 {
@@ -179,3 +174,24 @@
 
 
 
+#top-navigation-button-area
+{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.top-navigation-buttons
+{
+  width: fit-content;
+  background: none;
+}
+
+#return-icon
+{
+  width: 15px;
+}
+
+#rescan-icon
+{
+  margin-right: 2px;
+}
