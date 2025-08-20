@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+
 
 type UserDailyLoggedProductStats = {
   barcode: string;
@@ -28,10 +28,10 @@ const DailyLog: React.FC<DailyLogProps> = ({ userDailyLog }) => {
 
     const [touchStart, setTouchStart] = React.useState(0);
     const [touchEnd, setTouchEnd] = React.useState(0);
-    function handleTouchStart(e : React.TouchEvent)
+    function handleTouchStart(e : React.TouchEvent, barcode : string)
     {
       const startTouchTime = e.targetTouches[0].clientX;
-      gotoProduct();
+      gotoProduct(barcode);
       setTouchStart(startTouchTime);
       console.log(startTouchTime);
       console.log(touchStart);
@@ -55,13 +55,13 @@ const DailyLog: React.FC<DailyLogProps> = ({ userDailyLog }) => {
           {userDailyLog.length > 0 ? (
             userDailyLog.map((item) => (
               <div className="item-container" key={item.barcode}>
-                <div className="thumbnail-container" style={{width : toggleHoverOverItemEffect ? '65%' : '60%'}}>
+                <div className="thumbnail-container" /* {style={{width : toggleHoverOverItemEffect ? '65%' : '60%'}} */>
                   <img
                     id="image-thumbnail"
                     src={item.imageThumb}
                     alt={item.productName}
                     onClick={() => gotoProduct(item.barcode)}
-                    onTouchStart={handleTouchStart}
+                    onTouchStart={(e) => handleTouchStart(e, item.barcode)}
                     onTouchEnd={handleTouchEnd}
                   />
                 </div>
