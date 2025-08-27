@@ -75,7 +75,7 @@ const Carousel : React.FC<BarCarouselProps> = ({
   console.log(productValues);
   return (
 
-      <div id="myCarousel" className="carousel slide container-border" data-bs-ride="carousel" onTouchStart={handleTouchStart} onTouchEnd={handleTouchMove} style={{'width' : '100%', 'maxWidth' : '850px', 'marginTop' : '3vh', 'padding' : '0'}}>
+      <div id="myCarousel" className="carousel slide container-border" data-bs-ride="carousel" onTouchStart={handleTouchStart} onTouchEnd={handleTouchMove} style={{'width' : '85%', 'maxWidth' : '850px', 'marginTop' : '3vh', 'padding' : '0'}}>
       
 
       {/* Slides */}

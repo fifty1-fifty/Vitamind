@@ -48,7 +48,6 @@ type UserDailyLoggedProductStats =
 
 
 
-
 const TestPage = () => {
   
   const [toggleScanner, setToggleScanner] = useState<true | false>(true);
@@ -261,11 +260,11 @@ const TestPage = () => {
         <div className="row justify-content-center align-items-center" id="all-rings-container">
           <div className="col">
             <div className="row justify-content-center all-rings-formatting">
-              <div className="col container-border" style={{ width: '49%', flex: '0 0 auto' }}>
+              <div className="col container-border" style={{ width: '53%', flex: '0 0 auto' }}>
                 {toggleScanner && <Ringtrack size="100%" text="Calories" progressPercent={currentDayProductPercent.calories} />}
               </div>
 
-              <div className="col container-border" style={{ width: '41%', flex: '0 0 auto' }}>
+              <div className="col container-border" style={{ width: '40%', flex: '0 0 auto' }}>
                 <div className="row justify-content-center" style={{ margin: 'auto' }}>
                   <div className="col minor-rings-container">
                     {toggleScanner && <Ringtrack size="100%" text="Protein" progressPercent={currentDayProductPercent.protein} />}

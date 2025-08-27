@@ -49,7 +49,7 @@ const DailyLog: React.FC<DailyLogProps> = ({ userDailyLog }) => {
     return (
       <div
         className="container-border"
-        style={{ width: '100%', marginTop: '3vh'}}
+        style={{ width: '95%', marginTop: '3vh'}}
       >
         <div className="scroll-log-container" style={{justifyContent : userDailyLog.length === 0 ? 'center' : 'flex-start'}}>
           {userDailyLog.length > 0 ? (
