@@ -126,8 +126,25 @@
     bottom: -5px;
 }
 
+.user-log-text-area
+{
+    position: sticky;
+    top: -20px;
+    display: flex;
+    width: 100%;
+    font-size: 1.1rem;
+    font-weight: bold;
+    z-index: 10;
+}
 
-
+.user-log-text
+{
+  background: #040c1e;
+  width: 78%;
+  text-align: left;
+  padding-top: 1px;
+  color: white;
+}
 
 
 
@@ -150,8 +167,9 @@
   display: flex;
   gap: 32px;
   overflow-y: scroll;
+  overflow-x: clip;
   scroll-snap-type: y mandatory;
-  padding: 10px 10px;
+  padding: 20px 10px 10px;
   scroll-padding-left: 16px;
   min-height: 120px;
   max-height: 120px;
