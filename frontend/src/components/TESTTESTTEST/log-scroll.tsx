@@ -49,7 +49,7 @@ const DailyLog: React.FC<DailyLogProps> = ({ userDailyLog }) => {
     return (
       <div
         className="container-border"
-        style={{ width: '95%', marginTop: '3vh'}}
+        style={{ width: '85%', marginTop: '3vh'}}
       >
         <div className="scroll-log-container" style={{justifyContent : userDailyLog.length === 0 ? 'center' : 'flex-start'}}>
           {userDailyLog.length > 0 ? (
@@ -64,13 +64,11 @@ const DailyLog: React.FC<DailyLogProps> = ({ userDailyLog }) => {
                     onTouchStart={(e) => handleTouchStart(e, item.barcode)}
                     onTouchEnd={handleTouchEnd}
                   />
-                </div>
-                <div className="text-container">
-                  <span id="item-title">
-                    {item.brandName !== "N/A" ? item.brandName : " "}
-                  </span>
-                  <span id="item-subtitle">{item.productName}</span>
                   <span id="item-calories">{item.calories} cal</span>
+                </div>
+                <div className="full-text-container">
+                    <span id="item-title">{item.brandName !== "N/A" ? item.brandName : " "}</span>
+                    <span id="item-subtitle">{item.productName}</span>
                 </div>
               </div>
             ))
