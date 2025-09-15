@@ -44,14 +44,14 @@ export default function RingRowTrack({productPercents, productValues} : HalfRing
       style={{overflow : 'hidden'}}
       slideSize="70%"
       height='100%'
-      slideGap="xs"
+      slideGap="lg"
       controlsOffset="xs"
       controlSize={26}
       withControls={false}
       withIndicators={false}
         emblaOptions={{
         loop: true,
-        dragFree: true,
+        dragFree: false,
         align: 'center'
       }}
     >

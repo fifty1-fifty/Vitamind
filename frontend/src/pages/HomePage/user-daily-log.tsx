@@ -47,9 +47,7 @@ const DailyLog: React.FC<DailyLogProps> = ({ userDailyLog }) => {
 
 
 return (
-  <div className="container-border" style={{ width: '85%', margin: '0.5vh auto 1vh' }}>
-
-    <div className="scroll-log-container">
+  <div className="container-border" style={{ width: '85%', margin: '0.5vh auto 1.8vh' }}>
 
       {userDailyLog.length > 0 && (
         <div className="user-log-text-area">
@@ -57,33 +55,36 @@ return (
         </div>
       )}
 
-      {userDailyLog.length > 0 ? (
-        userDailyLog.map((item) => (
-          <div className="item-container" key={item.barcode}>
-            <div className="thumbnail-container">
-              <img
-                id="image-thumbnail"
-                src={item.imageThumb}
-                alt={item.productName}
-                onClick={() => gotoProduct(item.barcode)}
-                onTouchStart={(e) => handleTouchStart(e, item.barcode)}
-                onTouchEnd={handleTouchEnd}
-              />
-              <span id="item-calories">{item.calories} cal</span>
+    <div className="scroll-log-container">
+      <div className="scrolly-container">
+        {userDailyLog.length > 0 ? (
+          userDailyLog.map((item) => (
+            <div className="item-container" key={item.barcode}>
+              <div className="thumbnail-container">
+                <img
+                  id="image-thumbnail"
+                  src={item.imageThumb}
+                  alt={item.productName}
+                  onClick={() => gotoProduct(item.barcode)}
+                  onTouchStart={(e) => handleTouchStart(e, item.barcode)}
+                  onTouchEnd={handleTouchEnd}
+                />
+                <span id="item-calories">{item.calories} cal</span>
+              </div>
+              <div className="full-text-container">
+                <span id="item-title">
+                  {item.brandName !== "N/A" ? item.brandName : " "}
+                </span>
+                <span id="item-subtitle">{item.productName}</span>
+              </div>
             </div>
-            <div className="full-text-container">
-              <span id="item-title">
-                {item.brandName !== "N/A" ? item.brandName : " "}
-              </span>
-              <span id="item-subtitle">{item.productName}</span>
-            </div>
-          </div>
         ))
       ) : (
         <div className="placeholder-container text-center p-3">
           <p className="placeholder-text">Your daily log is empty</p>
         </div>
       )}
+    </div>
     </div>
   </div>
 );
