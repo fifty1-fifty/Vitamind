@@ -59,8 +59,8 @@ strokeWidth = 18, textColor = '#44cf6c', fontSize = 20, text="", xAxis= 0, yAxis
     return (
 
         <svg
-      width={'110%'}
-      height={'55%'}
+      width={'100%'}
+      height={'50%'}
       viewBox="-26.75 105.75 267.5 267.5"
       xmlns="http://www.w3.org/2000/svg"
       style={{ transform: 'rotate(-180deg)', overflow: 'clip', zIndex: '-1'}}
