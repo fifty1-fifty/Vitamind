@@ -1,0 +1,44 @@
+.calendar-container
+{
+    background: black;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 1200;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    pointer-events: none;
+    animation: backgroundFadeIn 0.1s forwards;
+}
+
+.opacity-fade
+{
+    animation: calendarFadeIn 0.1s forwards;
+}
+
+@keyframes backgroundFadeIn
+{
+    from{
+        opacity : 0;
+    }
+    to {
+        opacity: 0.6;
+    }
+}
+
+@keyframes calendarFadeIn
+{
+    from{
+        opacity : 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+
+
+

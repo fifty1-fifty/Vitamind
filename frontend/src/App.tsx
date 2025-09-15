@@ -1,48 +1,64 @@
 import { BrowserRouter as Router, Route, Navigate, Routes } from 'react-router-dom';
-import Loginpage from './pages/Login-Page';
-import Registerpage from './pages/Register-Page';
-import Homepage from './pages/Home-Page';
-import Productpage from './pages/Product-Page';
-import EditPage from './pages/Edit-Page';
-import Passwordpage from './pages/Password-Page';
-import './App.css';
 
-import Testpage from './pages/TestPage';
+import { createTheme, MantineProvider } from '@mantine/core';
+import '@mantine/core/styles.css';
 
-function App() : any {
+import Login from './pages/LoginPage/LoginPage';
+import Test from './pages/TestPage/TestPage';
+import Home from './pages/HomePage/HomePage';
+import Product from './pages/ProductPage/ProductPage';
+
+//import { useState } from 'react'
+
+import './App.css'
+
+
+
+
+
+const theme = createTheme({
+  colors: {
+    brand: [
+      '#e9d985', // lightest (yellowish)
+      '#f3eab7', // lighter
+      '#bcd8c1', // pale green
+      '#d3e6d8', // lighter green
+      '#439A86', // green
+      '#7fc7b5', // lighter teal
+      '#007991', // teal
+      '#005f6b', // darker teal
+      '#222e50', // dark blue
+      '#1a2238', // darkest
+    ],
+  },
+  primaryColor: 'brand',
+  fontFamily: 'Inter, sans-serif',
+  headings: {
+    fontFamily: 'Inter, sans-serif',
+    fontWeight: '700',
+  },
+  radius: {
+    md: '8',
+    lg: '12',
+  },
+});
+
+
+
+function App() 
+{
   return (
-     <Router>
+    <MantineProvider theme={theme}>
+      <Router>
         <Routes>
-
-
-        <Route path="/login" element={<Loginpage />} />
-		<Route path="/register" element={<Registerpage />} />
-		<Route path="/forgotpassword" element={<Passwordpage />} />
-        <Route path="/" element={<Navigate to="/login" />} /> 
-        <Route path="*" element={<Navigate to="/login" />} /> 
-		
-
-        <Route path="/home" element={<Homepage />} />
-		
-		<Route path="product" element={<Productpage />} />
-		<Route path='edit' element={<EditPage />} />
-
-		<Route path='test' element={<Testpage />} />
-
-
-
-
-
-
-
-
-
-
-
+          <Route path="/" element={<Navigate to="/login" />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/test" element={<Test />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/product" element={<Product />} />
         </Routes>
       </Router>
-  );
+    </MantineProvider>
+  )
 }
-
 export default App
-// <Route path='/test' element={<Testpage />} />

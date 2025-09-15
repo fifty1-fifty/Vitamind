@@ -1,0 +1,26 @@
+.sign-up-text
+{
+    font-size: 0.875rem; /* Match the Button size="xs" font size */
+    color: #495057; /* Mantine's default text color */
+    margin-bottom: -1%; /* Small space between text and button */
+}
+
+.sign-up-button 
+{
+    background-color: transparent;
+    border: none;
+    color: #1c7ed6; /* Mantine's primary color */
+    font-size: 0.875rem; /* Match the Button size="xs" font size */
+    padding: 0;
+}
+
+.sign-up-button:hover 
+{
+    color: #1971c2; /* Darker shade on hover */
+}
+
+.input-field-sizing
+{
+    margin: auto;
+    width: 80%;
+}

@@ -1,69 +1,66 @@
 
-.live-feed-container
+.format-feed
 {
-     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: none;
-    aspect-ratio: 7 / 13;
-    max-height: 810px;
-    z-index: -1;
-    margin-top: 20px;
+  min-width : 90vw;
+  background : rgb(29, 29, 29);
+  height : 92vh;;
+  position : relative;
+  border : 3px solid #c4ffb2;
+  border-radius : 10px;
+  animation : swipeUp 0.3s forwards;
 }
 
-
-
-#feed-styling
+video
 {
-  /*min-width: 639px;
-  min-height: 799px;*/
-  width: 100%;
-  height: 100%;
   object-fit: cover;
-  background-color: black;
-  border-radius: 9px;
-  border-width: 1px;
-  border-color: #a8fdac;
-  border-style: solid;
-  z-index: 0;
+  border-radius : 10px;
 }
 
-#image-barcode-overlay
+.feed-overlay
 {
-  position: absolute;
-  z-index: 1;
-  pointer-events: none;
-  width: 100%;
+    z-index: 100;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    display: flex;
+    /* background: red; */
+    flex-direction: row;
+    pointer-events: none;
+    animation : swipeUp 0.3s forwards;
 }
 
-#return-button
+.return-button
 {
-    min-width: 250px;
-    max-width: 250px;
-    max-height: 65px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 28px;
-    padding: 0px;
-    z-index: 10;
-    position: relative;
-    pointer-events: auto;
+    color : white;
+    border: none;
+    margin : auto;
+    margin-top: 1%;
+    border-radius: 5px;
+    padding: 0px 24%;
+    display : flex;
+    flex-direction: row;
+    align-items : center;
 }
 
-#return-icon-style
+.return-icon
 {
-    display: flex;
-    padding-bottom: 2px;
-    margin-right: -5px; 
-    display: flex;
-    flex-direction: column-reverse;
+  display : flex;
+  width : 26px;
+  justify-content: center;
 }
 
 
+
+@keyframes swipeUp
+{
+    from{
+        margin-top : 2000px;
+    }
+    to {
+        margin-top : 0px ;
+    }
+}
 

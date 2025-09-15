@@ -1,0 +1,302 @@
+/* Search Bar CCS */
+.search-bar-area
+{
+    display: flex;
+    margin:auto;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    outline:none;
+    box-sizing: border-box;
+    border: 1px solid #44cf6c;;
+    border-radius: 5px;
+    box-shadow: 0 0 1px #9ecaed;
+    width: 80%;
+    min-height: 24px;
+    margin-top: 0%;
+}
+
+#search-icon
+{
+    color: #a4a9ad;
+    padding-left: 2px;
+}
+
+#searchbar
+{
+    color: #f1ffe7;
+    background: none;
+    padding-left: 0px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid transparent;
+    outline: none;
+}
+/* End Search Bar CSS */
+
+
+
+
+/* Ring Track CSS */
+.main-ring-track
+{
+  height:auto;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #a9fdac;
+  border-radius: 40px;
+  box-shadow: 0 0 1px #9ecaed;
+}
+
+.ring-track-row
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  gap: 2%;
+}
+
+.secondary-ring-track
+{
+  height:auto;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #a9fdac;
+  border-radius: 40px;
+  box-shadow: 0 0 1px #9ecaed;
+}
+/* End Ring Track CSS */
+
+
+
+/* Secondary Ring Track CSS */
+.half-ring-track-row
+{
+    display: flex;
+    gap: 10%;
+    flex-direction: row;
+    justify-content: center;
+
+    height:auto;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #a9fdac;
+    border-radius: 15px;
+    box-shadow: 0 0 1px #9ecaed;
+    margin-bottom : 10vh;
+}
+
+.individual-half-ring
+{
+  width: 100%;
+  align-items: center;
+  justify-content: end;
+  overflow: clip; 
+  display: flex;
+  margin-top: -10%;
+  flex-direction: column;
+}
+
+.half-ring-container
+{
+  padding: 0 1%;
+  display: flex;
+  gap: 5%;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.half-ring-product-text
+{
+  color: white;
+  font-size: 50%;
+  font-weight: lighter;
+  margin-bottom: -10%;
+  z-index: 1;
+}
+/* End Secondary Ring Track CSS */
+
+
+
+/* Navigation Bar CSS */
+.navbar-container
+{
+    display: flex;
+    flex-direction: column;
+    padding: 1% 1%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(0 255 114 / 80%);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.date-container
+{
+  padding-bottom: 1%;
+}
+
+#displayed-date
+{
+  background: white;
+  border-radius: 50px;
+  padding: 1% 7%;
+}
+
+.navigation-buttons-formatting
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navi-icon-formatting
+{
+  font-size: 230%;
+  color: white;
+}
+/* End Navigation Bar CSS
+
+
+
+/* Daily log CSS */
+
+.container-border
+{
+  border : 2px solid #a8fab5;
+  height : 44vh;
+  border-radius: 25px;
+  overflow-y: scroll;
+  margin : 0px 5px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.container-border::-webkit-scrollbar
+{
+  display : none;
+}
+
+.scroll-log-container
+{
+  display: flex;
+  overflow-y: scroll;
+  overflow-x: clip;
+  scroll-padding-left: 16px;
+  flex-direction: column;
+  align-items: center;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scroll-log-container::-webkit-scrollbar
+{
+  display : none;
+}
+
+.item-container
+{
+  width: 100%;
+  scroll-snap-align: end;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row-reverse;
+  padding : 1.2% 4.2%;
+}
+
+.placeholder-container
+{
+  margin-top : 50%;
+}
+
+.placeholder-text
+{
+  color : #5b5b5b;
+  font-size : calc(1.5vh + 1.5vw + 1.5vmin);
+}
+
+.full-text-container
+{
+  display : flex;
+  flex-direction : column;
+  align-items : flex-start;
+  margin-top: 8px;
+  width: 35%;
+}
+
+
+.thumbnail-container
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  aspect-ratio: 1 / 1;
+  background: white;
+  border: 2px solid white;
+  border-radius: 2px;
+  overflow: clip;
+}
+
+#image-thumbnail
+{
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
+}
+
+#item-title
+{
+  color: white;
+  font-size: calc(1vw + 1vh + 0.5vmin);
+  margin-bottom: 0px;
+  line-height: 1.1;
+  text-align: left;
+  width : 90%;
+}
+
+#item-subtitle
+{
+  color: white;
+  font-size: calc(0.75vw + 0.75vh + 0.25vmin);
+  margin-bottom: 0px;
+  line-height: 1.1; 
+  text-align: left;
+}
+
+#item-calories
+{
+  color : black;
+  font-size: calc(0.6vw + 0.6vh + 0.6vmin);
+}
+
+.user-log-text-area
+{
+    position: sticky;
+    top: -20px;
+    display: flex;
+    width: 100%;
+    font-size: 1.1rem;
+    z-index: 10;
+}
+
+.user-log-text
+{
+  background: none;
+  width: 100%;
+  text-align: center;
+  padding-top: 1px;
+  color: white;
+}

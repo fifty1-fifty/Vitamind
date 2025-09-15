@@ -1,58 +1,47 @@
-import React, { useEffect, useRef, useState } from "react";
-import { BrowserMultiFormatReader } from "@zxing/browser";
+import { useEffect, useState } from "react";
+import BarcodeScanner from "react-qr-barcode-scanner";
 import './barcode.css';
-import Overlay from './barcode-overlay.svg';
+import Overlay from './barcode-overlay.svg'
 
 type Props = {
     toggleScanner : true | false;
     setToggleScanner : React.Dispatch<React.SetStateAction<true | false>>
 };
 
-const BarcodeScanner: React.FC<Props> = ({ toggleScanner, setToggleScanner }) => {
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-  const [result, setResult] = useState<string>("");
 
- useEffect(() => {
-  const codeReader = new BrowserMultiFormatReader();
 
-  codeReader.decodeFromVideoDevice(
-    undefined,
-    videoRef.current!,
-    (decodedResult) => {
-      if (decodedResult) {
-        const text = decodedResult.getText();
-        setResult(text);
-      }
-    }
-  );
+function App({toggleScanner, setToggleScanner} : Props) {
+  const [data, setData] = useState("Not Found");
 
- /* return () => {
-    //(codeReader as any).reset(); // bypass TypeScript error
-  }; */
-}, []); 
+  function handleToggle()
+  {
+    console.log('bean beans beans');
+    setToggleScanner(!toggleScanner);
+  }
 
-  useEffect(() => {
-    if (result) {
-      window.location.href = `/product?productid=${encodeURIComponent(result)}`;
-    }
-  }, [result, toggleScanner]);
-
-  console.log(toggleScanner);
+  useEffect( () => {
+    console.log(data);
+  }, [data]);
   return (
- 
-    <div className="row">
-      <div className="live-feed-container">
-        <img src={Overlay} id='image-barcode-overlay'/>
-        <video id="feed-styling" ref={videoRef} />
+    <>
+      <div className='format-feed'>
+        <img src={Overlay} className='feed-overlay'/>
+        <BarcodeScanner 
+          width={'100%'}
+          height={'100%'}
+          onUpdate={(err, result) => {
+            if (result)
+            {
+              setData(result.getText());
+              window.location.href = `product?productid=${encodeURIComponent(result.getText())}`;
+            }
+            else setData("Not Found" + err);
+          }
+        }
+        />
       </div>
-      <button onClick={() => setToggleScanner(true)} id='return-button'>
-        
-        <i id='return-icon-style' className="material-icons">turn_left</i>Return      
-      </button>
-
-      
-    </div>
+      <button className='return-button' onClick={handleToggle}><span className="material-icons return-icon">chevron_left</span>Return</button>
+    </>
   );
-};
-
-export default BarcodeScanner;
+}
+export default App;
