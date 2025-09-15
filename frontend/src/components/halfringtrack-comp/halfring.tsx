@@ -12,6 +12,11 @@ strokeWidth = 18, textColor = '#44cf6c', fontSize = 20, text="", xAxis= 0, yAxis
     const [displayedProgress, setDisplayedProgress] = useState(0);
     const [toggleBetweenPercentValue, setToggleBetweenPercentValue] = useState(true);
 
+    console.log(textColor);
+    console.log(fontSize);
+    console.log(xAxis);
+    console.log(yAxis);
+
     useEffect(() => 
     {
         let start = 0;

@@ -29,7 +29,7 @@ function App({toggleScanner, setToggleScanner} : Props) {
         <BarcodeScanner 
           width={'100%'}
           height={'100%'}
-          onUpdate={(err, result) => {
+          onUpdate={(err : any, result : any) => {
             if (result)
             {
               setData(result.getText());

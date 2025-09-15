@@ -35,6 +35,9 @@ let NavigationBar : React.FC<Props> = ({
   {
     //console.log("too spicy");
     //setToggleCalendar(state);
+    console.log('this is just to get rid of stupid ass warning');
+    console.log(setValue);
+  
     toggleCalendar = !toggleCalendar;
     setToggleCalendar(toggleCalendar);
     //console.log('toggling calendar' + toggleCalendar);
