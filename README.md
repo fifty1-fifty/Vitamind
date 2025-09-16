@@ -1,2 +1,1 @@
-myvitamind.life kikfierjkfierwjfuioerwhfiulerwhfkuiyhrewaHGFUKILYREQJHG
-
+myvitamind.life
