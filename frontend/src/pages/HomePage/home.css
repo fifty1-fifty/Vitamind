@@ -87,7 +87,7 @@
     border-color: #a9fdac;
     border-radius: 15px;
     box-shadow: 0 0 1px #9ecaed;
-    margin-bottom : 9.5vh;
+    margin-bottom : 20.5vh;
 }
 
 .individual-half-ring
@@ -97,15 +97,14 @@
   justify-content: end;
   overflow: clip; 
   display: flex;
-  margin-top: -10%;
   flex-direction: column;
 }
 
 .half-ring-container
 {
-  padding: 0 1%;
+  padding: 1.5% 1% 0px;
   display: flex;
-  gap: 10%;
+  gap: 9%;
   flex-direction: row;
   justify-content: center;
 }
@@ -113,9 +112,9 @@
 .half-ring-product-text
 {
   color: white;
-  font-size: 70%;
+  font-size: 65%;
   font-weight: lighter;
-  margin-bottom: -10%;
+  margin-bottom: -18%;
   z-index: 1;
 }
 /* End Secondary Ring Track CSS */
@@ -174,14 +173,14 @@
 .container-border
 {
   border : 2px solid #a8fab5;
-  height : 44vh;
+  height : 33vh;
   border-radius: 25px;
   margin : 0px 5px;
 }
 
 .scroll-log-container
 {
-  height : 93%;
+  height : 90%;
   -ms-overflow-style: none;
   scrollbar-width: none;
   overflow-y : scroll;
@@ -217,7 +216,7 @@
 
 .placeholder-container
 {
-  margin-top : 50%;
+  /* margin-top : 50%; */
 }
 
 .placeholder-text

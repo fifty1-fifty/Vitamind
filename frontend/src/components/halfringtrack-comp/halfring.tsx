@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 //import { SemiCircleProgress } from '@mantine/core';
 
-const RADIUS = 190;
+const RADIUS = 40;
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 
 
 function halfRing({ progressPercent = 0, progressValue = '', duration = 1000, strokeColor = '#44cf6c', bgStrokeColor = '#dedede',
-strokeWidth = 18, textColor = '#44cf6c', fontSize = 20, text="", xAxis= 0, yAxis = 125 
+strokeWidth = 3, textColor = '#44cf6c', fontSize = 20, text="", xAxis= 0, yAxis = 125 
 }) 
 {
     const [displayedProgress, setDisplayedProgress] = useState(0);
@@ -40,6 +40,7 @@ strokeWidth = 18, textColor = '#44cf6c', fontSize = 20, text="", xAxis= 0, yAxis
 
     const strokeDashoffset = Math.max(0, CIRCUMFERENCE - ((displayedProgress / 2) / 100) * CIRCUMFERENCE);
     const horizontalShift = (strokeDashoffset != 0 ? 8 : -4); 
+	console.log(horizontalShift);
 
   function handleSwitch()
   {
@@ -60,24 +61,24 @@ strokeWidth = 18, textColor = '#44cf6c', fontSize = 20, text="", xAxis= 0, yAxis
 
         <svg
       width={'100%'}
-      height={'50%'}
-      viewBox="-26.75 105.75 267.5 267.5"
+      height={'auto'}
+      viewBox="0 0 99 65"
       xmlns="http://www.w3.org/2000/svg"
-      style={{ transform: 'rotate(-180deg)', overflow: 'clip', zIndex: '-1'}}
-    >
+      style={{ transform: 'rotate(-180deg)', overflow: 'clip', zIndex: '-1', display : 'block'}}
+	>
       <circle
         r={RADIUS}
-        cx="107"
-        cy="107"
+        cx="50"
+        cy="0"
         fill="transparent"
         onClick={handleSwitch}
         stroke={bgStrokeColor}
-        strokeWidth={strokeWidth - 3}
+        strokeWidth={strokeWidth - 1}
       />
       <circle
         r={RADIUS}
-        cx="107"
-        cy="107"
+        cx="50"
+        cy="0"
         fill="transparent"
         stroke={strokeColor}
         strokeWidth={strokeWidth}
@@ -88,16 +89,26 @@ strokeWidth = 18, textColor = '#44cf6c', fontSize = 20, text="", xAxis= 0, yAxis
           transition: 'stroke-dashoffset 0.1s linear',
         }}
       />
-      <text className='progressText' 
-        x={horizontalShift} 
-        y="102"
-        fill="#44cf6c"
-        fontSize="84"
-        fontWeight="bold"
-        transform="rotate(180 94 124)"
-             >
-        {toggleBetweenPercentValue ? `${Math.round(displayedProgress)}%` : (progressValue == '0g' || text == 'Calories' ? progressValue : (parseFloat(progressValue).toFixed(1) + progressValue.substring(progressValue.indexOf(' ') + 1)))}
-      </text>
+<text
+  className="progressText"
+  x="50%"                  // horizontal center of viewBox
+  y="70%"                  // vertical center of viewBox
+  textAnchor="middle"      // center align horizontally
+  dominantBaseline="middle" // center align vertically
+  fill="#44cf6c"
+  fontSize="20"
+  fontWeight="bold"
+  transform="rotate(180 50 30)"
+>
+  {toggleBetweenPercentValue
+    ? `${Math.round(displayedProgress)}%`
+    : (progressValue == "0g" || text == "Calories"
+        ? progressValue
+        : (parseFloat(progressValue).toFixed(1) +
+           progressValue.substring(progressValue.indexOf(" ") + 1)))
+  }
+</text>
+
       
     </svg>
        
