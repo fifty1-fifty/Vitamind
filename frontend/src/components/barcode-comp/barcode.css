@@ -3,7 +3,7 @@
 {
   min-width : 90vw;
   background : rgb(29, 29, 29);
-  height : 75vh;;
+  height : 70vh;;
   position : relative;
   border : 3px solid #c4ffb2;
   border-radius : 10px;
@@ -63,4 +63,5 @@ video
         margin-top : 0px ;
     }
 }
+
 
